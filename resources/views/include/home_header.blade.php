@@ -1,0 +1,122 @@
+<header class="site-header site-header-transparent" id="masthead">
+    <div class="top-header">
+        <div class="container">
+            <div class="top-header-wrapper">
+                <div class="row align-items-center">
+                    <div
+                        class="col-sm-3 d-flex align-items-center justify-content-center justify-content-sm-start">
+                        <div class="header-social social-links">
+                            <ul>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-youtube" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 flex-grow-1">
+                        <div
+                            class="schedule-wrapper d-flex justify-content-sm-end justify-content-center flex-wrap flex-sm-nowrap">
+                            <div class="header-schedule-info">
+                                <i aria-hidden="true" class="fas fa-map-marker-alt"></i>
+                                <span class="schedule-info">
+                                    Jl. Raya Puputan No 142, NY - 80234
+                                </span>
+                            </div>
+                            <div class="header-schedule-info">
+                                <i aria-hidden="true" style="color: white" class="fas fa-envelope"></i>
+                                <span class="schedule-info">
+                                    <a
+                                        href="#">support@coinmaniax.com</span></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-header">
+        <div class="container">
+            <div class="hb-group d-flex align-items-center justify-content-between">
+                <div class="site-identity col-lg-3">
+                    <a href="#">
+                        <img src="{{ asset('assets/home/assets/img/logo-img.png') }}" alt="logo">
+                    </a>
+                </div>
+                <div class="main-navigation col-lg-9">
+                    <nav id="navigation" class="navigation d-none d-lg-inline-block">
+                        <ul>
+                            <li class="current-menu-item">
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">About us</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">Services</a>
+                                <ul>
+                                    <li>
+                                        <a href="#">Crypto Investment</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Loans</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Project Funding</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Real Estate</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Agriculture</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Retirment Plans</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Stock Trades</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">FAQ's</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Login</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="appoinment-btn">
+                        <a href="reservation.html" class="button-round-primary">Register</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-container"></div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,188 @@
+<footer id="colophon" class="site-footer">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="subscribe-section round-border">
+            <div class="section-head sub-wrapper">
+                <h6 class="section-sub-title">SUBSCRIBE NEWSLETTER</h6>
+                <h5 class="section-title">Subscribe & Get Latest Update From Us !</h5>
+            </div>
+            <div class="subscribe-content">
+                <p class="subscribe-info">Subscribe us & recieve our offers and updates in your inbox directly.
+                </p>
+                <div class="form-content">
+                    <input type="email" name="email" placeholder="Email Address">
+                    <button type="submit" class="button-round-primary">SUBSCRIBE NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="footer-wrapper">
+            <div class="top-footer">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 col-md-12">
+                        <aside class="widget widget_text img-textwidget">
+                            <div class="footer-logo">
+                                <a href="index-2.html">
+                                    <img src="{{ asset("assets/home/assets/img/logo-img.png") }}" alt="logo">
+                                </a>
+                            </div>
+                            <div class="textwidget widget-text">
+                                Coinmaniax revolutionizes finance with cutting-edge asset management solutions, seamlessly blending technology and expertise. Elevate your financial journey with our innovative approach, ensuring prosperity and security for every investor.
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-4">
+                        <aside class="widget">
+                            <h6 class="widget-title">OUR SERVICES</h6>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Crypto Investment
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Loans
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Project Funding
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Real Estate
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Agriculture
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Retirement
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Stock Trades
+                                    </a>
+                                </li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-4">
+                        <aside class="widget">
+                            <h6 class="widget-title">Useful Links</h6>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        About Company
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Our Policy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                       Faq's
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Login
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Register
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">
+                                        <i aria-hidden="true" class="far fa-dot-circle"></i>
+                                        Customer Services
+                                    </a>
+                                </li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-md-4">
+                        <aside class="widget widget-contact">
+                            <h6 class="widget-title">CONTACT INFO</h6>
+                            <ul class="footer-contact-info">
+                                <li>
+                                    <i aria-hidden="true" class="fas fa-map-marker-alt"></i>
+                                    3557 Derek Drive, Florida
+                                </li>
+                                <li>
+                                    <a href="tel:+01456657887">
+                                        <i aria-hidden="true" class="fas fa-phone-alt"></i>
+                                        Mob : +1(456)657-887
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#">
+                                        <i aria-hidden="true" class="fas fa-envelope"></i>
+                                        <span>support@coinmaniax.com</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </aside>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="bottom-footer">
+                <div class="footer-social-links">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/" target="_blank">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.twitter.com/" target="_blank">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/" target="_blank">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/" target="_blank">
+                                <i class="fab fa-youtube" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.pinterest.com/" target="_blank">
+                                <i class="fab fa-pinterest" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p class="copy-right">Copyright &copy; 2023 Finsurance. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
