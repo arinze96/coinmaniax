@@ -69,13 +69,13 @@
                     <nav id="navigation" class="navigation d-none d-lg-inline-block">
                         <ul>
                             <li class="current-menu-item">
-                                <a href="#">Home</a>
+                                <a href="{{ route("app.home") }}">Home</a>
                             </li>
                             <li>
-                                <a href="#">About us</a>
+                                <a href="{{ route("about") }}">About us</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="#">Services</a>
+                                <a>Services</a>
                                 <ul>
                                     <li>
                                         <a href="#">Crypto Investment</a>
@@ -101,18 +101,18 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#">FAQ's</a>
+                                <a href="{{ route("faq") }}">FAQ's</a>
                             </li>
                             <li>
-                                <a href="#">Contact Us</a>
+                                <a href="{{ route("user.contact") }}">Contact Us</a>
                             </li>
                             <li>
-                                <a href="#">Login</a>
+                                <a href="{{ route("user.login") }}">Login</a>
                             </li>
                         </ul>
                     </nav>
                     <div class="appoinment-btn">
-                        <a href="reservation.html" class="button-round-primary">Register</a>
+                        <a href="{{ route("user.register") }}" class="button-round-primary">Register</a>
                     </div>
                 </div>
                 <div class="mobile-menu-container"></div>

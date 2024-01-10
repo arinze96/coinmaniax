@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -418,4 +418,34 @@
 
 </body>
 
+</html> --}}
+
+
+<html lang="en">
+  <head>
+    @include('include.auth_css')
+    <title>Coinmaniax</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="login">
+            <img src="{{ asset('assets/home/assets/img/fabicon.png') }}" class="logo" alt="">
+            <h1>Sign Up</h1>
+            <form action="">
+                <div class="input-box">
+                    <input type="email" placeholder="Email">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password">
+                    <i class="fa fa-lock"></i>
+                </div>
+                <button type="submit">SIGNUP</button>
+                <div class="links">
+                    <a href="#">I have an account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+  </body>
 </html>

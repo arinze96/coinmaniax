@@ -253,14 +253,24 @@ class UserController extends Controller
         return view('home.charity');
     }
 
+    public function agriculture(Request $request)
+    {
+        return view('home.agriculture');
+    }
+
+    public function project_funding(Request $request)
+    {
+        return view('home.project_funding');
+    }
+
+    public function stocks(Request $request)
+    {
+        return view('home.stocks');
+    }
+
     public function loans(Request $request)
     {
         return view('home.loans');
-    }
-
-    public function team(Request $request)
-    {
-        return view('home.team');
     }
 
     public function home(Request $request)
@@ -268,59 +278,14 @@ class UserController extends Controller
         return view('home.home');
     }
 
-    public function certificates(Request $request)
-    {
-        return view('home.certificates');
-    }
-
-    
-
-    public function childrenaccount(Request $request)
-    {
-        return view('home.children-account');
-    }
-
     public function contact(Request $request)
     {
         return view('home.contact');
     }
 
-    public function whatweoffer(Request $request)
-    {
-        return view('home.what-we-offer');
-    }
-
-    public function company(Request $request)
-    {
-        return view('home.company');
-    }
-
-    public function nfp(Request $request)
-    {
-        return view('home.nfp');
-    }
     public function cryptocurrency(Request $request)
     {
-        // return view('hom');
-        $Plans = Plan::orderBy('created_at', 'DESC')->get();
-        // dd($Plans);
-
-        return view("home.cryptocurrency-plans", ["Plans" => $Plans]);
-    }
-
-    public function investments(Request $request)
-    {
-        return view('home.investments');
-    }
-
-    public function marketanalysis(Request $request)
-    {
-        return view('home.market-analysis');
-    }
-
-    public function ourteam(Request $request)
-    {
-        return view('home.team');
+        return view("home.cryptocurrency");
     }
 
     public function retirement(Request $request)
@@ -333,47 +298,9 @@ class UserController extends Controller
         return view('home.real_estate');
     }
 
-    public function riskmanagement(Request $request)
-    {
-        return view('home.risk-management');
-    }
-
     public function returnFAQ(Request $request)
     {
         return view("home.faq");
-    }
-
-    public function cryptocurrencyplans(Request $request)
-    {
-        $Plans = Plan::orderBy('created_at', 'DESC')->get();
-        // dd($Plans);
-
-        return view("home.cryptocurrency", ["Plans" => $Plans]);
-    }
-
-    public function returnPrivacy(Request $request)
-    {
-        return view("home.privacy");
-    }
-
-    public function returnTerms(Request $request)
-    {
-        return view("home.terms");
-    }
-
-    public function returnWithdrawalList(Request $request)
-    {
-        return view("home.withdrawal_list");
-    }
-
-    public function returnDepositeList(Request $request)
-    {
-        return view("home.deposit_list");
-    }
-
-    public function returnTopInvestor(Request $request)
-    {
-        return view("home.top_investors");
     }
 
     public function register(Request $request, $ref = null)
@@ -687,7 +614,6 @@ class UserController extends Controller
         }
     }
 
-   
     public function loginAdmin(Request $request)
     {
         if ($request->method() == "GET") {
@@ -1845,9 +1771,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the users
-     */
     public function usersAdmin(Request $request, $name = null, $id = null)
     {
         if ($request->method() == "GET") {
@@ -1940,9 +1863,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the plans
-     */
     public function plansAdmin(Request $request)
     {
         if ($request->method() == "GET") {
@@ -1951,9 +1871,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the application
-     */
     public function applicationAdmin(Request $request, $name = null)
     {
         if ($request->method() == "GET") {
@@ -1987,9 +1904,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the profile
-     */
     public function profileAdmin(Request $request)
     {
         if ($request->method() == "GET") {
@@ -1998,9 +1912,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to logout
-     */
     public function logoutAdmin(Request $request)
     {
         /* for normal user logout */
@@ -2010,9 +1921,6 @@ class UserController extends Controller
         return redirect()->route("admin.login");
     }
 
-    /**
-     * This is for the admin to view all the wallet
-     */
     public function editWalletAdmin(Request $request, $id)
     {
         if ($request->method() == "GET") {
@@ -2020,9 +1928,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the wallet
-     */
     public function editCustomerProfileAdmin(Request $request, $id)
     {
         if ($request->method() == "GET") {
@@ -2030,9 +1935,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the wallet
-     */
     public function editCustomerPasswordAdmin(Request $request, $id)
     {
         if ($request->method() == "GET") {
@@ -2040,9 +1942,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the plan
-     */
     public function editPlanAdmin(Request $request, $id)
     {
         if ($request->method() == "GET") {
@@ -2082,9 +1981,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the plan
-     */
     public function deletePlanAdmin(Request $request, $id)
     {
         $plan = Plan::find($id);
@@ -2092,9 +1988,6 @@ class UserController extends Controller
         echo json_encode(["success" => true]);
     }
 
-    /**
-     * This is for the admin to view all the plan
-     */
     public function addPlanAdmin(Request $request)
     {
         if ($request->method() == "GET") {
@@ -2173,9 +2066,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the application
-     */
     public function editApplicationAdmin(Request $request, $id)
     {
         if ($request->method() == "GET") {

@@ -7,8 +7,8 @@
 </head>
 
 <body class="home">
-    <div id="siteLoader" class="site-loader ">
-        <div class="preloader-content">
+    <div id="siteLoader" class="site-loader">
+        <div class="preloader-content" style="width: 200px; height: 300px; padding-top: 100px">
             <img src="{{ asset('assets/home/assets/img/loader1.gif') }}" alt="">
         </div>
     </div>
@@ -868,23 +868,6 @@
         </main>
         <!-- footer part -->
         @include('include.home_footer')
-        <!-- back to top -->
-        <a id="backTotop" href="#" class="to-top-icon">
-            <i class="fas fa-chevron-up"></i>
-        </a>
-        <!-- custom search field html -->
-        <div class="header-search-form">
-            <div class="container">
-                <div class="header-search-container">
-                    <form class="search-form" role="search" method="get">
-                        <input type="text" name="s" placeholder="Enter your text...">
-                    </form>
-                    <a href="#" class="search-close">
-                        <i class="fas fa-times"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- JavaScript -->
     @include('include.home_js')

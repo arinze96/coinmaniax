@@ -24,11 +24,13 @@
                         <aside class="widget widget_text img-textwidget">
                             <div class="footer-logo">
                                 <a href="index-2.html">
-                                    <img src="{{ asset("assets/home/assets/img/logo-img.png") }}" alt="logo">
+                                    <img src="{{ asset('assets/home/assets/img/logo-img.png') }}" alt="logo">
                                 </a>
                             </div>
                             <div class="textwidget widget-text">
-                                Coinmaniax revolutionizes finance with cutting-edge asset management solutions, seamlessly blending technology and expertise. Elevate your financial journey with our innovative approach, ensuring prosperity and security for every investor.
+                                Coinmaniax revolutionizes finance with cutting-edge asset management solutions,
+                                seamlessly blending technology and expertise. Elevate your financial journey with our
+                                innovative approach, ensuring prosperity and security for every investor.
                             </div>
                         </aside>
                     </div>
@@ -86,7 +88,7 @@
                             <h6 class="widget-title">Useful Links</h6>
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('about') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         About Company
                                     </a>
@@ -98,25 +100,25 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('faq') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
-                                       Faq's
+                                        Faq's
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route("user.login") }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Login
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('user.register') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Register
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">
+                                    <a href="{{ route("user.contact") }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Customer Services
                                     </a>
@@ -139,8 +141,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a
-                                        href="#">
+                                    <a href="#">
                                         <i aria-hidden="true" class="fas fa-envelope"></i>
                                         <span>support@coinmaniax.com</span>
                                     </a>
@@ -148,7 +149,7 @@
                             </ul>
                         </aside>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="bottom-footer">
@@ -181,8 +182,24 @@
                         </li>
                     </ul>
                 </div>
-                <p class="copy-right">Copyright &copy; 2023 Finsurance. All rights reserved.</p>
+                <p class="copy-right">Copyright &copy; 2023 Coinmaniax.com. All rights reserved.</p>
             </div>
         </div>
     </div>
 </footer>
+<a id="backTotop" href="#" class="to-top-icon">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<!-- custom search field html -->
+<div class="header-search-form">
+    <div class="container">
+        <div class="header-search-container">
+            <form class="search-form" role="search" method="get">
+                <input type="text" name="s" placeholder="Enter your text...">
+            </form>
+            <a href="#" class="search-close">
+                <i class="fas fa-times"></i>
+            </a>
+        </div>
+    </div>
+</div>
