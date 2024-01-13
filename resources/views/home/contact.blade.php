@@ -7,8 +7,8 @@
 
 <body class="home">
     <div id="siteLoader" class="site-loader ">
-        <div class="preloader-content">
-            <img src="assets/img/loader1.gif" alt="">
+        <div class="preloader-content" style="width: 200px; height: 300px; padding-top: 100px">
+            <img src="{{ asset('assets/home/assets/img/loader1.gif') }}" alt="">
         </div>
     </div>
     <div id="page" class="full-page">

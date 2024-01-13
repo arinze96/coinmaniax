@@ -78,25 +78,25 @@
                                 <a>Services</a>
                                 <ul>
                                     <li>
-                                        <a href="#">Crypto Investment</a>
+                                        <a href="{{ route("cryptocurrency") }}">Crypto Investment</a>
                                     </li>
                                     <li>
-                                        <a href="#">Loans</a>
+                                        <a href="{{ route("loans") }}">Loans</a>
                                     </li>
                                     <li>
-                                        <a href="#">Project Funding</a>
+                                        <a href="{{ route("project_funding") }}">Project Funding</a>
                                     </li>
                                     <li>
-                                        <a href="#">Real Estate</a>
+                                        <a href="{{ route("real_estate") }}">Real Estate</a>
                                     </li>
                                     <li>
-                                        <a href="#">Agriculture</a>
+                                        <a href="{{ route("agriculture") }}">Agriculture</a>
                                     </li>
                                     <li>
-                                        <a href="#">Retirment Plans</a>
+                                        <a href="{{ route("stocks") }}">Retirment Plans</a>
                                     </li>
                                     <li>
-                                        <a href="#">Stock Trades</a>
+                                        <a href="{{ route("stocks") }}">Stock Trades</a>
                                     </li>
                                 </ul>
                             </li>

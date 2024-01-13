@@ -270,7 +270,7 @@ class UserController extends Controller
 
     public function loans(Request $request)
     {
-        return view('home.loans');
+        return view('home.loan');
     }
 
     public function home(Request $request)
