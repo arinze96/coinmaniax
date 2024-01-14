@@ -40,7 +40,7 @@
                                 </p>
                                 <div class="section-button">
                                     <span class="banner-btn">
-                                        <a href="contact.html" class="button-round-primary">GET STARTED</a>
+                                        <a href="{{ route("user.register") }}" class="button-round-primary">GET STARTED</a>
                                     </span>
                                     <div class="video-wrapper">
                                         <div class="video-button">
@@ -197,7 +197,7 @@
                                 </div>
                             </div>
                             <div class="about-btn">
-                                <a href="#" class="button-round-primary">MORE ABOUT US</a>
+                                <a href="{{ route("user.register") }}" class="button-round-primary">GET STARTED WITH US</a>
                             </div>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                             </figure>
                             <div class="service-info">
                                 <h5 class="service-title">
-                                    <a href="service-detail.html">
+                                    <a href="{{ route("user.register") }}">
                                         Project Funding
                                     </a>
                                 </h5>
@@ -233,7 +233,7 @@
                                     Accelerating Dreams with Efficient Project Funding – Your Partner in Financial
                                     Empowerment.
                                 </p>
-                                <a href="service-detail.html" class="service-btn">
+                                <a href="{{ route("user.register") }}" class="service-btn">
                                     <span>Get started</span>
                                     <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
                                 </a>
@@ -256,7 +256,7 @@
                                     Secure Your Future with Smart and Customized Retirement Plans for a Comfortable and
                                     Prosperous Life Beyond Work.
                                 </p>
-                                <a href="service-detail.html" class="service-btn">
+                                <a href="{{ route("user.register") }}" class="service-btn">
                                     <span>Get started</span>
                                     <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
                                 </a>
@@ -271,7 +271,7 @@
                             </figure>
                             <div class="service-info">
                                 <h5 class="service-title">
-                                    <a href="service-detail.html">
+                                    <a href="{{ route("user.register") }}">
                                         Agriculture
                                     </a>
                                 </h5>
@@ -279,22 +279,15 @@
                                     Transformational Agriculture - We fund Sustainable Solutions for Enhanced Yields and
                                     Prosperous Farming Futures.
                                 </p>
-                                <a href="service-detail.html" class="service-btn">
+                                <a href="{{ route("user.register") }}" class="service-btn">
                                     <span>Get started</span>
                                     <i aria-hidden="true" class="far fa-arrow-alt-circle-right"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="all-service-btn text-center">
-                        <a href="#" class="button-round-primary">
-                            VIEW ALL SERVICES
-                        </a>
-                    </div>
                 </div>
             </section>
-            <!-- home service section html end -->
-            <!-- home call section html start -->
             <section class="home-call-section">
                 <div class="overlay"></div>
                 <div class="container">
@@ -315,7 +308,7 @@
                                 ensuring your utmost satisfaction.
                             </p>
                             <div class="section-button">
-                                <a href="#" class="button-round-primary">
+                                <a href="{{ route("user.register") }}" class="button-round-primary">
                                     HIRE US NOW
                                 </a>
                                 <div class="happy-customer-wrapper">
@@ -367,14 +360,14 @@
                         <div class="appointment-wrapper">
                             <div class="section-head-black">
                                 <h6 class="section-sub-title">
-                                    BOOK APPOINTMENT
+                                    CONSULT WITH US
                                 </h6>
                                 <h4 class="section-title">
-                                    Book Appointment To Get Quick Solution !
+                                    Send Us an Email To Get Quick Solution !
                                 </h4>
                                 <div class="section-multi-button">
                                     <a class="button-round-primary">
-                                        BOOK APPOINTMENT
+                                        SEND EMAIL
                                     </a>
                                     <div class="call-apoint  left-btn">
                                         <figure class="call-icon">
@@ -791,12 +784,10 @@
                         </div>
                     </div>
                     <div class="testimonial-btn text-center">
-                        <a href="#" class="button-round-primary">VIEW ALL REVIEWS</a>
+                        <a href="{{ route("user.register") }}" class="button-round-primary">GET STARTED</a>
                     </div>
                 </div>
             </section>
-            <!-- home testomional section end -->
-            <!-- home blog section start -->
             <section class="home-blog-section">
                 <div class="container">
                     <div class="blog-wrapper">
@@ -859,7 +850,7 @@
                             <p class="section-paragraph">
                                 Explore Coinmaniax's Latest News and Insights: Stay Informed with Cutting-Edge Market Trends, Investment Strategies, and Financial Updates for Informed Decision-Making and Financial Success
                             </p>
-                            <a href="blog-archive.html" class="button-round-primary section-button">VIEW ALL BLOG</a>
+                            <a href="{{ route("user.register") }}" class="button-round-primary section-button">GET STARTED</a>
                         </div>
                     </div>
                 </div>

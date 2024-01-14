@@ -93,7 +93,7 @@
                                         <a href="{{ route("agriculture") }}">Agriculture</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route("stocks") }}">Retirment Plans</a>
+                                        <a href="{{ route('retirement') }}">Retirment Plans</a>
                                     </li>
                                     <li>
                                         <a href="{{ route("stocks") }}">Stock Trades</a>

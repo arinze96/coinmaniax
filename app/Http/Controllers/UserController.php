@@ -238,10 +238,11 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $Plans = Plan::orderBy('created_at', 'DESC')->get();
+        // $Plans = Plan::orderBy('created_at', 'DESC')->get();
         // dd($Plans);
 
-        return view("home.index", ["Plans" => $Plans]);
+        // return view("home.index", ["Plans" => $Plans]);
+        return view("home.index");
     }
     public function about(Request $request)
     {
