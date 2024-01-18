@@ -22,33 +22,6 @@
                                     Jr. Harry Wilson
                                 </a>
                             </h5>
-                            {{-- <p class="team-quote section-paragraph">
-                                Wisi incidunt pariatur, vel ipsa urna hac excepturi.
-                            </p> --}}
-                            <div class="socal-btn">
-                                <div class="social-group">
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.facebook.com/" target="_blank">
-                                                <i class="fab fa-facebook" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.twitter.com/" target="_blank">
-                                                <i class="fab fa-twitter" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/" target="_blank">
-                                                <i class="fab fa-youtube" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#" class="team-type-btn">
-                                    <i aria-hidden="true" class="icon icon-right-arrow1"></i>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,33 +37,6 @@
                                     Jenny Sampson
                                 </a>
                             </h5>
-                            {{-- <p class="team-quote section-paragraph">
-                                Wisi incidunt pariatur, vel ipsa urna hac excepturi.
-                            </p> --}}
-                            <div class="socal-btn">
-                                <div class="social-group">
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.facebook.com/" target="_blank">
-                                                <i class="fab fa-facebook" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.twitter.com/" target="_blank">
-                                                <i class="fab fa-twitter" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/" target="_blank">
-                                                <i class="fab fa-youtube" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#" class="team-type-btn">
-                                    <i aria-hidden="true" class="icon icon-right-arrow1"></i>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,33 +52,6 @@
                                     Miley Scotland
                                 </a>
                             </h5>
-                            {{-- <p class="team-quote section-paragraph">
-                                Wisi incidunt pariatur, vel ipsa urna hac excepturi.
-                            </p> --}}
-                            <div class="socal-btn">
-                                <div class="social-group">
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.facebook.com/" target="_blank">
-                                                <i class="fab fa-facebook" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.twitter.com/" target="_blank">
-                                                <i class="fab fa-twitter" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/" target="_blank">
-                                                <i class="fab fa-youtube" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="#" class="team-type-btn">
-                                    <i aria-hidden="true" class="icon icon-right-arrow1"></i>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -148,33 +67,6 @@
                                     William Henderson
                                 </a>
                             </h5>
-                            {{-- <p class="team-quote section-paragraph">
-                                Wisi incidunt pariatur, vel ipsa urna hac excepturi.
-                            </p> --}}
-                            <div class="socal-btn">
-                                <div class="social-group">
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.facebook.com/" target="_blank">
-                                                <i class="fab fa-facebook" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.twitter.com/" target="_blank">
-                                                <i class="fab fa-twitter" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/" target="_blank">
-                                                <i class="fab fa-youtube" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <a href="team-deatil.html" class="team-type-btn">
-                                    <i aria-hidden="true" class="icon icon-right-arrow1"></i>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>

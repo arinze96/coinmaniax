@@ -35,7 +35,7 @@
                                         Our Crypto Investment Strategies
                                     </h4>
                                     <figure class="feature-img figure-round-border">
-                                        <img src="{{ asset('assets/home/assets/img/image02.jpg') }}" alt="">
+                                        <img src="{{ asset('assets/home/assets/img/maniax.png') }}" alt="">
                                     </figure>
                                     <p class="feature-paragraph">
                                         At Coinmaniax, our mission is to empower clients through strategic

@@ -48,177 +48,128 @@
                                 Experience the next level of trading sophistication with Coinmaniax. Our experts
                                 leverage market insights and advanced strategies to enhance your financial standing.
                                 Whether you're a seasoned investor or just starting, our user-friendly interface caters
-                                to all, making stock trading accessible and rewarding.
+                                to all, making stock trading accessible and rewarding.<br>
+                                <h5>Why choose Coinmaniax?</h5>
 
-                                <h4>Why choose Coinmaniax?</h4> <br>
-
-                                <b>Innovative Solutions:</b> Stay ahead with our state-of-the-art trading technologies. <br>
-                               <b> Expert Guidance:</b> Benefit from the wisdom of seasoned financial professionals. <br>
-                                <b>Diverse Asset Options:</b> Explore a wide range of stocks to diversify your portfolio. <br>
-                                <b>Seamless User Experience:</b> Trade effortlessly with our intuitive and user-friendly
-                                platform. <br>
-                                Join Coinmaniax today and unlock the full potential of your investments. Trade stocks
-                                with confidence, backed by our commitment to financial excellence.
+                                Innovative Solutions: Stay ahead with our state-of-the-art trading technologies.
+                                Expert Guidance:Benefit from the wisdom of seasoned financial professionals.
+                                Diverse Asset Options: Explore a wide range of stocks to diversify your portfolio.
+                                Seamless User Experience: Trade effortlessly with our intuitive and user-friendly
+                                platform. Join Coinmaniax today and unlock the full potential of your investments. Trade stocks with confidence, backed by our commitment to financial excellence.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="carrer-page-section" style="margin-top: -50px">
+            <section class="home-testominal-section">
                 <div class="container">
                     <div class="vacancy-section">
                         <div class="col-lg-8 offset-lg-2 text-center">
                             <div class="section-head-center-line mb-lg-0">
-                                <h6 class="section-sub-title">WORK WITH US</h6>
+                                <h6 class="section-sub-title">STOCKS WE TRADE</h6>
                                 <h4 class="section-title">
-                                    We are the best in our craft
+                                    We Are The Best In Our Craft
                                 </h4>
                             </div>
                         </div>
-                        <div class="vacancy-container">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="vacancy-content-wrap">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="vacancy-content">
-                                                    <span>Full Time / Part Time</span>
-                                                    <a href="career-detail.html">
-                                                        <h5 class="vacancy-title">
-                                                            Accredited Professionals</h5>
-                                                    </a>
-                                                    <p>Reliable Ally for Financial Prosperity, Our Accredited Team
-                                                        Guarantees Expertise, Safety, and Constant Innovation</p>
-                                                    <a href="{{ route('user.register') }}"
-                                                        class="button-round-primary">GET STARTED</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="vacancy-content">
-                                                    <span>Full Time</span>
-                                                    <a href="career-detail.html">
-                                                        <h5 class="vacancy-title">Dependable Firm</h5>
-                                                    </a>
-                                                    <p>
-                                                        A Reliable Brand, Providing Excellence, Integrity, and
-                                                        Innovative Financial Solutions to Inspire Your Trust.</p>
-                                                    <a href="{{ route('user.register') }}"
-                                                        class="button-round-primary">GET STARTED</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="vacancy-content">
-                                                    <span>Full Time / Part Time</span>
-                                                    <a href="career-detail.html">
-                                                        <h5 class="vacancy-title">Dedicated Asset Manager</h5>
-                                                    </a>
-                                                    <p>Expert in Evaluating and Ensuring Integrity of Financial and
-                                                        Physical Assets</p>
-                                                    <a href="{{ route('user.register') }}"
-                                                        class="button-round-primary">GET STARTED</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="vacancy-content">
-                                                    <span>Full Time / Part Time</span>
-                                                    <a href="career-detail.html">
-                                                        <h5 class="vacancy-title">Insurance Agent</h5>
-                                                    </a>
-                                                    <p>Professional Insurance Agent Skilled in Tailoring Policies for
-                                                        Optimal Coverage and Client Peace of Mind.</p>
-                                                    <a href="{{ route('user.register') }}"
-                                                        class="button-round-primary">GET STARTED</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="vacancy-form">
-                                        <h5 class="form-title">Work With Us</h5>
-                                        <form>
-                                            <p>
-                                                <input type="text" name="name" placeholder="Your Name*">
-                                            </p>
-                                            <p>
-                                                <input type="text" name="name" placeholder="Your Email*">
-                                            </p>
-                                            <p>
-                                                <input type="text" name="name" placeholder="Your Position*">
-                                            </p>
-                                            <p>
-                                                <textarea rows="7" placeholder="Enter your message"></textarea>
-                                            </p>
-                                            <p>
-                                                <input type="submit" name="submit" value="SEND APPLICATION"
-                                                    style="color: #fff">
-                                            </p>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div class="about-service-wrap">
-                    <div class="container">
-                        <div class="row no-gutters align-items-end">
-                            <div class="col-lg-7">
-                                <div class="section-head-info mb-0">
-                                    <h6 class="section-sub-title">
-                                        25 YEARS OF SUCCESS
-                                    </h6>
-                                    <h4 class="section-title">Our Company Has Been Present For Over 25 Years</h4>
-                                </div>
-                            </div>
-                            <div class="col-lg-5">
-                                <p class="mb-0">
-                                    For over 25 years, our company has been a steadfast presence, navigating the
-                                    ever-evolving landscape of finance. With a rich history of expertise, innovation,
-                                    and client success, we continue to stand as a reliable and trusted force in the
-                                    financial industry.
+                    <div class="testimonial-wrapper-outer">
+                        <div class="testimonial-item">
+                            <div class="testimonial-detail">
+                                <p class="testimonial-quote">
+                                    Advanced Micro Devices, Inc. is an American multinational semiconductor company based in Santa Clara, California, that develops computer processors and related technologies for business and consumer markets. The company was founded in 1969 by Jerry Sanders and a group of other technology professionals
                                 </p>
+                                <div class="author-info">
+                                    <h5 class="author-name">Advanced Micro Devices, Inc.</h5>
+                                    <span class="author-desc">NYSE: AMD</span>
+                                </div>
+                                <a style="margin-top: 20px" href="{{ route("user.register") }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">GET STARTED</a>
                             </div>
+                            <figure class="testimonial-img1" style="margin-bottom: 20px">
+                                <img src="{{ asset('assets/home/assets/img/amd_logo.png') }}" alt="">
+                            </figure>
                         </div>
-                        <div class="iconbox-container d-flex flex-wrap justify-content-center">
-                            <div class="iconbox-item-3 d-flex flex-wrap">
-                                <div class="iconbox-border d-flex align-items-center">
-                                    <div class="iconbox-icon">
-                                        <i aria-hidden="true" class="fas fa-award"></i>
-                                    </div>
-                                    <div class="iconbox-content">
-                                        <h5>Award winning</h5>
-                                        <p>Multiple award-winning ventures at Coinmaniax </p>
-                                    </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-detail">
+                                <p class="testimonial-quote">
+                                    Microsoft Corporation is an American multinational technology corporation headquartered in Redmond, Washington. Microsoft's best-known software products are the Windows line of operating systems, the Microsoft 365 suite of productivity applications, and the Edge web browser.
+                                </p>
+                                <div class="author-info">
+                                    <h5 class="author-name">Microsoft Corp</h5>
+                                    <span class="author-desc">NYSE: MSFT</span>
                                 </div>
+                                <a style="margin-top: 20px" href="{{ route("user.register") }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">GET STARTED</a>
                             </div>
-                            <div class="iconbox-item-3 d-flex flex-wrap">
-                                <div class="iconbox-border d-flex align-items-center">
-                                    <div class="iconbox-icon">
-                                        <i aria-hidden="true" class="fas fa-hand-holding-usd"></i>
-                                    </div>
-                                    <div class="iconbox-content">
-                                        <h5>Customer Satisfaction</h5>
-                                        <p>Unparalleled commitment to customer satisfaction.</p>
-                                    </div>
+                            <figure class="testimonial-img1" style="margin-bottom: 20px">
+                                <img src="{{ asset('assets/home/assets/img/msft_logo.png') }}" alt="">
+                            </figure>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-detail">
+                                <p class="testimonial-quote">
+                                    Snowflake Inc. is a cloud computing–based data cloud company based in Bozeman, Montana. It was founded in July 2012 and was publicly launched in October 2014 after two years in stealth mode. The firm offers a cloud-based data storage and analytics service, generally termed "data-as-a-service
+                                </p>
+                                <div class="author-info">
+                                    <h5 class="author-name">Snowflake Inc</h5>
+                                    <span class="author-desc"> NYSE: SNOW</span>
                                 </div>
+                                <a style="margin-top: 20px" href="{{ route("user.register") }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">GET STARTED</a>
                             </div>
-                            <div class="iconbox-item-3 d-flex flex-wrap">
-                                <div class="iconbox-border d-flex align-items-center">
-                                    <div class="iconbox-icon">
-                                        <i aria-hidden="true" class="fas fa-heartbeat"></i>
-                                    </div>
-                                    <div class="iconbox-content">
-                                        <h5>Full Guarantee</h5>
-                                        <p>Complete peace of mind with our full guarantee.</p>
-                                    </div>
+                            <figure class="testimonial-img1" style="margin-bottom: 20px">
+                                <img src="{{ asset('assets/home/assets/img/snow_logo.png') }}" alt="">
+                            </figure>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-detail">
+                                <p class="testimonial-quote">
+                                    Spotify Technology SA a Luxembourg-based company, which offers digital music-streaming services. The Company enables users to discover new releases, which includes the latest singles and albums; playlists, which includes ready-made playlists put together by music fans and experts, and over millions of songs so that users can play their favorites, discover new tracks and build a personalized collection.
+                                </p>
+                                <div class="author-info">
+                                    <h5 class="author-name">Spotify Technology SA</h5>
+                                    <span class="author-desc"> NYSE: SPOT</span>
                                 </div>
+                                <a style="margin-top: 20px" href="{{ route("user.register") }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">GET STARTED</a>
                             </div>
+                            <figure class="testimonial-img1" style="margin-bottom: 20px">
+                                <img src="{{ asset('assets/home/assets/img/sportify_logo.png') }}" alt="">
+                            </figure>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-detail">
+                                <p class="testimonial-quote">
+                                    Novo Nordisk A/S is a Danish multinational pharmaceutical company headquartered in Bagsværd, Denmark, with production facilities in nine countries and affiliates or offices in five countries.
+                                </p>
+                                <div class="author-info">
+                                    <h5 class="author-name">Novo Nordisk A/S</h5>
+                                    <span class="author-desc"> NYSE: NVO</span>
+                                </div>
+                                <a style="margin-top: 20px" href="{{ route("user.register") }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">GET STARTED</a>
+                            </div>
+                            <figure class="testimonial-img1" style="margin-bottom: 20px">
+                                <img src="{{ asset('assets/home/assets/img/nvo_logo.png') }}" alt="">
+                            </figure>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-detail">
+                                <p class="testimonial-quote">
+                                    MercadoLibre, Inc. is an Argentine company headquartered in Montevideo, Uruguay, incorporated in the United States that operates online marketplaces dedicated to e-commerce and online auctions.
+                                </p>
+                                <div class="author-info">
+                                    <h5 class="author-name">MercadoLibre Inc</h5>
+                                    <span class="author-desc">NASDAQ: MELI</span>
+                                </div>
+                                <a style="margin-top: 20px" href="{{ route("user.register") }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">GET STARTED</a>
+                            </div>
+                            <figure class="testimonial-img1" style="margin-bottom: 20px">
+                                <img src="{{ asset('assets/home/assets/img/meli_logo.png') }}" alt="">
+                            </figure>
                         </div>
                     </div>
                 </div>
             </section>
+
+           @include('include.craft')
 
         </main>
         @include('include.home_footer')

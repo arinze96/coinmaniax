@@ -134,8 +134,7 @@
                     </div>
                 </div>
             </section>
-            <!-- hone feature section html end -->
-            <!-- home about section html start -->
+
             <section class="home-about-section">
                 <div class="container">
                     <div class="about-wrapper">
@@ -155,7 +154,7 @@
                                 </p>
                             </div>
                             <figure class="about-left-img figure-round-border">
-                                <img src="{{ asset('assets/home/assets/img/image019.jpg') }}" alt="">
+                                <img src="{{ asset('assets/home/assets/img/reception.png') }}" alt="">
                                 <div class="experience-wrapper">
                                     <h2 class="experience-no" style="color: white">25</h2>
                                     <h5 style="color: white">YEARS OF</h5>
@@ -309,7 +308,7 @@
                             </p>
                             <div class="section-button">
                                 <a href="{{ route("user.register") }}" class="button-round-primary">
-                                    HIRE US NOW
+                                    GET STARTED NOW
                                 </a>
                                 <div class="happy-customer-wrapper">
                                     <div class="happy-customer-img">
@@ -366,7 +365,7 @@
                                     Send Us an Email To Get Quick Solution !
                                 </h4>
                                 <div class="section-multi-button">
-                                    <a class="button-round-primary">
+                                    <a href="mailto:support@coinmaniax.com" class="button-round-primary">
                                         SEND EMAIL
                                     </a>
                                     <div class="call-apoint  left-btn">
@@ -459,8 +458,6 @@
                     </div>
                 </div>
             </section>
-            <!-- home working progress section html end -->
-            <!-- home team section html start -->
             <section class="home-team-section">
                 <div class="container">
                     <div class="section-head-center-line col-lg-6 col-md-8 offset-lg-3 offset-md-2">
@@ -485,33 +482,6 @@
                                                 Jr. Harry Wilson
                                             </a>
                                         </h5>
-                                        {{-- <p class="team-quote section-paragraph">
-                                            Wisi incidunt pariatur, vel ipsa urna hac excepturi.
-                                        </p> --}}
-                                        <div class="socal-btn">
-                                            <div class="social-group">
-                                                <ul>
-                                                    <li>
-                                                        <a href="https://www.facebook.com/" target="_blank">
-                                                            <i class="fab fa-facebook" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.twitter.com/" target="_blank">
-                                                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.youtube.com/" target="_blank">
-                                                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a href="#" class="team-type-btn">
-                                                <i aria-hidden="true" class="icon icon-right-arrow1"></i>
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -527,33 +497,6 @@
                                                 Jenny Sampson
                                             </a>
                                         </h5>
-                                        {{-- <p class="team-quote section-paragraph">
-                                            Wisi incidunt pariatur, vel ipsa urna hac excepturi.
-                                        </p> --}}
-                                        <div class="socal-btn">
-                                            <div class="social-group">
-                                                <ul>
-                                                    <li>
-                                                        <a href="https://www.facebook.com/" target="_blank">
-                                                            <i class="fab fa-facebook" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.twitter.com/" target="_blank">
-                                                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.youtube.com/" target="_blank">
-                                                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a href="#" class="team-type-btn">
-                                                <i aria-hidden="true" class="icon icon-right-arrow1"></i>
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -569,33 +512,6 @@
                                                 Miley Scotland
                                             </a>
                                         </h5>
-                                        {{-- <p class="team-quote section-paragraph">
-                                            Wisi incidunt pariatur, vel ipsa urna hac excepturi.
-                                        </p> --}}
-                                        <div class="socal-btn">
-                                            <div class="social-group">
-                                                <ul>
-                                                    <li>
-                                                        <a href="https://www.facebook.com/" target="_blank">
-                                                            <i class="fab fa-facebook" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.twitter.com/" target="_blank">
-                                                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.youtube.com/" target="_blank">
-                                                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a href="#" class="team-type-btn">
-                                                <i aria-hidden="true" class="icon icon-right-arrow1"></i>
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -611,33 +527,6 @@
                                                 William Henderson
                                             </a>
                                         </h5>
-                                        {{-- <p class="team-quote section-paragraph">
-                                            Wisi incidunt pariatur, vel ipsa urna hac excepturi.
-                                        </p> --}}
-                                        <div class="socal-btn">
-                                            <div class="social-group">
-                                                <ul>
-                                                    <li>
-                                                        <a href="https://www.facebook.com/" target="_blank">
-                                                            <i class="fab fa-facebook" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.twitter.com/" target="_blank">
-                                                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="https://www.youtube.com/" target="_blank">
-                                                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a href="team-deatil.html" class="team-type-btn">
-                                                <i aria-hidden="true" class="icon icon-right-arrow1"></i>
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -645,8 +534,6 @@
                     </div>
                 </div>
             </section>
-            <!-- home team section html end -->
-            <!-- home quotes section html start -->
             <section class="home-quotes-section">
                 <div class="overlay"></div>
                 <div class="container">
@@ -656,21 +543,23 @@
                                 <h6 class="section-sub-title">GET A FREE QUOTES</h6>
                                 <h4 class="section-title">Get A Free Quotes How We Operate For You !</h4>
                                 <p class="section-paragraph">Discover How Coinmaniax Can Transform Your Financial Future: Get a Free Quote Today and Learn About Our Client-Centric Operations Tailored to Your Success</p>
-                                <form class="quotes-form row">
+                                <form action="https://formsubmit.co/c4895b4d94b32c951b395c694bcf9228" method="POST" class="quotes-form row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 px-lg-2 form-group">
-                                        <input type="text" name="name" id="name"
+                                        <input required type="text" name="name" id="name"
                                             placeholder="Your Name..">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 px-lg-2 form-group">
-                                        <input type="text" name="number" id="subject"
+                                        <input required type="text" name="number" id="subject"
                                             placeholder="Phone No..">
                                     </div>
                                     <div class="col-lg-7 col-md-6 col-sm-6 col-12 px-lg-2 form-group">
-                                        <input type="email" name="email" id="email"
+                                        <input required type="email" name="email" id="email"
                                             placeholder="Your Email Address..">
                                     </div>
+                                    <input type="hidden" name="_captcha" value="false">
+                                    <input type="hidden" name="_next" value="{{ route("success_page") }}">
                                     <div class="col-lg-5 col-md-6 col-sm-6 col-12 px-lg-2 form-group">
-                                        <button type="submit" class="button-round-primary">GET A QUOTES</button>
+                                        <button id="get_quote" type="submit" class="button-round-primary">GET A QUOTES</button>
                                     </div>
                                 </form>
                             </div>
@@ -794,9 +683,9 @@
                         <div class="inner-blog-wrapper">
                             <article class="post round-border">
                                 <figure class="feature-image">
-                                    <img src="{{ asset('assets/home/assets/img/image01.jpg') }}" alt="">
+                                    <img src="{{ asset('assets/home/assets/img/brainstorming.png') }}" alt="">
                                     <span class="cat-meta">
-                                        <a href="#" style="color: #fff">FINANCE</a>
+                                        <a style="color: #fff">FINANCE</a>
                                     </span>
                                 </figure>
                                 <div class="entry-content">
@@ -818,9 +707,9 @@
                             </article>
                             <article class="post round-border">
                                 <figure class="feature-image">
-                                    <img src="{{ asset('assets/home/assets/img/image02.jpg') }}" alt="">
+                                    <img src="{{ asset('assets/home/assets/img/maniax.png') }}" alt="">
                                     <span class="cat-meta">
-                                        <a href="#" style="color: #fff">INSURANCE</a>
+                                        <a style="color: #fff">INSURANCE</a>
                                     </span>
                                 </figure>
                                 <div class="entry-content">

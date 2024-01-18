@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @include('include.home_css')
     <title>Coinmaniax</title>
@@ -12,11 +13,11 @@
         </div>
     </div>
     <div id="page" class="full-page">
-        <!-- header html start -->
         @include('include.home_header')
         <main id="content" class="site-main">
             <section class="inner-banner-wrap">
-                <div class="inner-baner-container" style="background-image: url({{ asset("assets/home/assets/img/image018.jpg") }});">
+                <div class="inner-baner-container"
+                    style="background-image: url({{ asset('assets/home/assets/img/image018.jpg') }});">
                     <div class="container">
                         <div class="inner-banner-content">
                             <h2 class="inner-title">Contact Us</h2>
@@ -32,24 +33,31 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="contact-from-wrap">
-                                    <form class="contact-from">
+                                    <form class="contact-from" action="https://formsubmit.co/c4895b4d94b32c951b395c694bcf9228" method="POST">
                                         <p>
-                                            <input type="text" name="name" placeholder="Your Name..">
+                                            <input required type="text" id="name" name="name"
+                                                placeholder="Your Name..">
                                         </p>
                                         <p>
-                                            <input type="email" name="email" placeholder="Your Email..">
+                                            <input required type="email" id="email" name="email"
+                                                placeholder="Your Email..">
                                         </p>
                                         <p class="half-width">
-                                            <input type="number" name="name" placeholder="Phone No..">
+                                            <input required type="text" id="phone" name="phone"
+                                                placeholder="Phone No..">
                                         </p>
                                         <p class="half-width">
-                                            <input type="text" name="subject" placeholder="Your Subject..">
+                                            <input required type="text" id="subject" name="subject"
+                                                placeholder="Your Subject..">
                                         </p>
                                         <p>
-                                            <textarea rows="8" placeholder="Enter Your Message.."></textarea>
+                                            <textarea required type="text" name="message" id="message" rows="8" placeholder="Enter Your Message.."></textarea>
                                         </p>
+                                        <input type="hidden" name="_captcha" value="false">
+                                        <input type="hidden" name="_next" value="{{ route('success_page') }}">
                                         <p>
-                                            <input style="color: #fff" type="submit" name="submit" value="SEND MESSAGE">
+                                            <input style="color: #fff" type="submit"
+                                                id="contact_form_submit" name="submit" value="SEND MESSAGE">
                                         </p>
                                     </form>
                                 </div>
@@ -61,14 +69,18 @@
                                         <h4 class="section-title">Feel Free To Contact And Reach Us For More Info !!
                                         </h4>
                                         <p class="section-paragraph">
-                                            If you have any questions, require more detailed information, or seek guidance on our services and investment opportunities, please feel free to contact us. Our dedicated team is readily available to provide you with comprehensive responses and personalized assistance. 
+                                            If you have any questions, require more detailed information, or seek
+                                            guidance on our services and investment opportunities, please feel free to
+                                            contact us. Our dedicated team is readily available to provide you with
+                                            comprehensive responses and personalized assistance.
                                         </p>
                                     </div>
                                     <div class="contact-details-list">
                                         <ul>
                                             <li>
                                                 <span class="icons">
-                                                    <i aria-hidden="true" class="icon icon-map-marker1" style="color: #fff"></i>
+                                                    <i aria-hidden="true" class="icon icon-map-marker1"
+                                                        style="color: #fff"></i>
                                                 </span>
                                                 <div class="details-content">
                                                     <h5>Location Address :</h5>
@@ -77,7 +89,8 @@
                                             </li>
                                             <li>
                                                 <span class="icons">
-                                                    <i aria-hidden="true" class="icon icon-phone1" style="color: #fff"></i>
+                                                    <i aria-hidden="true" class="icon icon-phone1"
+                                                        style="color: #fff"></i>
                                                 </span>
                                                 <div class="details-content">
                                                     <h5>Phone Number :</h5>
@@ -87,12 +100,12 @@
                                             </li>
                                             <li>
                                                 <span class="icons">
-                                                    <i aria-hidden="true" class="icon icon-envelope3" style="color: #fff"></i>
+                                                    <i aria-hidden="true" class="icon icon-envelope3"
+                                                        style="color: #fff"></i>
                                                 </span>
                                                 <div class="details-content">
                                                     <h5>Email address :</h5>
-                                                    <span><a
-                                                            href="#"><span
+                                                    <span><a href="#"><span
                                                                 class="__cf_email__">support@coinmaniax.com</span></a></span>
 
                                                 </div>
@@ -115,7 +128,7 @@
         @include('include.home_footer')
     </div>
     <!-- JavaScript -->
-   @include('include.home_js')
+    @include('include.home_js')
 </body>
 
 </html>

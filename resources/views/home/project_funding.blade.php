@@ -36,12 +36,12 @@
                                         <figure class="feature-image">
                                             <img src="{{ asset("assets/home/assets/img/construction.png") }}" alt="">
                                             <span class="cat-meta">
-                                                <a href="#">CONSTRUCTION</a>
+                                                <a>CONSTRUCTION</a>
                                             </span>
                                         </figure>
                                         <div class="entry-content">
                                             <h5 class="blog-title">
-                                                <a href="#">Community Resilience Infrastructure, Project Resilient Roots</a>
+                                                <a>Community Resilience Infrastructure, Project Resilient Roots</a>
                                             </h5>
                                             <p class="blog-preview">
                                                 Strengthen communities against disasters by funding projects that build resilient infrastructure, early warning systems, and community preparedness programs.
@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="entry-meta">
                                             <span class="posted-on">
-                                                <a href="#">Jan, 2024</a>
+                                                <a>Jan, 2024</a>
                                             </span>
                                             <span class="comments">
                                                 <a href="{{ route("user.register") }}">Construction Sector || <span style="color: blue; text-decoration: underline">apply now</span></a>
@@ -60,12 +60,12 @@
                                         <figure class="feature-image">
                                             <img src="{{ asset("assets/home/assets/img/renewables.png") }}" alt="">
                                             <span class="cat-meta">
-                                                <a href="#">ENERGY</a>
+                                                <a>ENERGY</a>
                                             </span>
                                         </figure>
                                         <div class="entry-content">
                                             <h5 class="blog-title">
-                                                <a href="#">Renewable Energy Revolution, Powering Tomorrow</a>
+                                                <a>Renewable Energy Revolution, Powering Tomorrow</a>
                                             </h5>
                                             <p class="blog-preview">
                                                 We fund startups that harness clean energy sources for a sustainable future, investing in solar, wind, and innovative green technologies.
@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="entry-meta">
                                             <span class="posted-on">
-                                                <a href="#">Jan, 2024</a>
+                                                <a>Jan, 2024</a>
                                             </span>
                                             <span class="comments">
                                                 <a href="{{ route("user.register") }}">Energy Sector || <span style="color: blue; text-decoration: underline">apply now</span></a>
@@ -84,12 +84,12 @@
                                         <figure class="feature-image">
                                             <img src="{{ asset("assets/home/assets/img/health.png") }}" alt="">
                                             <span class="cat-meta">
-                                                <a href="#">HEALTH</a>
+                                                <a>HEALTH</a>
                                             </span>
                                         </figure>
                                         <div class="entry-content">
                                             <h5 class="blog-title">
-                                                <a href="#">Healthcare Innovations Fund, Heal Beyond Boundaries</a>
+                                                <a>Healthcare Innovations Fund, Heal Beyond Boundaries</a>
                                             </h5>
                                             <p class="blog-preview">
                                                 We Support breakthrough medical solutions, advancing healthcare accessibility, and technology-driven innovations for a healthier and more connected world.
@@ -97,7 +97,7 @@
                                         </div>
                                         <div class="entry-meta">
                                             <span class="posted-on">
-                                                <a href="#">Jan, 2024</a>
+                                                <a>Jan, 2024</a>
                                             </span>
                                             <span class="comments">
                                                 <a href="{{ route("user.register") }}">Health Sector || <span style="color: blue; text-decoration: underline">apply now</span></a>
@@ -108,12 +108,12 @@
                                         <figure class="feature-image">
                                             <img src="{{ asset("assets/home/assets/img/agriculture.png") }}" alt="">
                                             <span class="cat-meta">
-                                                <a href="#">AGRICULTURE</a>
+                                                <a>AGRICULTURE</a>
                                             </span>
                                         </figure>
                                         <div class="entry-content">
                                             <h5 class="blog-title">
-                                                <a href="#">Agricultural Sustainability Hub, Green Harvest Initiative</a>
+                                                <a>Agricultural Sustainability Hub, Green Harvest Initiative</a>
                                             </h5>
                                             <p class="blog-preview">
                                                 Foster sustainable agriculture through funding projects that promote precision farming, agrotech solutions, and eco-friendly practices for a resilient and bountiful future.
@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="entry-meta">
                                             <span class="posted-on">
-                                                <a href="#">Jan, 2024</a>
+                                                <a>Jan, 2024</a>
                                             </span>
                                             <span class="comments">
                                                 <a href="{{ route("user.register") }}">Agricultural Sector || <span style="color: blue; text-decoration: underline">apply now</span></a>
@@ -190,32 +190,32 @@
                                     </div>
                                     <div class="social-icon-wrap">
                                         <div class="social-icon social-facebook">
-                                            <a href="https://www.facebook.com/">
+                                            <a>
                                                 <span>Construction</span>
                                             </a>
                                         </div>
                                         <div class="social-icon social-google-plus">
-                                            <a href="https://www.googleplus.com/">
+                                            <a>
                                                 <span>Energy</span>
                                             </a>
                                         </div>
                                         <div class="social-icon social-pinterest">
-                                            <a href="https://www.pinterest.com/">
+                                            <a>
                                                 <span>Health</span>
                                             </a>
                                         </div>
                                         <div class="social-icon social-whatsapp">
-                                            <a href="https://www.whatsapp.com/">
+                                            <a>
                                                 <span>Agriculture</span>
                                             </a>
                                         </div>
                                         <div class="social-icon social-linkedin">
-                                            <a href="https://www.linkedin.com/">
+                                            <a>
                                                 <span>Charity</span>
                                             </a>
                                         </div>
                                         <div class="social-icon social-twitter">
-                                            <a href="https://www.twitter.com/">
+                                            <a>
                                                 <span>Non-profit</span>
                                             </a>
                                         </div>

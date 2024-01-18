@@ -16,9 +16,11 @@ Route::get("/agriculture",[UserController::class,"agriculture"])->name("agricult
 Route::get('/loans', [UserController::class,"loans"])->name("loans");
 Route::get("/stocks",[UserController::class,"stocks"])->name("stocks");
 Route::get("/project_funding",[UserController::class,"project_funding"])->name("project_funding");
+Route::get("/privacy_policy",[UserController::class,"privacy_policy"])->name("privacy_policy");
 Route::get('/testmail', [UserController::class,"testmail"])->name("testmail");
 Route::get('/cryptocurrency', [UserController::class,"cryptocurrency"])->name("cryptocurrency");
 Route::get('/retirement', [UserController::class,"retirement"])->name("retirement");
+Route::get('/success_page', [UserController::class,"success_page"])->name("success_page");
 Route::get('/real_estate', [UserController::class,"realestate"])->name("real_estate");
 Route::post("/register/{ref?}",[UserController::class,"register"])->name("user.register.post");
 Route::post("/login",[UserController::class,"login"])->name("user.login.post");

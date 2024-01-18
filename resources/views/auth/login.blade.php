@@ -126,10 +126,11 @@
                 <button type="submit">LOGIN</button>
                 <div class="links">
                     <a href="#">Forgot password</a>
-                    <a href="#">You don't have an account</a>
+                    <a href="{{ route("user.register") }}">You don't have an account</a>
                 </div>
             </form>
         </div>
     </div>
   </body>
-</html>
+</html> 
+

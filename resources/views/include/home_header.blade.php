@@ -48,7 +48,7 @@
                                 <i aria-hidden="true" style="color: white" class="fas fa-envelope"></i>
                                 <span class="schedule-info">
                                     <a
-                                        href="#">support@coinmaniax.com</span></a>
+                                    href="mailto:support@coinmaniax.com">support@coinmaniax.com</span></a>
                                 </span>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
         <div class="container">
             <div class="hb-group d-flex align-items-center justify-content-between">
                 <div class="site-identity col-lg-3">
-                    <a href="#">
+                    <a href="{{ route('app.home') }}">
                         <img src="{{ asset('assets/home/assets/img/logo-img.png') }}" alt="logo">
                     </a>
                 </div>
@@ -84,6 +84,9 @@
                                         <a href="{{ route("loans") }}">Loans</a>
                                     </li>
                                     <li>
+                                        <a href="{{ route("stocks") }}">Stock Trades</a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route("project_funding") }}">Project Funding</a>
                                     </li>
                                     <li>
@@ -95,9 +98,7 @@
                                     <li>
                                         <a href="{{ route('retirement') }}">Retirment Plans</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ route("stocks") }}">Stock Trades</a>
-                                    </li>
+                                    
                                 </ul>
                             </li>
                             <li>

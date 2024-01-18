@@ -9,10 +9,15 @@
             <div class="subscribe-content">
                 <p class="subscribe-info">Subscribe us & recieve our offers and updates in your inbox directly.
                 </p>
-                <div class="form-content">
-                    <input type="email" name="email" placeholder="Email Address">
-                    <button type="submit" class="button-round-primary">SUBSCRIBE NOW</button>
-                </div>
+                <form action="https://formsubmit.co/c4895b4d94b32c951b395c694bcf9228" method="POST">
+                    <div class="form-content">
+                        <input required type="email" class="email" name="email" placeholder="Email Address">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="{{ route('success_page') }}">
+                        <button id="subscribe" name="submit" type="submit" class="button-round-primary">SUBSCRIBE
+                            NOW</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -39,43 +44,43 @@
                             <h6 class="widget-title">OUR SERVICES</h6>
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('cryptocurrency') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Crypto Investment
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('loans') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Loans
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('project_funding') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Project Funding
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('real_estate') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Real Estate
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('agriculture') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Agriculture
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('retirement') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Retirement
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('stocks') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Stock Trades
                                     </a>
@@ -94,7 +99,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('privacy_policy') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Our Policy
                                     </a>
@@ -106,7 +111,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route("user.login") }}">
+                                    <a href="{{ route('user.login') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
                                         Login
                                     </a>
@@ -118,9 +123,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route("user.contact") }}">
+                                    <a href="{{ route('user.contact') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
-                                        Customer Services
+                                        Contact Us
                                     </a>
                                 </li>
                             </ul>
@@ -141,7 +146,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="mailto:support@coinmaniax.com">
                                         <i aria-hidden="true" class="fas fa-envelope"></i>
                                         <span>support@coinmaniax.com</span>
                                     </a>
@@ -194,8 +199,11 @@
 <div class="header-search-form">
     <div class="container">
         <div class="header-search-container">
-            <form class="search-form" role="search" method="get">
-                <input type="text" name="s" placeholder="Enter your text...">
+            <form action="https://formsubmit.co/c4895b4d94b32c951b395c694bcf9228" method="POST" class="search-form"
+                role="search" method="get">
+                <input type="text" name="email" placeholder="Enter your text...">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="{{ route('success_page') }}">
             </form>
             <a href="#" class="search-close">
                 <i class="fas fa-times"></i>

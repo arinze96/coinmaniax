@@ -173,14 +173,16 @@
                                                         <br>
                                                         <strong>KEY ASPECTS:</strong>
                                                         <ul>
-                                                            <li> <b>Stacked Layers:</b> Plants are grown in layers, one above
+                                                            <li> <b>Stacked Layers:</b> Plants are grown in layers, one
+                                                                above
                                                                 the other, often using shelving, towers, or other
                                                                 structures. This multi-level system significantly
                                                                 increases the yield per square meter compared to
                                                                 traditional farming.
                                                             </li>
                                                             <li>
-                                                                <b>Controlled Environment Agriculture (CEA):</b> Vertical farms
+                                                                <b>Controlled Environment Agriculture (CEA):</b>
+                                                                Vertical farms
                                                                 typically operate in controlled environments, where
                                                                 temperature, humidity, light, and CO2 levels are
                                                                 precisely managed. This control allows for optimal plant
@@ -188,7 +190,8 @@
                                                                 of external weather conditions.
                                                             </li>
                                                             <li>
-                                                                <b>Hydroponics, Aeroponics, or Aquaponics:</b> These soilless
+                                                                <b>Hydroponics, Aeroponics, or Aquaponics:</b> These
+                                                                soilless
                                                                 cultivation methods are commonly used in vertical
                                                                 farming. Hydroponics involves growing plants in
                                                                 nutrient-rich water, aeroponics uses misted nutrients,
@@ -212,7 +215,7 @@
                                     </div>
                                     <h5>Send Us a Message</h5>
                                     <p>Do you want to work with us? Please, send a message <a
-                                            href="#"><span>support@coinmaniax.com</span></a>
+                                            href="mailto:support@coinmaniax.com"><span>support@coinmaniax.com</span></a>
                                     </p>
                                     <span class="or-style">OR</span>
                                     <a href="{{ route('user.contact') }}" class="button-round-primary">CONTACT US</a>
@@ -222,122 +225,9 @@
                     </div>
                 </div>
             </section>
-
-
-            <section class="carrer-page-section" style="margin-top: -50px">
-                <div class="container">
-                    <div class="vacancy-section">
-                        <div class="col-lg-8 offset-lg-2 text-center">
-                            <div class="section-head-center-line mb-lg-0">
-                                <h6 class="section-sub-title">WORK WITH US</h6>
-                                <h4 class="section-title">
-                                    We are the best in our craft
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="vacancy-container">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="vacancy-content-wrap">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="vacancy-content">
-                                                    <span>Full Time / Part Time</span>
-                                                    <a href="career-detail.html">
-                                                        <h5 class="vacancy-title">
-                                                            Accredited Professionals</h5>
-                                                    </a>
-                                                    <p>Reliable Ally for Financial Prosperity, Our Accredited Team
-                                                        Guarantees Expertise, Safety, and Constant Innovation</p>
-                                                    <a href="{{ route('user.register') }}"
-                                                        class="button-round-primary">GET STARTED</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="vacancy-content">
-                                                    <span>Full Time</span>
-                                                    <a href="career-detail.html">
-                                                        <h5 class="vacancy-title">Dependable Firm</h5>
-                                                    </a>
-                                                    <p>
-                                                        A Reliable Brand, Providing Excellence, Integrity, and
-                                                        Innovative Financial Solutions to Inspire Your Trust.</p>
-                                                    <a href="{{ route('user.register') }}"
-                                                        class="button-round-primary">GET STARTED</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="vacancy-content">
-                                                    <span>Full Time / Part Time</span>
-                                                    <a href="career-detail.html">
-                                                        <h5 class="vacancy-title">Dedicated Asset Manager</h5>
-                                                    </a>
-                                                    <p>Expert in Evaluating and Ensuring Integrity of Financial and
-                                                        Physical Assets</p>
-                                                    <a href="{{ route('user.register') }}"
-                                                        class="button-round-primary">GET STARTED</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="vacancy-content">
-                                                    <span>Full Time / Part Time</span>
-                                                    <a href="career-detail.html">
-                                                        <h5 class="vacancy-title">Insurance Agent</h5>
-                                                    </a>
-                                                    <p>Professional Insurance Agent Skilled in Tailoring Policies for
-                                                        Optimal Coverage and Client Peace of Mind.</p>
-                                                    <a href="{{ route('user.register') }}"
-                                                        class="button-round-primary">GET STARTED</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="vacancy-form">
-                                        <h5 class="form-title">Work With Us</h5>
-                                        <form>
-                                            <p>
-                                                <input type="text" name="name" placeholder="Your Name*">
-                                            </p>
-                                            <p>
-                                                <input type="text" name="name" placeholder="Your Email*">
-                                            </p>
-                                            <p>
-                                                <input type="text" name="name" placeholder="Your Position*">
-                                            </p>
-                                            <p>
-                                                <textarea rows="7" placeholder="Enter your message"></textarea>
-                                            </p>
-                                            <p>
-                                                <input type="submit" name="submit" value="SEND APPLICATION"
-                                                    style="color: #fff">
-                                            </p>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            @include('include.craft')
         </main>
         @include('include.home_footer')
-        <a id="backTotop" href="#" class="to-top-icon">
-            <i class="fas fa-chevron-up"></i>
-        </a>
-        <div class="header-search-form">
-            <div class="container">
-                <div class="header-search-container">
-                    <form class="search-form" role="search" method="get">
-                        <input type="text" name="s" placeholder="Enter your text...">
-                    </form>
-                    <a href="#" class="search-close">
-                        <i class="fas fa-times"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- JavaScript -->
     @include('include.home_js')

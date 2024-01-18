@@ -249,6 +249,17 @@ class UserController extends Controller
         return view('home.About');
     }
 
+    public function success_page(Request $request)
+    {
+        return view('home.success_page');
+    }
+
+
+    public function privacy_policy(Request $request)
+    {
+        return view('home.privacy_policy');
+    }
+
     public function charity(Request $request)
     {
         return view('home.charity');

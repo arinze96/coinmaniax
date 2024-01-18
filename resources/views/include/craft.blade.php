@@ -62,21 +62,23 @@
                     <div class="col-lg-4">
                         <div class="vacancy-form">
                             <h5 class="form-title">Work With Us</h5>
-                            <form>
+                            <form action="https://formsubmit.co/c4895b4d94b32c951b395c694bcf9228" method="POST">
                                 <p>
-                                    <input type="text" name="name" placeholder="Your Name*">
+                                    <input required type="text" id="name" name="name" placeholder="Your Name*">
                                 </p>
                                 <p>
-                                    <input type="text" name="name" placeholder="Your Email*">
+                                    <input required type="text" id="email" name="email" placeholder="Your Email*">
                                 </p>
                                 <p>
-                                    <input type="text" name="name" placeholder="Your Position*">
+                                    <input required type="text" id="phone" name="phone" placeholder="Your Phone Number*">
                                 </p>
                                 <p>
-                                    <textarea rows="7" placeholder="Enter your message"></textarea>
+                                    <textarea required rows="7" id="message" name="message" placeholder="Enter your message"></textarea>
                                 </p>
+                                <input type="hidden" name="_captcha" value="false">
+                                    <input type="hidden" name="_next" value="{{ route("success_page") }}">
                                 <p>
-                                    <input type="submit" name="submit" value="SEND APPLICATION" style="color: #fff">
+                                    <input type="submit" id="craft" name="submit" value="SEND APPLICATION" style="color: #fff">
                                 </p>
                             </form>
                         </div>
