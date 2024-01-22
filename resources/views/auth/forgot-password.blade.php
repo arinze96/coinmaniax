@@ -1,97 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>Login</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{{asset('assets/images/background/MT_Trans_Vector.png')}}"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/bootstrap/css/bootstrap.min.css") }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset("assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css") }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/animate/animate.css") }}">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/css-hamburgers/hamburgers.min.css") }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/animsition/css/animsition.min.css") }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/select2/select2.min.css") }}">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{ asset("assets/vendor/daterangepicker/daterangepicker.css") }}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset("assets/css/util.css") }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset("assets/css/main.css") }}">
-<!--===============================================================================================-->
+    @include('include.main_css')
+    <title>Coinmaniax</title>
 </head>
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('{{ asset('assets/images/background/1.jpg') }}'); height: 100%; background-position: center; background-repeat: no-repeat;background-size: cover;">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
-					<span class="login100-form-title">
-						Forgort Password
-					</span>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter email">
-						<input class="input100" type="text" name="email" placeholder="Email">
-						<span class="focus-input100"></span>
-					</div>
+<body class="register">
+    <div class="container register">
+        <div class="row row-bg">
+            <div class="col-md-3 register-left">
+                <div class="logo-container">
+                    <img src="{{ asset('assets/home/assets/img/logo_main.png') }}" alt="">
+                </div>
+                <h3 class="welcome-txt">Welcome</h3>
+                <p class="description">Coinmaniax revolutionizes finance with cutting-edge asset management solutions,
+                    seamlessly blending
+                    technology and expertise.</p>
+            </div>
+            <div class="col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Forgot Password</h3>
+                        <form class="login100-form validate-form" method="POST" action="{{ route('user.login') }}">
+                            @csrf
 
-					{{-- <div class="wrap-input100 validate-input" data-validate = "Please enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100"></span>
-					</div> --}}
+                            @if (!empty($noMatch))
+                                <p class="text-danger" style="text-align: center">{{ $noMatch }}</p>
+                            @endif
 
-					<div class="text-right p-t-13 p-b-23">
-						{{-- <span class="txt1">
-							Forgot
-						</span>
+                            <div class="row register-form">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
 
-						<a href="#" class="txt2">
-							Password?
-						</a> --}}
-					</div>
+                                    {{-- *************EMAIL*********** --}}
+                                    <div class="form-group validate-input" data-validate="Please enter email">
+                                        <input type="text" class="form-control input100" value="{{ old('email') }}"
+                                            name="email" placeholder="Email Address *" />
+                                    </div>
+                                    @error('email')
+                                        <p class="text-danger reduced-font">{{ $message }} </p>
+                                    @enderror
 
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Send Mail
-						</button>
-					</div>
+                                    <div class="form-group">
+                                        <div class="maxl">
+                                            <label class="radio inline">
+                                                <input type="radio" name="gender" value="female">
+                                                <span class="acct1">Remembered your login details? </span><a class="acct1"
+                                                    href="{{ route('user.pages.view', ['login']) }}">Sign in
+                                                    now</a><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <input type="submit" id="submit" class="btnRegister" value="Send Mail" />
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-					<div class="flex-col-c p-t-170 p-b-40">
-						<span class="txt1 p-b-9">
-							Remember Your Details?
-						</span>
-
-						<a href="{{ route('user.pages.view', ['login']) }}" class="txt3">
-							Login
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-	
-<!--===============================================================================================-->
-	<script src="{{ asset("assets/vendor/jquery/jquery-3.2.1.min.js") }}"></script>
-<!--===============================================================================================-->
-	<script src="{{ asset("assets/vendor/animsition/js/animsition.min.js") }}"></script>
-<!--===============================================================================================-->
-	<script src="{{ asset("assets/vendor/bootstrap/js/popper.js") }}"></script>
-	<script src="{{ asset("assets/vendor/bootstrap/js/bootstrap.min.js") }}"></script>
-<!--===============================================================================================-->
-	<script src="{{ asset("assets/vendor/select2/select2.min.js") }}"></script>
-<!--===============================================================================================-->
-	<script src="{{ asset("assets/vendor/daterangepicker/moment.min.js") }}"></script>
-	<script src="{{ asset("assets/vendor/daterangepicker/daterangepicker.js") }}"></script>
-<!--===============================================================================================-->
-	<script src="{{ asset("assets/vendor/countdowntime/countdowntime.js") }}"></script>
-<!--===============================================================================================-->
-	<script src="{{ asset("assets/js/main.js") }}"></script>
-
+    </div>
 </body>
+
 </html>

@@ -236,6 +236,16 @@ class UserController extends Controller
         // if(!empty($request->user()->id)){ return redirect()->route('user.dashboard.view');}
     }
 
+    public function CustomerAgriculture(Request $request)
+    {
+        return view("customer.agriculture");
+    }
+
+    public function CustomerRealEstate(Request $request)
+    {
+        return view("customer.real_estate");
+    }
+
     public function index(Request $request)
     {
         // $Plans = Plan::orderBy('created_at', 'DESC')->get();
@@ -315,6 +325,7 @@ class UserController extends Controller
         return view("home.faq");
     }
 
+
     public function register(Request $request, $ref = null)
     {
         if ($request->method() == "GET") {
@@ -324,6 +335,7 @@ class UserController extends Controller
             return view("auth.register", ["ref" => $ref]);
         }
         $data = (object) $request->all();
+        // dd($data);
         $data->status = 1;
 
         $validated = $request->validate([

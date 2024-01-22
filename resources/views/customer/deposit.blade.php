@@ -1,330 +1,336 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<html lang="en" dir="ltr">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-    <title>Gloryinvestmentlimited</title>
     @include('include.c_css')
-    <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/dropzone.min.css') }}">
-
-    <style>
-        #success_message {
-            display: none;
-        }
-    </style>
-
-    <script>
-        $(document).ready(function() {
-            $('#contact_form').bootstrapValidator({
-                    // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-                    feedbackIcons: {
-                        valid: 'glyphicon glyphicon-ok',
-                        invalid: 'glyphicon glyphicon-remove',
-                        validating: 'glyphicon glyphicon-refresh'
-                    },
-                    fields: {
-                        first_name: {
-                            validators: {
-                                stringLength: {
-                                    min: 2,
-                                },
-                                notEmpty: {
-                                    message: 'Please supply your first name'
-                                }
-                            }
-                        },
-                        last_name: {
-                            validators: {
-                                stringLength: {
-                                    min: 2,
-                                },
-                                notEmpty: {
-                                    message: 'Please supply your last name'
-                                }
-                            }
-                        },
-                        email: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please supply your email address'
-                                },
-                                emailAddress: {
-                                    message: 'Please supply a valid email address'
-                                }
-                            }
-                        },
-                        phone: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please supply your phone number'
-                                },
-                                phone: {
-                                    country: 'US',
-                                    message: 'Please supply a vaild phone number with area code'
-                                }
-                            }
-                        },
-                        address: {
-                            validators: {
-                                stringLength: {
-                                    min: 8,
-                                },
-                                notEmpty: {
-                                    message: 'Please supply your street address'
-                                }
-                            }
-                        },
-                        city: {
-                            validators: {
-                                stringLength: {
-                                    min: 4,
-                                },
-                                notEmpty: {
-                                    message: 'Please supply your city'
-                                }
-                            }
-                        },
-                        state: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please select your state'
-                                }
-                            }
-                        },
-                        zip: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please supply your zip code'
-                                },
-                                zipCode: {
-                                    country: 'US',
-                                    message: 'Please supply a vaild zip code'
-                                }
-                            }
-                        },
-                        comment: {
-                            validators: {
-                                stringLength: {
-                                    min: 10,
-                                    max: 200,
-                                    message: 'Please enter at least 10 characters and no more than 200'
-                                },
-                                notEmpty: {
-                                    message: 'Please supply a description of your project'
-                                }
-                            }
-                        }
-                    }
-                })
-                .on('success.form.bv', function(e) {
-                    $('#success_message').slideDown({
-                        opacity: "show"
-                    }, "slow") // Do something ...
-                    $('#contact_form').data('bootstrapValidator').resetForm();
-
-                    // Prevent form submission
-                    e.preventDefault();
-
-                    // Get the form instance
-                    var $form = $(e.target);
-
-                    // Get the BootstrapValidator instance
-                    var bv = $form.data('bootstrapValidator');
-
-                    // Use Ajax to submit form data
-                    $.post($form.attr('action'), $form.serialize(), function(result) {
-                        console.log(result);
-                    }, 'json');
-                });
-        });
-    </script>
-
 </head>
 
-<body class="g-sidenav-show  bg-gray-100">
-
-
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-
-    @include('include.c_sidebar')
-
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-
-        @include('include.c_header')
-
-        <main class="main-content  mt-0">
-            <section class="min-vh-100 mb-8">
-              {{-- <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
-                style="background-image: url('../assets/img/curved-images/curved14.jpg');">
-                <span class="mask bg-gradient-dark opacity-6"></span>
-                <div class="container">
-                  <div class="row justify-content-center">
-                    <div class="col-lg-5 text-center mx-auto">
-                      <h1 class="text-white mb-2">Welcome!</h1>
-                      <p class="text-lead text-white" style="margin-bottom: -40px">Use these awesome forms to login or create new account in your project for
-                        free.</p>
-                    </div>
-                  </div>
-                </div>
-              </div> --}}
-              <div class="container" style="margin-top: 100px">
-                <div class="row">
-                  <div class="col-xl-6 col-lg-8 col-md-8 mx-auto">
-                    <div class="card z-index-0">
-                      <div class="card-header text-center pt-4">
-                        <h3>Top Up Your Account Balance!</h3>
-                      </div>
-                      {{-- Ich interessiere mich sehr für React-Native-Projekte und stehe für die Arbeit zur Verfügung --}}
-                      {{-- Ich interessiere mich sehr für React-Native-Projekte und stehe gerne für Sie zur Verfügung. --}}
-                      
-                      <div class="card-body">
-                        <form role="form text-left">
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Select Currency</label>
-                                <select name="currency" id="currency" class="form-control" id="exampleFormControlSelect1">
-                                    <option   {{ (request()->account == "usd") ? "selected" : ""  }}  value="usd" class="small">USD</option>
-                                </select>
-                              </div>
-                          <div class="mb-3">
-                            <label for="exampleFormControlSelect1">Amount to Deposit</label>
-                            <span class=" text-center text-danger" id="error_box"></span>
-                            <input type="text" class="form-control" id="buysell-amount" name="bs-amount" placeholder="Enter Amount"  aria-label="Password"
-                              aria-describedby="password-addon">
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleFormControlSelect1">Payment Method</label>
-                            <select name="method" id="method" class="form-control" id="exampleFormControlSelect1">
-                                @if ($application->bitcoin_address)
-                                <option value="BTC">BITCOIN </option>
-                                @endif
-
-                                @if ($application->ethereum_address)
-                                <option value="ETH">ETHEREUM </option>
-                                @endif
-
-                                @if ($application->litecoin_address)
-                                <option value="LTC">LITCOIN </option>
-                                @endif
-
-                                @if ($application->btc_cash_address)
-                                <option  value="BCH">BITCOIN CASH </option>
-                                @endif
-                                
-                                @if ($application->binancecoin_address)
-                                <option  value="BNB">BINANCE COIN </option>
-                                @endif
-                                
-                                @if ($application->dodgecoin_address)
-                                <option  value="DODGE">DODGE COIN </option>
-                                @endif
-                                
-                                @if ($application->usdt_address)
-                                <option  value="USDT">TETHER (USDT) </option>
-                                @endif
-                            </select>
-                          </div>
-                          <div class="text-center">
-                            <button data-url="{{ route("user.deposit.post") }}" class="btn bg-gradient-primary mt-3 w-100 deposit_cash"
-                            >+ add funds</button>
-                            {{-- <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">+ Add Funds</button> --}}
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-        
-          </main>
-
-       
-        {{-- </div> --}}
-        {{-- </div> --}}
-    </main>
-    @include('include.settings')
-
-    <div class="modal fade" tabindex="-1" role="dialog" id="buy-coin">
-        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-lg">
-                    <div class="nk-block-head nk-block-head-xs text-center">
-                        <h5 class="nk-block-title">
-                            <!-- <h4 class="time_counter mt-3">10min</h4> -->
-                        </h5>
-                        <div class="nk-block-text">
-                            <div class="title-sub d-none bank text-primary">
-                                Make Payment to the Account below , upload your reciept and click the confirm button.
-                                <ul class="text-justify p-3 text-dark">
-                                    <li>Bank Name : <strong class="text-primary">
-                                            <?= ucwords($application->bank_name) ?></strong></li>
-                                    <li>Account Number :<strong class="text-primary">
-                                            <?= ucwords($application->bank_account_no) ?></strong></li>
-                                    <li>Account Name :<strong class="text-primary">
-                                            <?= ucwords($application->bank_account_name) ?></strong></li>
-                                </ul>
+<body class="app sidebar-mini">
+    <div class="switcher-wrapper">
+        @include('include.switcher')
+        <div id="global-loader">
+            <img src="{{ asset('assets/customer/assets/images/svgs/loader.svg') }}" alt="loader">
+        </div>
+        <!--- End Global-loader-->
+        <!-- Page -->
+        <div class="page">
+            <div class="page-main">
+                @include('include.c_sidebar')
+                <!--aside closed--> <!-- App-Content -->
+                <div class="app-content main-content">
+                    <div class="side-app">
+                        <!--app header-->
+                        @include('include.c_header')
+                        <!--/app header--> <!--Page header-->
+                        <div class="page-header">
+                            <div class="page-leftheader">
+                                <h4 class="page-title mb-0">DEPOSIT FUNDS</h4>
                             </div>
-                            <div class="nk-refwg-invite d-none btc">
-                                <div class="nk-refwg-head ">
-                                    <div class="nk-refwg-title">
-                                        <div class="title-sub text-primary">Make Payments of <strong
-                                                class="converted_payment"></strong> to the wallet address below ,
-                                            upload your transaction screenshot and click confirm button.</div>
-                                    </div>
+                            <div class="page-rightheader">
+                                <div class="btn btn-list">
+                                    <a href="index-2.html#" class="btn btn-info"><i class="fe fe-settings mr-1"></i>
+                                        General Settings </a>
+                                    <a href="index-2.html#" class="btn btn-danger"><i class="fe fe-printer mr-1"></i>
+                                        Deposit </a>
+                                    <a href="index-2.html#" class="btn btn-warning"><i
+                                            class="fe fe-shopping-cart mr-1"></i> Withdraw </a>
                                 </div>
-                                <div class="row p-2">
-                                    <div class="col-md-6 col-sm-7 p-1">
-                                        <input readonly style="width:100%;" type="text" class="form-control"
-                                            value="" id="btc_amount">
-                                    </div>
-                                    <div class="col-md-6 col-sm-5 p-1">
-                                        <button style="width:100%;text-align:center !important;"
-                                            class="btn btn-primary d-block " onclick="copyText('btc_amount')">Copy
-                                            Amount</button>
-                                    </div>
-                                </div>
-                                <div class="row p-2">
-                                    <div class="col-md-6 col-sm-7 p-1">
-                                        <input readonly style="width:100%;" type="text" class="form-control"
-                                            value="<?= $application->btc_address ?>" id="wallet_address">
-                                    </div>
-                                    <div class="col-md-6 col-sm-5 p-1">
-                                        <button style="width:100%;text-align:center !important;"
-                                            class="btn btn-primary d-block " onclick="copyText('wallet_address')">Copy
-                                            Address</button>
-                                    </div>
-                                </div>
-                            </div><!-- .nk-refwg-invite -->
-                        </div>
-                    </div>
-                    <div class="dropzone"></div>
-                    <div class="nk-block">
-                        <div class="buysell-field form-action text-center">
-                            <div>
-                                <a href="#" class="btn btn-primary mt-4 btn-lg confirm_deposit"
-                                    data-url="{{ route('user.deposit.confirm.post') }}">Confirm
-                                    Payments</a>
                             </div>
                         </div>
-                    </div><!-- .nk-block -->
-                </div><!-- .modal-body -->
-            </div><!-- .modal-content -->
-        </div><!-- .modla-dialog -->
-    </div>
 
-    @include('include.c_script')
-    <script>
-        var $imageArray = [];
-        var $site = "{{ route('app.home') }}";
-        let $proof_upload = "{{ route('user.deposit.proof.post', ['add']) }}";
-        let $proof_delete = "{{ route('user.deposit.proof.post', ['delete']) }}";
-    </script>
-    <script src="{{ asset('assets/js/dropzone.min.js') }}"></script>
-    <script src="{{ asset('assets/js/custom_dropzone.js') }}"></script>
+
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-8 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Payment Information</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-pay">
+                                            <ul class="tabs-menu nav">
+                                                <li class=""><a href="#tab20" class="active" data-toggle="tab"><i
+                                                            class="fa fa-credit-card"></i> Credit Card</a></li>
+                                                <li><a href="#tab21" data-toggle="tab" class=""><i
+                                                            class="fa fa-paypal"></i> Paypal</a></li>
+                                                <li><a href="#tab22" data-toggle="tab" class=""><i
+                                                            class="fa fa-university"></i> Bank Transfer</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active show" id="tab20">
+                                                    <div class="bg-danger-transparent-2 text-danger px-4 py-2 br-3 mb-4"
+                                                        role="alert">Please Enter Valid Details</div>
+                                                    <div class="form-group">
+                                                        <label class="form-label">CardHolder Name</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="First Name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="form-label">Card number</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Search for...">
+                                                            <span class="input-group-append">
+                                                                <button class="btn btn-secondary box-shadow-0"
+                                                                    type="button"><i class="fa fa-cc-visa"></i>
+                                                                    &nbsp; <i class="fa fa-cc-amex"></i> &nbsp;
+                                                                    <i class="fa fa-cc-mastercard"></i></button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-8">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Expiration</label>
+                                                                <div class="input-group">
+                                                                    <input type="number" class="form-control"
+                                                                        placeholder="MM" name="Month">
+                                                                    <input type="number" class="form-control"
+                                                                        placeholder="YY" name="Year">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <div class="form-group">
+                                                                <label class="form-label">CVV <i
+                                                                        class="fa fa-question-circle"></i></label>
+                                                                <input type="number" class="form-control"
+                                                                    required="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="btn  btn-lg btn-primary">Confirm</a>
+                                                </div>
+                                                <div class="tab-pane" id="tab21">
+                                                    <p>Paypal is easiest way to pay online</p>
+                                                    <p><a href="#" class="btn btn-primary"><i
+                                                                class="fa fa-paypal"></i> Log in my Paypal</a></p>
+                                                    <p class="mb-0"><strong>Note:</strong> Nemo enim ipsam voluptatem
+                                                        quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                                        consequuntur magni dolores eos qui ratione voluptatem sequi
+                                                        nesciunt. </p>
+                                                </div>
+                                                <div class="tab-pane" id="tab22">
+                                                    <p>Bank account details</p>
+                                                    <dl class="card-text">
+                                                        <dt>BANK: </dt>
+                                                        <dd> THE UNION BANK 0456</dd>
+                                                    </dl>
+                                                    <dl class="card-text">
+                                                        <dt>Accaunt number: </dt>
+                                                        <dd> 67542897653214</dd>
+                                                    </dl>
+                                                    <dl class="card-text">
+                                                        <dt>IBAN: </dt>
+                                                        <dd>543218769</dd>
+                                                    </dl>
+                                                    <p class="mb-0"><strong>Note:</strong> Nemo enim ipsam voluptatem
+                                                        quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                                        consequuntur magni dolores eos qui ratione voluptatem sequi
+                                                        nesciunt. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Recent Customers</h3>
+                                        <div class="card-options">
+                                            <a href="index-2.html#" class="option-dots" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false"><i
+                                                    class="fe fe-more-horizontal fs-20"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="index-2.html#">Today</a>
+                                                <a class="dropdown-item" href="index-2.html#">Last Week</a>
+                                                <a class="dropdown-item" href="index-2.html#">Last Month</a>
+                                                <a class="dropdown-item" href="index-2.html#">Last Year</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="list-card">
+                                            <span class="bg-warning list-bar"></span>
+                                            <div class="row align-items-center">
+                                                <div class="col-9 col-sm-9">
+                                                    <div class="media mt-0">
+                                                        <div class="media-body">
+                                                            <div class="d-md-flex align-items-center mt-1">
+                                                                <h6 class="mb-1">@Marshall</h6>
+                                                            </div>
+                                                            <span class="mb-0 fs-13 text-muted">User 2342<span
+                                                                    class="ml-2 text-success fs-13 font-weight-semibold">Paid</span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3 col-sm-3">
+                                                    <div class="text-right">
+                                                        <span
+                                                            class="font-weight-semibold fs-16 number-font">$558</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-card">
+                                            <span class="bg-info list-bar"></span>
+                                            <div class="row align-items-center">
+                                                <div class="col-9 col-sm-9">
+                                                    <div class="media mt-0">
+                                                        <div class="media-body">
+                                                            <div class="d-md-flex align-items-center mt-1">
+                                                                <h6 class="mb-1">@Chapman</h6>
+                                                            </div>
+                                                            <span class="mb-0 fs-13 text-muted">User 6720<span
+                                                                    class="ml-2 text-danger fs-13 font-weight-semibold">Pending</span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3 col-sm-3">
+                                                    <div class="text-right">
+                                                        <span
+                                                            class="font-weight-semibold fs-16 number-font">$458</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-card">
+                                            <span class="bg-danger list-bar"></span>
+                                            <div class="row align-items-center">
+                                                <div class="col-9 col-sm-9">
+                                                    <div class="media mt-0">
+                                                        <div class="media-body">
+                                                            <div class="d-md-flex align-items-center mt-1">
+                                                                <h6 class="mb-1">@Sonia</h6>
+                                                            </div>
+                                                            <span class="mb-0 fs-13 text-muted">User 8763<span
+                                                                    class="ml-2 text-success fs-13 font-weight-semibold">Paid</span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3 col-sm-3">
+                                                    <div class="text-right">
+                                                        <span
+                                                            class="font-weight-semibold fs-16 number-font">$358</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-card">
+                                            <span class="bg-success list-bar"></span>
+                                            <div class="row align-items-center">
+                                                <div class="col-9 col-sm-9">
+                                                    <div class="media mt-0">
+                                                        <div class="media-body">
+                                                            <div class="d-md-flex align-items-center mt-1">
+                                                                <h6 class="mb-1">@Joseph</h6>
+                                                            </div>
+                                                            <span class="mb-0 fs-13 text-muted">User 1076<span
+                                                                    class="ml-2 text-danger fs-13 font-weight-semibold">Pending</span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3 col-sm-3">
+                                                    <div class="text-right">
+                                                        <span
+                                                            class="font-weight-semibold fs-16 number-font">$796</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-card">
+                                            <span class="bg-primary list-bar"></span>
+                                            <div class="row align-items-center">
+                                                <div class="col-9 col-sm-9">
+                                                    <div class="media mt-0">
+                                                        <div class="media-body">
+                                                            <div class="d-md-flex align-items-center mt-1">
+                                                                <h6 class="mb-1"> @Abraham</h6>
+                                                            </div>
+                                                            <span class="mb-0 fs-13 text-muted">User 986<span
+                                                                    class="ml-2 text-success fs-13 font-weight-semibold">Paid</span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3 col-sm-3">
+                                                    <div class="text-right">
+                                                        <span
+                                                            class="font-weight-semibold fs-16 number-font">$867</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- /////////////////// DEPOSIT TRANSACTIONS////////////////////////// --}}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title">MY DEPOSIT TRANSACTIONS</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered text-nowrap" id="example1">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="wd-15p border-bottom-0">S/N</th>
+                                                        <th class="wd-15p border-bottom-0">MESSAGE</th>
+                                                        <th class="wd-20p border-bottom-0">CURRENCY</th>
+                                                        <th class="wd-15p border-bottom-0">AMOUNT</th>
+                                                        <th class="wd-10p border-bottom-0">TYPE</th>
+                                                        <th class="wd-25p border-bottom-0">STATUS</th>
+                                                        <th class="wd-25p border-bottom-0">DATE</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Bella</td>
+                                                        <td>Chloe</td>
+                                                        <td>System Developer</td>
+                                                        <td>2018/03/12</td>
+                                                        <td>$654,765</td>
+                                                        <td>b.Chloe@datatables.net</td>
+                                                        <td>$654,765</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Donna</td>
+                                                        <td>Bond</td>
+                                                        <td>Account Manager</td>
+                                                        <td>2012/02/21</td>
+                                                        <td>$543,654</td>
+                                                        <td>d.bond@datatables.net</td>
+                                                        <td>$543,654</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Harry</td>
+                                                        <td>Carr</td>
+                                                        <td>Technical Manager</td>
+                                                        <td>20011/02/87</td>
+                                                        <td>$86,000</td>
+                                                        <td>h.carr@datatables.net</td>
+                                                        <td>$86,000</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/div-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End app-content-->
+            </div>
+            <!--Footer-->
+            @include('include.c_footer')
+            @include('include.c_script')
 </body>
-
 
 </html>

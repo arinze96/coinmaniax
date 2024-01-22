@@ -45,6 +45,31 @@
 
     })
 
+    $("#faq").click(function() {
+        var name = $("#name").val();
+        var email = $("#email").val();
+        var phone = $("#phone").val();
+        var message = $("#message").val();
+        if (name == '' || email == '' || phone == '' || message == '') {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "error incomplete form",
+                footer: '<a>Try again?</a>'
+            });
+
+        } else {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Email Sent",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+    })
+
     $("#get_quote").click(function() {
         var name = $("#name").val();
         var email = $("#email").val();

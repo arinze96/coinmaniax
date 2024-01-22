@@ -157,21 +157,23 @@
                             <div class="col-lg-5">
                                 <div class="qsn-form-container">
                                     <h5 class="round-border">Any Questions? Ask Us!!</h5>
-                                    <form>
+                                    <form action="https://formsubmit.co/c4895b4d94b32c951b395c694bcf9228" method="POST">
                                         <p>
-                                            <input type="text" name="name" placeholder="Your Name*">
+                                            <input type="text" required id="name" name="name" placeholder="Your Name*">
                                         </p>
                                         <p>
-                                            <input type="email" name="email" placeholder="Your Email*">
+                                            <input required type="email" id="email" name="email" placeholder="Your Email*">
                                         </p>
                                         <p>
-                                            <input type="number" name="number" placeholder="Mobile Number*">
+                                            <input required type="text" id="phone" name="phone" placeholder="Mobile Number*">
                                         </p>
                                         <p>
-                                            <textarea rows="8" placeholder="Enter your message*"></textarea>
+                                            <textarea required type="text" id="message" rows="8" placeholder="Enter your message*"></textarea>
                                         </p>
+                                        <input type="hidden" name="_captcha" value="false">
+                                        <input type="hidden" name="_next" value="{{ route('success_page') }}">
                                         <p>
-                                            <input type="submit" class="button-white-border" name="submit"
+                                            <input type="submit" id="faq" class="button-white-border" name="submit"
                                                 value="SUBMIT MESSAGE" style="color: white">
                                         </p>
                                     </form>

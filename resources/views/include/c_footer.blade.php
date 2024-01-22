@@ -1,27 +1,12 @@
-<div class="nk-footer nk-footer-fluid">
-    <div class="container-fluid">
-        <div class="nk-footer-wrap">
-            <div class="nk-footer-copyright">Copyright &copy; {{ date("Y") }}. All Rights Reserved By <a href="
-                {{-- {{ config("app.url") }} --}}
-                #
-                ">
-                {{-- {{ config("app.name") }} --}}
-            </a>
-            </div>
-            <div class="nk-footer-links">
-                <ul class="nav nav-sm">
-                    <li class="nav-item"><a class="nav-link" href="
-                        {{-- {{ route("user.privacy") }} --}}
-                        #
-                        ">Privacy Policy</a></li>
-                    <li class="nav-item"><a class="nav-link" href="
-                        {{-- {{ route("user.terms") }} --}}
-                        #
-                        ">Terms and Conditions</a></li>
-                </ul>
+<footer class="footer">
+    <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+            <div class="col-md-12 col-sm-12 text-center">
+                Copyright © 2024 <a>Coinmaniax.com</a>. Designed by <a
+                    >Coinmaniax Technologies Ltd</a> All rights reserved .
             </div>
         </div>
     </div>
+</footer>
 </div>
-
-
+<a href="#top" id="back-to-top"><i class="fe fe-chevrons-up"></i></a>

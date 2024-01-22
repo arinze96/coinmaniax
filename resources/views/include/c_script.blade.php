@@ -1,205 +1,40 @@
-{{-- <script>
-    // var $site = '{{ config("app.home") }}';
-</script>
-<script src="{{ asset("assets/js/dashboard/bundle.js") }}"></script>
-<script src="{{ asset("assets/js/dashboard/scripts.js") }}"></script>
-<script src="{{ asset("assets/js/dashboard/charts/chart-crypto.js") }}"></script>
- --}}
- <script
- src="https://code.jquery.com/jquery-3.6.3.min.js"
- integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
- crossorigin="anonymous"></script>
-<script src="{{ asset('new/assets/js/core/popper.min.js') }}"></script>
-<script src="{{ asset('new/assets/js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('new/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ asset('new/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
-<script src="{{ asset('new/assets/js/plugins/chartjs.min.js') }}"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="{{ asset("assets/js/customer.js") }}"></script>
-<script>
-    var ctx = document.getElementById("chart-bars").getContext("2d");
+<script src="{{ asset("assets/customer/assets/js/jquery-3.5.1.min.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/bootstrap/popper.min.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/bootstrap/js/bootstrap.min.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/othercharts/jquery.sparkline.min.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/js/circle-progress.min.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/rating/jquery.rating-stars.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/sidemenu/sidemenu.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/p-scrollbar/p-scrollbar.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/p-scrollbar/p-scroll1.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/p-scrollbar/p-scroll.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/peitychart/jquery.peity.min.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/peitychart/peitychart.init.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/js/apexcharts.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/echarts/echarts.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/chart/chart.bundle.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/chart/utils.js") }}"></script>
+    <script src="{{ asset("asset/customer/assets/plugins/select2/select2.full.min.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/js/select2.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/moment/moment.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/js/index1.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/plugins/simplebar/js/simplebar.min.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/js/custom.js") }}"></script>
+    <script src="{{ asset("assets/customer/assets/switcher/js/switcher.js") }}"></script>
+    
 
-    new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            datasets: [{
-                label: "Sales",
-                tension: 0.4,
-                borderWidth: 0,
-                borderRadius: 4,
-                borderSkipped: false,
-                backgroundColor: "#fff",
-                data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-                maxBarThickness: 6
-            }, ],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false,
-                }
-            },
-            interaction: {
-                intersect: false,
-                mode: 'index',
-            },
-            scales: {
-                y: {
-                    grid: {
-                        drawBorder: false,
-                        display: false,
-                        drawOnChartArea: false,
-                        drawTicks: false,
-                    },
-                    ticks: {
-                        suggestedMin: 0,
-                        suggestedMax: 500,
-                        beginAtZero: true,
-                        padding: 15,
-                        font: {
-                            size: 14,
-                            family: "Open Sans",
-                            style: 'normal',
-                            lineHeight: 2
-                        },
-                        color: "#fff"
-                    },
-                },
-                x: {
-                    grid: {
-                        drawBorder: false,
-                        display: false,
-                        drawOnChartArea: false,
-                        drawTicks: false
-                    },
-                    ticks: {
-                        display: false
-                    },
-                },
-            },
-        },
-    });
+    {{-- ////////////////////DATATABLE DATA////////////////////// --}}
 
-
-    var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-    new Chart(ctx2, {
-        type: "line",
-        data: {
-            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            datasets: [{
-                    label: "Mobile apps",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    pointRadius: 0,
-                    borderColor: "#7cc043",
-                    borderWidth: 3,
-                    backgroundColor: gradientStroke1,
-                    fill: true,
-                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                    maxBarThickness: 6
-
-                },
-                {
-                    label: "Websites",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    pointRadius: 0,
-                    borderColor: "#3A416F",
-                    borderWidth: 3,
-                    backgroundColor: gradientStroke2,
-                    fill: true,
-                    data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-                    maxBarThickness: 6
-                },
-            ],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false,
-                }
-            },
-            interaction: {
-                intersect: false,
-                mode: 'index',
-            },
-            scales: {
-                y: {
-                    grid: {
-                        drawBorder: false,
-                        display: true,
-                        drawOnChartArea: true,
-                        drawTicks: false,
-                        borderDash: [5, 5]
-                    },
-                    ticks: {
-                        display: true,
-                        padding: 10,
-                        color: '#b2b9bf',
-                        font: {
-                            size: 11,
-                            family: "Open Sans",
-                            style: 'normal',
-                            lineHeight: 2
-                        },
-                    }
-                },
-                x: {
-                    grid: {
-                        drawBorder: false,
-                        display: false,
-                        drawOnChartArea: false,
-                        drawTicks: false,
-                        borderDash: [5, 5]
-                    },
-                    ticks: {
-                        display: true,
-                        color: '#b2b9bf',
-                        padding: 20,
-                        font: {
-                            size: 11,
-                            family: "Open Sans",
-                            style: 'normal',
-                            lineHeight: 2
-                        },
-                    }
-                },
-            },
-        },
-    });
-</script>
-<script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-        var options = {
-            damping: '0.5'
-        }
-        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-</script>
-
-<script async defer src="{{ asset('new/buttons.github.io/buttons.js') }}"></script>
-
-<script src="{{ asset('new/assets/js/soft-ui-dashboard.minf2ad.js?v=1.0.7') }}"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"
-    integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
-    data-cf-beacon='{"rayId":"788e256399bd0bbf","version":"2022.11.3","r":1,"token":"1b7cbb72744b40c580f8633c6b62637e","si":100}'
-    crossorigin="anonymous"></script>
+		{{-- <script src="{{ asset("assets/customer/assets/plugins/datatable/js/jquery.dataTables.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/js/dataTables.bootstrap4.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/js/dataTables.buttons.min.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/js/buttons.bootstrap4.min.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/js/jszip.min.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/js/pdfmake.min.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/js/vfs_fonts.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/js/buttons.html5.min.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/js/buttons.print.min.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/js/buttons.colVis.min.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/dataTables.responsive.min.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/plugins/datatable/responsive.bootstrap4.min.js") }}"></script>
+		<script src="{{ asset("assets/customer/assets/js/datatables.js") }}"></script> --}}
