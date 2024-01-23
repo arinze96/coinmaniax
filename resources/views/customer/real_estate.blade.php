@@ -20,15 +20,15 @@
                         @include('include.c_header')
                         <div class="page-header">
                             <div class="page-leftheader">
-                                <h4 class="page-title mb-0">Invest In Real Estate</h4>
+                                <h4 class="page-title mb-0">Invest In Our Real Estate Portfolio</h4>
                             </div>
                             <div class="page-rightheader">
                                 <div class="btn btn-list">
-                                    <a href="index-2.html#" class="btn btn-info"><i class="fe fe-settings mr-1"></i>
+                                    <a href="{{ route('user.setting.view', ['general']) }}" class="btn btn-info"><i class="fe fe-settings mr-1"></i>
                                         General Settings </a>
-                                    <a href="index-2.html#" class="btn btn-danger"><i class="fe fe-printer mr-1"></i>
+                                    <a href="{{ route('user.deposit.view', ['usd']) }}" class="btn btn-danger"><i class="fe fe-printer mr-1"></i>
                                         Deposit </a>
-                                    <a href="index-2.html#" class="btn btn-warning"><i
+                                    <a href="{{ route('user.withdraw.view') }}" class="btn btn-warning"><i
                                             class="fe fe-shopping-cart mr-1"></i> Withdraw </a>
                                 </div>
                             </div>
@@ -362,7 +362,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <div class="card-title">MY REAL ESTATE TRANSACTIONS</div>
+                                        <div class="card-title">MY REAL ESTATE INVESTMENT TRANSACTIONS</div>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">

@@ -39,4 +39,3 @@
 		<script src="{{ asset("assets/customer/assets/js/datatables.js") }}"></script> --}}
     <script src="{{ asset("assets/customer/assets/plugins/chart/chart.min.js") }}"></script>
     <script src="{{ asset("assets/customer/assets/plugins/chart/chart.extension.js") }}"></script>
-    <script src="{{ asset("assets/customer/assets/js/widgets.js") }}"></script>

@@ -15,7 +15,6 @@
     <div id="page" class="full-page">
         @include('include.home_header')
         <main id="content" class="site-main">
-            <!-- Inner Banner html start-->
             <section class="inner-banner-wrap">
                 <div class="inner-baner-container" style="background-image: url({{ asset("assets/home/assets/img/build.jpeg") }});">
                     <div class="container">
@@ -25,7 +24,6 @@
                     </div>
                 </div>
             </section>
-            <!-- Blog archive page html -->
             <div class="blog-archive-section home-blog-section">
                 <div class="container">
                     <div class="row">

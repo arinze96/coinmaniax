@@ -19,48 +19,47 @@
             </div>
             <div class="user-info">
                 <h5 class=" mb-1">Jessica <i class="ion-checkmark-circled  text-success fs-12"></i></h5>
-                <span class="text-muted app-sidebar__user-name text-sm">Web Designer</span>
+                <span class="text-muted app-sidebar__user-name text-sm"></span>
             </div>
         </div>
     </div>
     <ul class="side-menu app-sidebar3">
         <li class="side-item side-item-category mt-4">Main</li>
         <li class="slide">
-            <a class="side-menu__item" href="index.html">
+            <a class="side-menu__item" href="{{ route("user.dashboard.view") }}">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                     width="24">
                     <path d="M0 0h24v24H0V0z" fill="none" />
                     <path
                         d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z" />
                 </svg>
-                <span class="side-menu__label">Dashboard</span><span
-                    class="badge badge-danger side-badge">Hot</span></a>
+                <span class="side-menu__label">Dashboard</span></a>
         </li>
 
         {{-- FINANCIAL OPERATIONS --}}
         <li class="side-item side-item-category">Financial Operations </li>
 
         <li class="slide">
-            <a class="side-menu__item" data-toggle="slide" href="index-2.html#">
+            <a class="side-menu__item" data-toggle="slide">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                width="24">
-                <path d="M0 0h24v24H0V0z" fill="none" />
-                <path
-                    d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
-            </svg>
+                    width="24">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                        d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
+                </svg>
                 <span class="side-menu__label">Deposit Funds</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
-                <li><a href="{{ route('user.deposit.view', ['usd']) }}"class="slide-item">DEPOSIT</a></li>
+                <li><a href="{{ route('user.deposit.view', ['usd']) }}" class="slide-item">DEPOSIT</a></li>
             </ul>
         </li>
         <li class="slide">
-            <a class="side-menu__item" data-toggle="slide" href="index.html">
+            <a class="side-menu__item" data-toggle="slide">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                width="24">
-                <path d="M0 0h24v24H0V0z" fill="none" />
-                <path
-                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
-            </svg>
+                    width="24">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
+                </svg>
                 <span class="side-menu__label">Withdraw Funds</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
                 <li><a href="{{ route('user.withdraw.view') }}" class="slide-item">WITHDRAW</a></li>
@@ -72,15 +71,15 @@
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="index-2.html#">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                width="24">
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                    d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67 0 1.38-1.12 2.5-2.5 2.5zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5 0-.16-.08-.28-.14-.35-.41-.46-.63-1.05-.63-1.65 0-1.38 1.12-2.5 2.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z" />
-                <circle cx="6.5" cy="11.5" r="1.5" />
-                <circle cx="9.5" cy="7.5" r="1.5" />
-                <circle cx="14.5" cy="7.5" r="1.5" />
-                <circle cx="17.5" cy="11.5" r="1.5" />
-            </svg>
+                    width="24">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                        d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67 0 1.38-1.12 2.5-2.5 2.5zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5 0-.16-.08-.28-.14-.35-.41-.46-.63-1.05-.63-1.65 0-1.38 1.12-2.5 2.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z" />
+                    <circle cx="6.5" cy="11.5" r="1.5" />
+                    <circle cx="9.5" cy="7.5" r="1.5" />
+                    <circle cx="14.5" cy="7.5" r="1.5" />
+                    <circle cx="17.5" cy="11.5" r="1.5" />
+                </svg>
                 <span class="side-menu__label">Agriculture</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
                 <li><a href="{{ route('customer.agriculture') }}" class="slide-item">Agriculture</a></li>
@@ -97,7 +96,7 @@
                 </svg>
                 <span class="side-menu__label">Real Estate</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
-                <li><a href="{{ route('customer.real_estate') }}" class="slide-item">Real Estate</a></li>
+                <li><a href="{{ route('customer.real_estate') }}" class="slide-item">REAL ESTATE</a></li>
             </ul>
         </li>
         <li class="slide">
@@ -109,9 +108,9 @@
                         d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z" />
                 </svg>
                 <span class="side-menu__label">Loans</span><i class="angle fa fa-angle-right"></i></a>
-                <ul class="slide-menu">
-                    <li><a href="{{ route('customer.loan') }}" class="slide-item">Soft Loans</a></li>
-                </ul>
+            <ul class="slide-menu">
+                <li><a href="{{ route('customer.loan') }}" class="slide-item">SOFT LOANS</a></li>
+            </ul>
         </li>
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="index-2.html#">
@@ -123,8 +122,7 @@
                 </svg>
                 <span class="side-menu__label">Project Funding</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
-                <li><a href="accordion.html" class="slide-item"> Accordion</a></li>
-                <li><a href="alerts.html" class="slide-item"> Alerts</a></li>
+                <li><a href="{{ route('customer.project_funding') }}" class="slide-item"> PROJECT FUNDING</a></li>
             </ul>
         </li>
         <li class="slide">
@@ -137,8 +135,7 @@
                 </svg>
                 <span class="side-menu__label">Stocks</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
-                <li><a href="elements-border.html" class="slide-item"> Border</a></li>
-                <li><a href="element-colors.html" class="slide-item"> Colors</a></li>
+                <li><a href="{{ route('customer.stocks') }}" class="slide-item"> Stocks Trade</a></li>
             </ul>
         </li>
         <li class="slide">
@@ -151,8 +148,7 @@
                 </svg>
                 <span class="side-menu__label">Retirment Plans</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
-                <li><a href="tables.html" class="slide-item">Default table</a></li>
-                <li><a href="datatable.html" class="slide-item">Data Table</a></li>
+                <li><a href="{{ route('user.retirement_account') }}" class="slide-item">Retirement Plans</a></li>
             </ul>
         </li>
         <li class="slide">
@@ -165,16 +161,7 @@
                 </svg>
                 <span class="side-menu__label">Crypto Investment</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
-                <li class="sub-slide">
-                    <a class="sub-side-menu__item" data-toggle="sub-slide" href="index-2.html#"><span
-                            class="sub-side-menu__label">Profile</span><i
-                            class="sub-angle fe fe-chevron-down"></i></a>
-                    <ul class="sub-slide-menu">
-                        <li><a class="sub-slide-item" href="profile-1.html">Profile 01</a></li>
-                        <li><a class="sub-slide-item" href="profile-2.html">Profile 02</a></li>
-                        <li><a class="sub-slide-item" href="profile-3.html">Profile 03</a></li>
-                    </ul>
-                </li>
+                <li><a class="sub-slide-item" href="{{ route('customer.crypto_invest') }}">CRYPTO INVESTMENT</a></li>
             </ul>
         </li>
 
@@ -190,65 +177,20 @@
                 </svg>
                 <span class="side-menu__label">Settings</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
-                <li class="sub-slide">
-                    <a class="sub-side-menu__item" data-toggle="sub-slide" href="index-2.html#"><span
-                            class="sub-side-menu__label">Register</span><i
-                            class="sub-angle fe fe-chevron-down"></i></a>
-                    <ul class="sub-slide-menu">
-                        <li><a class="sub-slide-item" href="register-1.html">Register 01</a></li>
-                        <li><a class="sub-slide-item" href="register-2.html">Register 02</a></li>
-                        <li><a class="sub-slide-item" href="register-3.html">Register 03</a></li>
-                    </ul>
-                </li>
-                <li class="sub-slide">
-                    <a class="sub-side-menu__item" data-toggle="sub-slide" href="index-2.html#"><span
-                            class="sub-side-menu__label">Login</span><i class="sub-angle fe fe-chevron-down"></i></a>
-                    <ul class="sub-slide-menu">
-                        <li><a class="sub-slide-item" href="login-1.html">Login 01</a></li>
-                        <li><a class="sub-slide-item" href="login-2.html">Login 02</a></li>
-                        <li><a class="sub-slide-item" href="login-3.html">Login 03</a></li>
-                    </ul>
-                </li>
-                <li class="sub-slide">
-                    <a class="sub-side-menu__item" data-toggle="sub-slide" href="index-2.html#"><span
-                            class="sub-side-menu__label">Forget Password</span><i
-                            class="sub-angle fe fe-chevron-down"></i></a>
-                    <ul class="sub-slide-menu">
-                        <li><a class="sub-slide-item" href="forgot-password-1.html">Forget Password 01</a>
-                        </li>
-                        <li><a class="sub-slide-item" href="forgot-password-2.html">Forget Password 02</a>
-                        </li>
-                        <li><a class="sub-slide-item" href="forgot-password-3.html">Forget Password 03</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-slide">
-                    <a class="sub-side-menu__item" data-toggle="sub-slide" href="index-2.html#"><span
-                            class="sub-side-menu__label">Reset Password</span><i
-                            class="sub-angle fe fe-chevron-down"></i></a>
-                    <ul class="sub-slide-menu">
-                        <li><a class="sub-slide-item" href="reset-password-1.html">Reset Password 01</a>
-                        </li>
-                        <li><a class="sub-slide-item" href="reset-password-2.html">Reset Password 02</a>
-                        </li>
-                        <li><a class="sub-slide-item" href="reset-password-3.html">Reset Password 03</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sub-slide">
-                    <a class="sub-side-menu__item" data-toggle="sub-slide" href="index-2.html#"><span
-                            class="sub-side-menu__label">Lock Screen</span><i
-                            class="sub-angle fe fe-chevron-down"></i></a>
-                    <ul class="sub-slide-menu">
-                        <li><a class="sub-slide-item" href="lockscreen-1.html">Lock Screen 01</a></li>
-                        <li><a class="sub-slide-item" href="lockscreen-2.html">Lock Screen 02</a></li>
-                        <li><a class="sub-slide-item" href="lockscreen-3.html">Lock Screen 03</a></li>
-                    </ul>
-                </li>
-                <li><a href="construction.html" class="slide-item"> Under Construction</a></li>
-                <li><a href="coming.html" class="slide-item"> Coming Soon</a></li>
+                <li><a class="sub-slide-item" href="{{ route('user.setting.view', ['general']) }}">PROFILE SETTINGS
+                    </a></li>
+            </ul>
+            <ul class="slide-menu">
+                <li><a class="sub-slide-item" href="{{ route('user.setting.view', ['payment']) }}">PAYMENT DATA
+                        SETTINGS</a></li>
+            </ul>
+            <ul class="slide-menu">
+                <li><a class="sub-slide-item" href="{{ route('user.setting.view', ['security']) }}">ACCOUNT SECURITY
+                    </a></li>
             </ul>
         </li>
+
+        <li class="side-item side-item-category">Logout</li>
         <li class="slide">
             <a class="side-menu__item" data-toggle="slide" href="index-2.html#">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
@@ -257,7 +199,11 @@
                     <path
                         d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
                 </svg>
-                <span class="side-menu__label">Logout</span></a>
+                <span class="side-menu__label">Logout</span><i class="angle fa fa-angle-right"></i></a>
+            <ul class="slide-menu">
+                <li><a class="sub-slide-item"  href="{{ route("user.logout.view") }}">LOGOUT
+                    </a></li>
+            </ul>
         </li>
     </ul>
 </aside>

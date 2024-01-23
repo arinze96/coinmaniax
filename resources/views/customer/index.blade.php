@@ -12,34 +12,28 @@
         <div id="global-loader">
             <img src="{{ asset('assets/customer/assets/images/svgs/loader.svg') }}" alt="loader">
         </div>
-        <!--- End Global-loader-->
-        <!-- Page -->
         <div class="page">
             <div class="page-main">
                 @include('include.c_sidebar')
-                <!--aside closed--> <!-- App-Content -->
                 <div class="app-content main-content">
                     <div class="side-app">
-                        <!--app header-->
                         @include('include.c_header')
-                        <!--/app header--> <!--Page header-->
                         <div class="page-header">
                             <div class="page-leftheader">
                                 <h4 class="page-title mb-0">Hi! Welcome Back</h4>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index-2.html#"><i
                                                 class="fe fe-home mr-2 fs-14"></i>Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page"><a
-                                            href="index-2.html#">Client Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"><a>Client Dashboard</a></li>
                                 </ol>
                             </div>
                             <div class="page-rightheader">
                                 <div class="btn btn-list">
-                                    <a href="index-2.html#" class="btn btn-info"><i class="fe fe-settings mr-1"></i>
+                                    <a href="{{ route('user.setting.view', ['general']) }}" class="btn btn-info"><i class="fe fe-settings mr-1"></i>
                                         General Settings </a>
-                                    <a href="index-2.html#" class="btn btn-danger"><i class="fe fe-printer mr-1"></i>
+                                    <a href="{{ route('user.deposit.view', ['usd']) }}" class="btn btn-danger"><i class="fe fe-printer mr-1"></i>
                                         Deposit </a>
-                                    <a href="index-2.html#" class="btn btn-warning"><i
+                                    <a href="{{ route('user.withdraw.view') }}" class="btn btn-warning"><i
                                             class="fe fe-shopping-cart mr-1"></i> Withdraw </a>
                                 </div>
                             </div>
@@ -48,11 +42,10 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
                                 <div class="card overflow-hidden dash1-card border-0">
                                     <div class="card-body">
-                                        <p class=" mb-1 ">Total Sales</p>
-                                        <h2 class="mb-1 number-font">$3,257</h2>
+                                        <p class="mb-1">Total Investment</p>
+                                        <h2 class="mb-1 number-font">$0.00</h2>
                                         <small class="fs-12 text-muted">Compared to Last Month</small>
-                                        <span class="ratio bg-warning">76%</span>
-                                        <span class="ratio-text text-muted">Goals Reached</span>
+                                        <span class="ratio bg-warning">100%</span>
                                     </div>
                                     <div id="spark1"></div>
                                 </div>
@@ -60,11 +53,10 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
                                 <div class="card overflow-hidden dash1-card border-0">
                                     <div class="card-body">
-                                        <p class=" mb-1 ">Total User</p>
-                                        <h2 class="mb-1 number-font">1,678</h2>
+                                        <p class="mb-1">Total Withdrawal</p>
+                                        <h2 class="mb-1 number-font">$0.00</h2>
                                         <small class="fs-12 text-muted">Compared to Last Month</small>
-                                        <span class="ratio bg-info">85%</span>
-                                        <span class="ratio-text text-muted">Goals Reached</span>
+                                        <span class="ratio bg-info">100%</span>
                                     </div>
                                     <div id="spark2"></div>
                                 </div>
@@ -72,11 +64,10 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
                                 <div class="card overflow-hidden dash1-card border-0">
                                     <div class="card-body">
-                                        <p class=" mb-1 ">Total Income</p>
-                                        <h2 class="mb-1 number-font">$2,590</h2>
+                                        <p class="mb-1">Total Investment</p>
+                                        <h2 class="mb-1 number-font">$0.00</h2>
                                         <small class="fs-12 text-muted">Compared to Last Month</small>
-                                        <span class="ratio bg-danger">62%</span>
-                                        <span class="ratio-text text-muted">Goals Reached</span>
+                                        <span class="ratio bg-danger">100%</span>
                                     </div>
                                     <div id="spark3"></div>
                                 </div>
@@ -84,56 +75,44 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
                                 <div class="card overflow-hidden dash1-card border-0">
                                     <div class="card-body">
-                                        <p class=" mb-1">Total Tax</p>
-                                        <h2 class="mb-1 number-font">$1,954</h2>
+                                        <p class="mb-1">Total Tax</p>
+                                        <h2 class="mb-1 number-font">$0.00</h2>
                                         <small class="fs-12 text-muted">Compared to Last Month</small>
-                                        <span class="ratio bg-success">53%</span>
-                                        <span class="ratio-text text-muted">Goals Reached</span>
+                                        <span class="ratio bg-success">100%</span>
                                     </div>
                                     <div id="spark4"></div>
                                 </div>
                             </div>
                         </div>
-                        <!-- End Row-1 -->
 
-                        <!-- Row-2 -->
                         <div class="row">
                             <div class="col-xl-8 col-lg-8 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Sales Analysis</h3>
-                                        <div class="card-options">
-                                            <div class="btn-group p-0">
-                                                <button class="btn btn-outline-light btn-sm"
-                                                    type="button">Week</button>
-                                                <button class="btn btn-light btn-sm" type="button">Month</button>
-                                                <button class="btn btn-outline-light btn-sm"
-                                                    type="button">Year</button>
-                                            </div>
-                                        </div>
+                                        <h3 class="card-title">Coinmaniax Investment Analysis</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row mb-3">
                                             <div class="col-xl-3 col-6">
-                                                <p class="mb-1">Total Sales</p>
-                                                <h3 class="mb-0 fs-20 number-font1">$52,618</h3>
+                                                <p class="mb-1">Total Investment Amount</p>
+                                                <h3 class="mb-0 fs-20 number-font1">$3,552,618</h3>
                                                 <p class="fs-12 text-muted"><span class="text-danger mr-1"><i
                                                             class="fe fe-arrow-down"></i>0.9%</span>this month</p>
                                             </div>
                                             <div class="col-xl-3 col-6 ">
-                                                <p class=" mb-1">Maximum Sales</p>
+                                                <p class=" mb-1">Individual Investment</p>
                                                 <h3 class="mb-0 fs-20 number-font1">$26,197</h3>
                                                 <p class="fs-12 text-muted"><span class="text-success mr-1"><i
                                                             class="fe fe-arrow-up"></i>0.15%</span>this month</p>
                                             </div>
                                             <div class="col-xl-3 col-6">
-                                                <p class=" mb-1">Total Units Sold</p>
+                                                <p class=" mb-1">Total Assets Investments</p>
                                                 <h3 class="mb-0 fs-20 number-font1">13,876</h3>
                                                 <p class="fs-12 text-muted"><span class="text-danger mr-1"><i
                                                             class="fe fe-arrow-down"></i>0.8%</span>this month</p>
                                             </div>
                                             <div class="col-xl-3 col-6">
-                                                <p class=" mb-1">Maximum Units Sold</p>
+                                                <p class=" mb-1">Total Investors</p>
                                                 <h3 class="mb-0 fs-20 number-font1">5,876</h3>
                                                 <p class="fs-12 text-muted"><span class="text-success mr-1"><i
                                                             class="fe fe-arrow-up"></i>0.06%</span>this month</p>
@@ -151,18 +130,7 @@
                             <div class="col-xl-4 col-lg-4 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Recent Activity</h3>
-                                        <div class="card-options">
-                                            <a href="index-2.html#" class="option-dots" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false"><i
-                                                    class="fe fe-more-horizontal fs-20"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="index-2.html#">Today</a>
-                                                <a class="dropdown-item" href="index-2.html#">Last Week</a>
-                                                <a class="dropdown-item" href="index-2.html#">Last Month</a>
-                                                <a class="dropdown-item" href="index-2.html#">Last Year</a>
-                                            </div>
-                                        </div>
+                                        <h3 class="card-title">Recent Customer Activity</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="latest-timeline scrollbar3" id="scrollbar3">
@@ -240,25 +208,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Row-2 -->
-
-                        <!-- Row-3 -->
                         <div class="row">
                             <div class="col-xl-4 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Recent Customers</h3>
-                                        <div class="card-options">
-                                            <a href="index-2.html#" class="option-dots" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false"><i
-                                                    class="fe fe-more-horizontal fs-20"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="index-2.html#">Today</a>
-                                                <a class="dropdown-item" href="index-2.html#">Last Week</a>
-                                                <a class="dropdown-item" href="index-2.html#">Last Month</a>
-                                                <a class="dropdown-item" href="index-2.html#">Last Year</a>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="card-body">
                                         <div class="list-card">
@@ -378,17 +332,6 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Revenue by customers in Countries</h3>
-                                        <div class="card-options">
-                                            <a href="index-2.html#" class="option-dots" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false"><i
-                                                    class="fe fe-more-horizontal fs-20"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="index-2.html#">Today</a>
-                                                <a class="dropdown-item" href="index-2.html#">Last Week</a>
-                                                <a class="dropdown-item" href="index-2.html#">Last Month</a>
-                                                <a class="dropdown-item" href="index-2.html#">Last Year</a>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="card-body">
                                         <div class="country-card">
@@ -499,8 +442,8 @@
                                     <div class="card-body">
                                         <div class="d-flex align-items-end justify-content-between">
                                             <div>
-                                                <p class=" mb-1 fs-14">Users</p>
-                                                <h2 class="mb-0"><span class="number-font1">12,769</span><span
+                                                <p class=" mb-1 fs-14">Total Users</p>
+                                                <h2 class="mb-0"><span class="number-font1">112,769</span><span
                                                         class="ml-2 text-muted fs-11"><span class="text-danger"><i
                                                                 class="fa fa-caret-down"></i> 43.2</span> this
                                                         month</span></h2>
@@ -514,7 +457,7 @@
                                             <div>
                                                 <span class="text-muted fs-12 mr-1">Last Month</span>
                                                 <span class="number-font fs-12"><i
-                                                        class="fa fa-caret-up mr-1 text-success"></i>10,876</span>
+                                                        class="fa fa-caret-up mr-1 text-success"></i>90,876</span>
                                             </div>
                                             <div class="ml-auto">
                                                 <span class="text-muted fs-12 mr-1">Last Year</span>
@@ -528,8 +471,8 @@
                                     <div class="card-body">
                                         <div class="d-flex align-items-end justify-content-between">
                                             <div>
-                                                <p class=" mb-1 fs-14">Sales</p>
-                                                <h2 class="mb-0"><span class="number-font1">$34,789</span><span
+                                                <p class=" mb-1 fs-14">Daily Investment</p>
+                                                <h2 class="mb-0"><span class="number-font1">$344,789</span><span
                                                         class="ml-2 text-muted fs-11"><span class="text-success"><i
                                                                 class="fa fa-caret-up"></i> 19.8</span> this
                                                         month</span>
@@ -543,12 +486,12 @@
                                             <div>
                                                 <span class="text-muted fs-12 mr-1">Last Month</span>
                                                 <span class="number-font fs-12"><i
-                                                        class="fa fa-caret-up mr-1 text-success"></i>$12,786</span>
+                                                        class="fa fa-caret-up mr-1 text-success"></i>$1,112,786</span>
                                             </div>
                                             <div class="ml-auto">
                                                 <span class="text-muted fs-12 mr-1">Last Year</span>
                                                 <span class="number-font fs-12"><i
-                                                        class="fa fa-caret-down mr-1 text-danger"></i>$89,987</span>
+                                                        class="fa fa-caret-down mr-1 text-danger"></i>$899,987</span>
                                             </div>
                                         </div>
                                     </div>
@@ -557,7 +500,7 @@
                                     <div class="card-body">
                                         <div class="d-flex align-items-end justify-content-between">
                                             <div>
-                                                <p class=" mb-1 fs-14">Subscribers</p>
+                                                <p class=" mb-1 fs-14">Loan Applications</p>
                                                 <h2 class="mb-0"><span class="number-font1">4,876</span><span
                                                         class="ml-2 text-muted fs-11"><span class="text-success"><i
                                                                 class="fa fa-caret-up"></i> 0.8%</span> this
@@ -645,11 +588,9 @@
 
                     </div>
                 </div>
-                <!-- End app-content-->
             </div>
-            <!--Footer-->
             @include('include.c_footer')
-            @include('include.c_script')
+            @include('include.c_script1')
 </body>
 
 </html>

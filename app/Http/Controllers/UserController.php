@@ -246,6 +246,22 @@ class UserController extends Controller
         return view("customer.real_estate");
     }
 
+    public function CustomerStocks(Request $request)
+    {
+        return view("customer.stocks");
+    }
+
+    public function CustomerCrypto(Request $request)
+    {
+        return view("customer.crypto_invest");
+    }
+
+    public function customerProjectFunding(Request $request)
+    {
+        return view("customer.project_funding");
+    }
+    
+
     public function index(Request $request)
     {
         // $Plans = Plan::orderBy('created_at', 'DESC')->get();

@@ -20,15 +20,13 @@
                         @include('include.c_header')
                         <div class="page-header">
                             <div class="page-leftheader">
-                                <h4 class="page-title mb-0">Invest In Your Retirement</h4>
+                                <h4 class="page-title mb-0">Invest In The Projects We Fund</h4>
                             </div>
                             <div class="page-rightheader">
                                 <div class="btn btn-list">
-                                    <a href="{{ route('user.setting.view', ['general']) }}" class="btn btn-info"><i
-                                            class="fe fe-settings mr-1"></i>
+                                    <a href="{{ route('user.setting.view', ['general']) }}" class="btn btn-info"><i class="fe fe-settings mr-1"></i>
                                         General Settings </a>
-                                    <a href="{{ route('user.deposit.view', ['usd']) }}" class="btn btn-danger"><i
-                                            class="fe fe-printer mr-1"></i>
+                                    <a href="{{ route('user.deposit.view', ['usd']) }}" class="btn btn-danger"><i class="fe fe-printer mr-1"></i>
                                         Deposit </a>
                                     <a href="{{ route('user.withdraw.view') }}" class="btn btn-warning"><i
                                             class="fe fe-shopping-cart mr-1"></i> Withdraw </a>
@@ -36,67 +34,54 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xl-4 col-md-12 col-lg-6">
-                                <div class="card overflow-hidden">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="mb-1">Coinmaniax 401(k)</p>
-                                                <h2 class="mb-0 font-weight-bold">$0.00</h2>
-                                            </div>
-                                            <div class="col">
-                                                <div id="spark1"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-12 col-lg-6">
-                                <div class="card overflow-hidden">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="mb-1">Coinmaniax IRA(s)</p>
-                                                <h2 class="mb-0 font-weight-bold">$0.00</h2>
-                                            </div>
-                                            <div class="col">
-                                                <div id="spark2"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-md-12 col-lg-6">
-                                <div class="card overflow-hidden">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="mb-1">Fixed Annuities</p>
-                                                <h2 class="mb-0 font-weight-bold">$0.00</h2>
-                                            </div>
-                                            <div class="col">
-                                                <div id="spark3"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+							<div class="col-md-12 col-xl-3 col-lg-6">
+								<div class="card text-center">
+									<div class="card-body"> <span>Our Global Funded Building Projects</span>
+									  <h1 class=" mb-1 mt-1 font-weight-bold">6,532</h1>
+									  <div class="text-muted"><i class="si si-arrow-up-circle text-danger"></i> <span class="">15%</span> Increase</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 col-xl-3 col-lg-6">
+								<div class="card text-center">
+									<div class="card-body"> <span>Our Global Funded Energy Projects</span>
+									  <h1 class=" mb-1 mt-1 font-weight-bold">5,835</h1>
+									  <div class="text-muted"><i class="si si-arrow-up-circle text-success"></i> <span class="">22%</span> Increase</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 col-xl-3 col-lg-6">
+								<div class="card text-center">
+									<div class="card-body"> <span>Our Global Funded Health Projects</span>
+									  <h1 class=" mb-1 mt-1 font-weight-bold">9,588</h1>
+									  <div class="text-muted"><i class="si si-arrow-up-circle text-success"></i> <span class="">32%</span> Increase</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 col-xl-3 col-lg-6">
+								<div class="card text-center">
+									<div class="card-body"> <span>Our Global Funded Charity Projects</span>
+									  <h1 class=" mb-1 mt-1 font-weight-bold">1,200</h1>
+									  <div class="text-muted"><i class="si si-arrow-up-circle text-warning"></i> <span class=""></span> Increase from 1,108 to 1,200</div>
+									</div>
+								</div>
+							</div>
+						</div>
                         <div class="row">
                             <div class="col-md-12 col-xl-4">
                                 <div class="card overflow-hidden">
                                     <a href="#"><img class="card-img-top  "
-                                            src="{{ asset('assets/customer/assets/images/photos/rtt1.png') }}"
+                                            src="{{ asset('assets/customer/assets/images/photos/pf4.png') }}"
                                             alt="img"></a>
                                     <div class="card-body d-flex flex-column">
-                                        <h4 class="font-weight-bold"><a>Coinmaniax 401(k)</a></h4>
+                                        <h4 class="font-weight-bold"><a>Community Infrastructure & Project</a></h4>
                                         <div class="text-muted"
-                                            style="padding-bottom: 10px; border-bottom: 1px solid #dfcfcf;">A 401(k) plan is a widely-utilized retirement savings tool offered by many employers in the United States. It is named after the section of the U.S. Internal Revenue Code that governs it. This type of plan allows employees to save and invest a portion of their paycheck before taxes are taken out. Here are key aspects of 401(k) plans
+                                            style="padding-bottom: 10px; border-bottom: 1px solid #dfcfcf;">Strengthen communities against disasters by funding projects that build resilient infrastructure, early warning systems, and community preparedness programs.
                                         </div>
                                         <div class="p-3 br-3 mt-4 text-center" style="background-color: #fff">
                                             <div>
                                                 <h1 class="plan-price padding-b-15 display-4 mb-0 font-weight-semibold">
-                                                    $9,119
+                                                    $150,000
                                                     <span class="text-muted m-l-10"
                                                         style="font-size: 20px; color: #000"><sup
                                                             style="color: #000">MAX</sup></span>
@@ -104,10 +89,10 @@
                                                 <div class="plan-div-border"></div>
                                             </div>
                                             <div class="plan-features pb-4 mt-4 text-muted padding-t-b-30">
-                                                <p><strong>$3000</strong>: MIN</p>
+                                                <p><strong>$5,000</strong>: MIN</p>
                                                 <p><strong>Type:</strong>currency-swap</p>
                                                 <p><strong>Duration:</strong> 30 days</p>
-                                                <p><strong>ROI:</strong> 25%</p>
+                                                <p><strong>ROI:</strong> 35%</p>
                                                 <p><strong>Currency:</strong> USD</p>
                                                 <p><strong>24/7</strong> Support</p>
                                                 <div class="input-group mb-3">
@@ -126,18 +111,20 @@
                             <div class="col-md-12 col-xl-4">
                                 <div class="card overflow-hidden">
                                     <a href="#"><img class="card-img-top "
-                                            src="{{ asset('assets/customer/assets/images/photos/rtt2.png') }}"
+                                            src="{{ asset('assets/customer/assets/images/photos/pf3.png') }}"
                                             alt="img"></a>
                                     <div class="card-body d-flex flex-column">
-                                        <h4 class="font-weight-bold"><a>Fixed Index Annuities</a>
+                                        <h4 class="font-weight-bold"><a>Renewable Energy Revolution</a>
                                         </h4>
                                         <div class="text-muted"
-                                            style="padding-bottom: 10px; border-bottom: 1px solid #dfcfcf;">An annuity is a type of insurance contract that can supplement your retirement savings. There are many forms of annuities to choose from, but we believe that fixed annuities are your best choice. Fixed annuities are easier to understand and compare to one another than some different kinds of annuity contracts, like indexed or variable annuities. 
+                                            style="padding-bottom: 10px; border-bottom: 1px solid #dfcfcf;">We fund startups that harness clean energy sources for a sustainable future, investing in solar, wind, and innovative green technologies. We invest in high growth renewable energy startups
+
                                         </div>
                                         <div class="p-3 br-3 mt-4 text-center" style="background-color: #fff">
                                             <div>
-                                                <h1 class="plan-price padding-b-15 display-4 mb-0 font-weight-semibold">
-                                                    $3,500
+                                                <h1
+                                                    class="plan-price padding-b-15 display-4 mb-0 font-weight-semibold">
+                                                    $1,000,000
                                                     <span class="text-muted m-l-10"
                                                         style="font-size: 20px; color: #000"><sup
                                                             style="color: #000">MAX</sup></span>
@@ -145,10 +132,10 @@
                                                 <div class="plan-div-border"></div>
                                             </div>
                                             <div class="plan-features pb-4 mt-4 text-muted padding-t-b-30">
-                                                <p><strong>$750</strong>: MIN</p>
+                                                <p><strong>$20,000</strong>: MIN</p>
                                                 <p><strong>Type:</strong>currency-swap</p>
                                                 <p><strong>Duration:</strong> 30 days</p>
-                                                <p><strong>ROI:</strong> 25%</p>
+                                                <p><strong>ROI:</strong> 35%</p>
                                                 <p><strong>Currency:</strong> USD</p>
                                                 <p><strong>24/7</strong> Support</p>
                                                 <div class="input-group mb-3">
@@ -167,19 +154,19 @@
                             <div class="col-md-12 col-xl-4">
                                 <div class="card overflow-hidden">
                                     <a href="#"><img class="card-img-top "
-                                            src="{{ asset('assets/customer/assets/images/photos/rtt3.png') }}"
+                                            src="{{ asset('assets/customer/assets/images/photos/pf2.png') }}"
                                             alt="img"></a>
                                     <div class="card-body d-flex flex-column">
-                                        <h4 class="font-weight-bold"><a>Coinmaniax IRA(s)</a></h4>
+                                        <h4 class="font-weight-bold"><a href="#">Healthcare Innovations Fund</a></h4>
                                         <div class="text-muted"
-                                            style="padding-bottom: 10px; border-bottom: 1px solid #dfcfcf;">Individual Retirement Accounts (IRAs) are tax-advantaged accounts that allow individuals in the United States to save for retirement. They are a critical component of many people's retirement plans, offering various tax benefits and investment opportunities. Here are the key features of IRAs
+                                            style="padding-bottom: 10px; border-bottom: 1px solid #dfcfcf;">We Support breakthrough medical solutions, advancing healthcare accessibility, and technology-driven innovations for a healthier and more connected world
                                         </div>
 
                                         <div class="p-3 br-3 mt-4 text-center" style="background-color: #fff">
                                             <div>
                                                 <h1
                                                     class="plan-price padding-b-15 display-4 mb-0 font-weight-semibold">
-                                                    $1,850
+                                                    $500,000
                                                     <span class="text-muted m-l-10"
                                                         style="font-size: 20px; color: #000"><sup
                                                             style="color: #000">MAX</sup></span>
@@ -187,10 +174,10 @@
                                                 <div class="plan-div-border"></div>
                                             </div>
                                             <div class="plan-features pb-4 mt-4 text-muted padding-t-b-30">
-                                                <p><strong>$300</strong>: MIN</p>
+                                                <p><strong>$50,000</strong>: MIN</p>
                                                 <p><strong>Type:</strong>currency-swap</p>
                                                 <p><strong>Duration:</strong> 30 days</p>
-                                                <p><strong>ROI:</strong> 25%</p>
+                                                <p><strong>ROI:</strong> 35%</p>
                                                 <p><strong>Currency:</strong> USD</p>
                                                 <p><strong>24/7</strong> Support</p>
                                                 <div class="input-group mb-3">
@@ -207,12 +194,12 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- /////////////////// AGRITECH TRANSACTIONS////////////////////////// --}}
+                        {{-- /////////////////// PROJECT FUNDING TRANSACTIONS////////////////////////// --}}
                         <div class="row" style="margin-top: 30px;">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <div class="card-title">MY RETIREMENT INVESTMENT TRANSACTIONS</div>
+                                        <div class="card-title">MY PROJECT FUNDING TRANSACTIONS</div>
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
@@ -261,12 +248,14 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--/div-->
                             </div>
                         </div>
-
                     </div>
                 </div>
+                <!-- End app-content-->
             </div>
+            <!--Footer-->
             @include('include.c_footer')
             @include('include.c_script')
 </body>

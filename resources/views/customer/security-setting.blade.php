@@ -1,179 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<html lang="en" dir="ltr">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-    <title>Gloryinvestmentlimited</title>
     @include('include.c_css')
-    <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/dropzone.min.css') }}">
-
-
 </head>
 
-<body class="g-sidenav-show  bg-gray-100">
-
-
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-
-    @include('include.c_sidebar')
-
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-
-        @include('include.c_header')
-
-        <main class="main-content  mt-0">
-            <section class="min-vh-100 mb-8">
-                <div class="container" style="margin-top: 100px">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-8 col-md-8 mx-auto">
-                            <div class="card z-index-0">
-                                <div class="card-header text-center pt-4">
-                                    <h3>Transaction Pin Reset Section</h3>
-                                </div>
-
-
-
-                                <div class="card-body">
-                                    <form action="{{ route('user.setting.view', ['security']) }}" method="POST">
-                                        @csrf
-                                        <div class="col-sm-12  form-row">
-                                            @if (!empty($success))
-                                                <span class="info_box text-success">{{ $success }}</span>
-                                            @endif
-                                        </div>
-                                        <div class="col-sm-12  form-row">
-                                            @if (!empty($error))
-                                                <span class="info_box text-danger">{{ $error }}</span>
-                                            @endif
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-12 mb-2">
-                                            <div class="form-group">
-                                                <label class="form-label" for="current_pin">Current
-                                                    Pin</label>
-                                                <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" name="current_pin"
-                                                        value="{{ old('current_pin') }}"
-                                                        placeholder="Enter Current Pin">
-                                                </div>
-                                                @error('current_pin')
-                                                    <span class="text-danger" id="error_name">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-12 mb-2">
-                                            <div class="form-group">
-                                                <label class="form-label" for="new_pin">New
-                                                    Pin</label>
-                                                <div class="form-control-wrap">
-                                                    <input type="text" class="form-control" name="new_pin"
-                                                        value="{{ old('new_pin') }}" placeholder="Enter new Pin">
-                                                </div>
-                                                @error('new_pin')
-                                                    <span class="text-danger" id="error_name">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-12 mt-3">
-                                            <div class="form-group">
-                                                <div class="form-control-wrap">
-                                                    <button type="submit" style="text-align:center;"
-                                                        class="d-block bg-gradient-primary form-control btn btn-primary "
-                                                        id="edit-plan">Change Pin</button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </form>
+<body class="app sidebar-mini">
+    <div class="switcher-wrapper">
+        @include('include.switcher')
+        <div id="global-loader">
+            <img src="{{ asset('assets/customer/assets/images/svgs/loader.svg') }}" alt="loader">
+        </div>
+        <div class="page">
+            <div class="page-main">
+                @include('include.c_sidebar')
+                <div class="app-content main-content">
+                    <div class="side-app">
+                        @include('include.c_header')
+                        <div class="page-header">
+                            <div class="page-leftheader">
+                                <h4 class="page-title mb-0">Edit Security Details</h4>
+                            </div>
+                            <div class="page-rightheader">
+                                <div class="btn btn-list">
+                                    <a href="{{ route('user.setting.view', ['general']) }}" class="btn btn-info"><i class="fe fe-settings mr-1"></i>
+                                        General Settings </a>
+                                    <a href="{{ route('user.deposit.view', ['usd']) }}" class="btn btn-danger"><i class="fe fe-printer mr-1"></i>
+                                        Deposit </a>
+                                    <a href="{{ route('user.withdraw.view') }}" class="btn btn-warning"><i
+                                            class="fe fe-shopping-cart mr-1"></i> Withdraw </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-6 col-lg-8 col-md-8 mx-auto">
-                            <div class="card z-index-0">
-                                <div class="card-header text-center pt-4">
-                                    <h3>Password Reset Section</h3>
+                        <!--End Page header-->
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-xl-9 col-lg-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title">Edit Password</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="form-label">Change Password</label>
+                                            <input type="password" class="form-control" value="password" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">New Password</label>
+                                            <input type="password" class="form-control" value="password" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Confirm Password</label>
+                                            <input type="password" class="form-control" value="password" />
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <a href="#" class="btn btn-primary">Updated</a>
+                                    </div>
                                 </div>
-
-
-
-                                <div class="card-body">
-                                    <form action="{{ route('user.setting.view', ['security']) }}" method="POST">
-                                        @csrf
-                                        <div class="col-sm-12  form-row">
-                                            @if (!empty($success_p))
-                                                <span class="info_box text-success">{{ $success_p }}</span>
-                                            @endif
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title">Edit Pin</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label class="form-label">Change Pin</label>
+                                            <input type="password" class="form-control" value="password" />
                                         </div>
-                                        <div class="col-sm-12  form-row">
-                                            @if (!empty($error_p))
-                                                <span class="info_box text-danger">{{ $error_p }}</span>
-                                            @endif
+                                        <div class="form-group">
+                                            <label class="form-label">New Pin</label>
+                                            <input type="password" class="form-control" value="password" />
                                         </div>
-
-                                        <div class="col-sm-6 col-md-12 mb-2">
-                                            <div class="form-group">
-                                                <label class="form-label" for="current_password">Current
-                                                    Password</label>
-                                                <div class="form-control-wrap">
-                                                    <input type="password" class="form-control" name="current_password"
-                                                        value="{{ old('current_password') }}"
-                                                        placeholder="Enter Current Password">
-                                                </div>
-                                                @error('current_password')
-                                                    <span class="text-danger" id="error_name">{{ $message }}</span>
-                                                @enderror
-                                            </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Confirm Pin</label>
+                                            <input type="password" class="form-control" value="password" />
                                         </div>
-
-                                        <div class="col-sm-6 col-md-12 mb-2">
-                                            <div class="form-group">
-                                                <label class="form-label" for="new_password">New
-                                                    Password</label>
-                                                <div class="form-control-wrap">
-                                                    <input type="password" class="form-control" name="new_password"
-                                                        value="{{ old('new_password') }}"
-                                                        placeholder="Enter New Password">
-                                                </div>
-                                                @error('new_password')
-                                                    <span class="text-danger" id="error_name">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-12 mt-3">
-                                            <div class="form-group">
-                                                <div class="form-control-wrap">
-                                                    <button type="submit" style="text-align:center;"
-                                                        class="d-block bg-gradient-primary form-control btn btn-primary "
-                                                        id="edit-plan">Change Password</button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </form>
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <a href="#" class="btn btn-primary">Updated</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-
-        </main>
-
-
-        {{-- </div> --}}
-        {{-- </div> --}}
-    </main>
-    @include('include.settings')
-
-
-
-    @include('include.c_script')
+                @include('include.c_footer')
+                @include('include.c_script')
 </body>
-
 
 </html>

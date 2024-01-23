@@ -41,7 +41,7 @@ Route::post("/account/deposit-proof/{action}",[AccountController::class,"uploadP
 Route::match(["get","post"],"/loan",[UserController::class,"loan"])->middleware(["auth"])->name("customer.loan");
 
 // //wallet
-// Route::match(["get","post"],"/wallet",[AccountController::class,"wallet"])->middleware(["auth"])->name("user.wallet.view");
+Route::match(["get","post"],"/customer/project_funding",[UserController::class,"customerProjectFunding"])->middleware(["auth"])->name("customer.project_funding");
 Route::match(["get","post"],"/customer/real_estate",[UserController::class,"CustomerRealEstate"])->middleware(["auth"])->name("customer.real_estate");
 Route::match(["get","post"],"/customer/agriculture",[UserController::class,"CustomerAgriculture"])->middleware(["auth"])->name("customer.agriculture");
 Route::match(["get","post"],"/customer/charity",[UserController::class,"CustomerCharity"])->middleware(["auth"])->name("user.charity");
@@ -53,7 +53,8 @@ Route::match(["get","post"],"/customer/children_account",[UserController::class,
 Route::match(["get","post"],"/customer/withdraw",[AccountController::class,"withdrawFunds"])->middleware(["auth"])->name("user.withdraw.view");
 
 // // conversion 
-// Route::match(["post","get"],"/customer/convert",[AccountController::class,"convertFunds"])->middleware(["auth"])->name("user.conversion.view");
+Route::match(["post","get"],"/customer/stock",[UserController::class,"CustomerStocks"])->middleware(["auth"])->name("customer.stocks");
+Route::match(["post","get"],"/customer/crypto_invest",[UserController::class,"CustomerCrypto"])->middleware(["auth"])->name("customer.crypto_invest");
 
 // // plan
 Route::match(["get","post"],"/customer/plan/{name}",[AccountController::class,"plans"])->middleware(["auth"])->name("user.plan.view");
