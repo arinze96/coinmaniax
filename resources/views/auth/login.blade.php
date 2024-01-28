@@ -53,11 +53,12 @@
 </head>
 
 <body class="register">
+
     <div class="container register">
         <div class="row row-bg">
             <div class="col-md-3 register-left">
                 <div class="logo-container">
-                    <img src="{{ asset('assets/home/assets/img/logo_main.png') }}" alt="">
+                    <a href="{{ route("app.home") }}"><img src="{{ asset('assets/home/assets/img/logo_main.png') }}" alt=""></a>
                 </div>
                 <h3 class="welcome-txt">Welcome</h3>
                 <p class="description">Coinmaniax revolutionizes finance with cutting-edge asset management solutions,
@@ -107,7 +108,12 @@
                                     <p class="acct2"><a
                                             href="{{ route('user.pages.view', ['forgot-password']) }}">Forgot
                                             Password</a></p>
-                                    <input type="submit" id="submit" class="btnRegister" value="Login" />
+                                    <button type="submit" id="submit" class="btnRegister" value="Login"
+                                        class="btn btn-primary">
+                                        <img id="loader-img" src="{{ asset('assets/home/assets/img/loading.gif') }}"
+                                            style="width: 20px; height: 20px" alt="">
+                                        <span>Login</span>
+                                    </button>
                                 </div>
                                 <div class="col-md-3"></div>
                             </div>
@@ -116,8 +122,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+    @include('include.auth_js')
 </body>
 
 </html>

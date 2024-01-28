@@ -1,0 +1,1 @@
+<script src="{{ asset("assets/home/assets/js/loader.js") }}"></script>

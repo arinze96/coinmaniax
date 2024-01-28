@@ -110,11 +110,14 @@
                             <li>
                                 <a href="{{ route("user.login") }}">Login</a>
                             </li>
+                            <li>
+                                <a href="{{ route("user.register") }}">Register</a>
+                            </li>
                         </ul>
                     </nav>
-                    <div class="appoinment-btn">
+                    {{-- <div class="appoinment-btn">
                         <a href="{{ route("user.register") }}" class="button-round-primary">Register</a>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="mobile-menu-container"></div>
             </div>

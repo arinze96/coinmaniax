@@ -8,7 +8,7 @@
 
 <body class="app sidebar-mini">
     <div class="switcher-wrapper">
-        @include('include.switcher')
+        {{-- @include('include.switcher') --}}
         <div id="global-loader">
             <img src="{{ asset('assets/customer/assets/images/svgs/loader.svg') }}" alt="loader">
         </div>

@@ -101,7 +101,7 @@
                                 <li>
                                     <a href="{{ route('privacy_policy') }}">
                                         <i aria-hidden="true" class="far fa-dot-circle"></i>
-                                        Our Policy
+                                        Terms & Conditions
                                     </a>
                                 </li>
                                 <li>

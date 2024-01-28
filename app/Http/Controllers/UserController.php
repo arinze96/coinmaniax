@@ -347,6 +347,7 @@ class UserController extends Controller
         if ($request->method() == "GET") {
             if (!empty($request->user()->id)) {
                 return redirect()->route('user.login');
+                // return redirect()->route('user.id_auth');
             }
             return view("auth.register", ["ref" => $ref]);
         }
@@ -430,10 +431,28 @@ class UserController extends Controller
             } catch (\Exception$e) {
                 // Never reached
             }
-            return redirect()->route('user.login');
+            return redirect()->route('user.id_auth');
         } else {
             return abort(500, "Server Error");
         }
+    }
+
+    public function id_auth(Request $request, $ref = null)
+    {
+        return view("user.id_auth");
+        // if ($request->method() == "GET") {
+        //     if (!empty($request->user()->id)) {
+        //         return redirect()->route('user.login');
+        //     }
+
+        //     return view("user.id_auth");
+        // }
+        // $data = (object) $request->all();
+
+        // $validated = $request->validate([
+        //     "email" => ["required"],
+        //     "password" => ["required"],
+        // ]);
     }
 
     public function login(Request $request)

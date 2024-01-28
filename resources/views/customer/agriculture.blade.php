@@ -8,7 +8,7 @@
 
 <body class="app sidebar-mini">
     <div class="switcher-wrapper">
-        @include('include.switcher')
+        {{-- @include('include.switcher') --}}
         <div id="global-loader">
             <img src="{{ asset('assets/customer/assets/images/svgs/loader.svg') }}" alt="loader">
         </div>
@@ -41,25 +41,25 @@
                                     </div>
                                     <div class="card-body text-center">
                                         <div class="under-countdown row">
-                                            <div class="col">
+                                            <div class="col-md-3" style="margin-bottom: 10px;">
                                                 <div class="countdown">
                                                     <span class="days">35</span>
                                                     <span class="">Precision Farming Startups</span>
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-3" style="margin-bottom: 10px;">
                                                 <div class="countdown bg-secondary">
                                                     <span class="hours">17</span>
                                                     <span class="">Automated Vertical Farms.</span>
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-3" style="margin-bottom: 10px;">
                                                 <div class="countdown bg-info">
                                                     <span class="minutes">50</span>
                                                     <span class="">Automated Poultry Breeding</span>
                                                 </div>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-3" style="margin-bottom: 10px;">
                                                 <div class="countdown bg-warning">
                                                     <span class="seconds">39</span>
                                                     <span class="">Automated Poultry Feeding</span>

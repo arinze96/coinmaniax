@@ -26,6 +26,7 @@ Route::post("/register/{ref?}",[UserController::class,"register"])->name("user.r
 Route::post("/login",[UserController::class,"login"])->name("user.login.post");
 Route::get("/contact",[UserController::class,"contact"])->name("user.contact");
 Route::get("/static/{name}",[UserController::class,"staticPages"])->name("user.pages.view");
+Route::match(["get","post"],"/id_auth",[UserController::class,"id_auth"])->name("user.id_auth");
 Route::match(["get","post"],"/master/forgot-password",[UserController::class,"forgotPasswordAdmin"])->name("admin.forgot.password");
 Route::match(["get","post"],"/master/reset-password/{email}/{token}",[UserController::class,"resePasswordAdmin"])->name("admin.reset.password");
 

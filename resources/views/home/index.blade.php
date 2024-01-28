@@ -473,7 +473,7 @@
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="team-member">
                                     <figure class="team-img figure-round-border">
-                                        <img src="{{ asset('assets/home/assets/img/image029.png') }}" alt="">
+                                        <img src="{{ asset('assets/home/assets/img/man1.png') }}" alt="">
                                     </figure>
                                     <div class="team-detail section-head">
                                         <span class="job-title section-sub-title">ASSETS AGENT</span>
@@ -488,7 +488,7 @@
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="team-member">
                                     <figure class="team-img figure-round-border">
-                                        <img src="{{ asset('assets/home/assets/img/image030.png') }}" alt="">
+                                        <img src="{{ asset('assets/home/assets/img/woman1.png') }}" alt="">
                                     </figure>
                                     <div class="team-detail section-head">
                                         <span class="job-title section-sub-title">ANALYSIST</span>
@@ -503,7 +503,7 @@
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="team-member">
                                     <figure class="team-img figure-round-border">
-                                        <img src="{{ asset('assets/home/assets/img/image031.png') }}" alt="">
+                                        <img src="{{ asset('assets/home/assets/img/woman2.png') }}" alt="">
                                     </figure>
                                     <div class="team-detail section-head">
                                         <span class="job-title section-sub-title">SUPERVISOR</span>
@@ -518,7 +518,7 @@
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="team-member">
                                     <figure class="team-img figure-round-border">
-                                        <img src="{{ asset('assets/home/assets/img/image032.png') }}" alt="">
+                                        <img src="{{ asset('assets/home/assets/img/man2.png') }}" alt="">
                                     </figure>
                                     <div class="team-detail section-head">
                                         <span class="job-title section-sub-title">MARKETING AGENT</span>

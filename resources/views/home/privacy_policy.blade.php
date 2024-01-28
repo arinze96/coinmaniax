@@ -20,7 +20,7 @@
                     style="background-image: url('{{ asset('assets/home/assets/img/stocks.gif') }}');">
                     <div class="container">
                         <div class="inner-banner-content">
-                            <h2 class="inner-title">PRIVACY POLICY</h2>
+                            <h2 class="inner-title">TERMS & CONDITIONS</h2>
                         </div>
                     </div>
                 </div>
@@ -29,10 +29,10 @@
                 <div class="container">
                     <div class="section-head-center-line col-lg-6 col-md-8 offset-lg-3 offset-md-2">
                         <h6 class="section-sub-title">
-                            PRIVACY POLICY
+                            TERMS & CONDITIONS
                         </h6>
                         <h4 class="section-title">
-                            Coinmaniax Investment Privacy Policy
+                            Coinmaniax Investment Terms & Conditions
                         </h4>
                     </div>
                     <div class="process-step">
@@ -40,11 +40,11 @@
                             <p style="text-align: left; padding-left: 100px; padding-right: 100px;">
                                 <span style="font-weight: bold">Last Updated: [16-01-2024]</span> <br> <br>
 
-                                Welcome to Coinmaniax Investment Company's Privacy Policy. This document outlines our
+                                Welcome to Coinmaniax Investment Company's Terms & Conditions. This document outlines our
                                 commitment to protecting the privacy of our clients, investors, and visitors while
                                 providing comprehensive investment services in agriculture, loans, stocks,
                                 cryptocurrency, retirement funds, project funding, and real estate. By accessing our
-                                services, you agree to the terms outlined in this Privacy Policy. <br> <br>
+                                services, you agree to the terms outlined in this Terms & Conditions. <br> <br>
 
                                 <span style="font-weight: bold">1. Information Collection </span><br>
                                 <span style="font-weight: bold">1.1 Personal Information </span><br>
@@ -76,7 +76,7 @@
                                 <span style="font-weight: bold"> 3.1 Third-Party Service Providers</span><br>
                                 We may share your information with trusted third-party service providers for functions
                                 such as payment processing, identity verification, and analytics. These providers are
-                                obligated to protect your information in accordance with this Privacy Policy. <br> <br>
+                                obligated to protect your information in accordance with this Terms & Conditions. <br> <br>
                                 
                                 <span style="font-weight: bold">3.2 Legal Compliance</span><br>
                                 We may disclose personal information when required by law or in response to legal
@@ -106,12 +106,12 @@
                                 You can opt-out of receiving non-essential communications. However, certain
                                 communications are essential for the provision of our services. <br> <br>
                                 
-                                <span style="font-weight: bold">6. Updates to Privacy Policy</span><br>
-                                We may update this Privacy Policy periodically to reflect changes in our practices.
+                                <span style="font-weight: bold">6. Updates to Terms & Conditions</span><br>
+                                We may update this Terms & Conditions periodically to reflect changes in our practices.
                                 Please review the policy regularly for the latest information. <br> <br>
                                 
                                 <span style="font-weight: bold">7. Contact Us</span><br>
-                                If you have any questions or concerns about this Privacy Policy or our data practices,
+                                If you have any questions or concerns about this Terms & Conditions or our data practices,
                                 please contact us at <a href="mailto:support@coinmaniax.com">support@coinmaniax.com.</a> <br> <br>
 
                                 Thank you for choosing Coinmaniax Investment Company for your investment needs.
