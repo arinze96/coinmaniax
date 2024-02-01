@@ -4,7 +4,7 @@
 <head>
     @include('include.a_css')
     <!-- Page Title  -->
-    <title>Gloryinvestmentslimited</title>
+    <title>Coinmaniax</title>
 </head>
 
 <body class="nk-body bg-lighter npc-general has-sidebar ">

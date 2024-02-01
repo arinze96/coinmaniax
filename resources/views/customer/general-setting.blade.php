@@ -24,14 +24,14 @@
                             </div>
                             <div class="page-rightheader">
                                 <div class="btn btn-list">
-                                    <a href="#" class="btn btn-info"><i class="fe fe-settings mr-1"></i> General
-                                        Settings
-                                    </a>
-                                    <a href="#" class="btn btn-danger"><i class="fe fe-printer mr-1"></i> Deposit
-                                    </a>
-                                    <a href="#" class="btn btn-warning"><i class="fe fe-shopping-cart mr-1"></i>
-                                        Withdraw
-                                    </a>
+                                    <a href="{{ route('user.setting.view', ['general']) }}" class="btn btn-info"><i
+                                            class="fe fe-settings mr-1"></i>
+                                        Settings </a>
+                                    <a href="{{ route('user.deposit.view', ['usd']) }}" class="btn btn-danger"><i
+                                            class="fe fe-printer mr-1"></i>
+                                        Deposit </a>
+                                    <a href="{{ route('user.withdraw.view') }}" class="btn btn-warning"><i
+                                            class="fe fe-shopping-cart mr-1"></i> Withdraw </a>
                                 </div>
                             </div>
                         </div>
@@ -39,51 +39,102 @@
                         <!-- Row -->
                         <div class="row">
                             <div class="col-xl-9 col-lg-8">
+                                <form action="{{ route('user.setting.view', ['general']) }}"
+                                  method="POST">
+                                  @csrf
+
                                 <div class="card">
                                     <div class="card-header">
                                         <div class="card-title">Edit Profile</div>
                                     </div>
+                                    <div class="col-sm-12 col-md-12 form-row" style="width: 100%; justify-content: center">
+                                        @if (!empty($success))
+                                            <span style="margin-top: 10px"
+                                                class="info_box text-success">{{ $success }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 form-row" style="width: 100%; justify-content: center">
+                                        @if (!empty($error))
+                                            <span style="margin-top: 10px"
+                                                class="info_box text-danger">{{ $error }}</span>
+                                        @endif
+                                    </div>
+                                    
                                     <div class="card-body">
                                         <div class="card-title font-weight-bold">Basci info:</div>
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">First Name</label>
-                                                    <input type="text" class="form-control"
-                                                        placeholder="First Name" />
+                                                        <input required="" type="text"
+                                                      class="form-control" name="firstname"
+                                                      value="{{ !empty(old('firstname')) ? old('firstname') : $user->firstname }}"
+                                                      placeholder="Enter firstname">
                                                 </div>
+                                                @error('firstname')
+                                                  <span class="text-danger"
+                                                      id="error_name">{{ $message }}</span>
+                                              @enderror
                                             </div>
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Last Name</label>
-                                                    <input type="text" class="form-control"
-                                                        placeholder="Last Name" />
+                                                    <input required="" type="text"
+                                                      class="form-control" name="lastname"
+                                                      value="{{ !empty(old('lastname')) ? old('lastname') : $user->lastname }}"
+                                                      placeholder="Enter lastname">
                                                 </div>
+                                                @error('lastname')
+                                                  <span class="text-danger"
+                                                      id="error_name">{{ $message }}</span>
+                                              @enderror
                                             </div>
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Username</label>
-                                                    <input type="text" class="form-control" placeholder="Username" />
+                                                    <input required="" type="text"
+                                                      class="form-control" name="username"
+                                                      value="{{ !empty(old('username')) ? old('username') : $user->username }}"
+                                                      placeholder="Enter username">
                                                 </div>
+                                                @error('username')
+                                                <span class="text-danger"
+                                                    id="error_name">{{ $message }}</span>
+                                            @enderror
                                             </div>
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Email address</label>
-                                                    <input type="email" class="form-control" placeholder="Email" />
+                                                    <input required="" type="email"
+                                                      class="form-control" name="email"
+                                                      value="{{ !empty(old('email')) ? old('email') : $user->email }}"
+                                                      placeholder="Enter email">
                                                 </div>
+                                                @error('email')
+                                                  <span class="text-danger"
+                                                      id="error_name">{{ $message }}</span>
+                                              @enderror
                                             </div>
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Phone Number</label>
-                                                    <input type="number" class="form-control" placeholder="Number" />
+                                                    <input required="" type="phone"
+                                                      class="form-control" name="phone"
+                                                      value="{{ !empty(old('phone')) ? old('phone') : $user->phone }}"
+                                                      placeholder="Enter phone">
                                                 </div>
+                                                @error('phone')
+                                                <span class="text-danger"
+                                                    id="error_name">{{ $message }}</span>
+                                            @enderror
                                             </div>
                                         </div>
                                         <div class="card-footer text-right">
-                                            <a href="#" class="btn btn-primary">Updated</a>
+                                            <button type="submit" id="edit-plan" class="btn btn-primary">Update Profile</button>
                                         </div>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>

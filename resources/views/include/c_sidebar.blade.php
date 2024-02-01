@@ -18,7 +18,7 @@
                     class="avatar-xl rounded-circle mb-1">
             </div>
             <div class="user-info">
-                <h5 class=" mb-1">Jessica <i class="ion-checkmark-circled  text-success fs-12"></i></h5>
+                <h5 class=" mb-1">{{ ucfirst(auth()->user()->firstname) }} {{ ucfirst(auth()->user()->lastname) }} <i class="ion-checkmark-circled  text-success fs-12"></i></h5>
                 <span class="text-muted app-sidebar__user-name text-sm"></span>
             </div>
         </div>

@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('assets/home/assets/vendors/bootstrap/css/bootstrap.min.css') }}" media="all">
     <link rel="stylesheet" type="text/css" href="{{ asset("assets/home/assets/vendors/fontawesome/css/all.min.css") }}">
     <link rel="stylesheet" type="text/css" href="{{ asset("assets/home/assets/vendors/elementskit-icon-pack/assets/css/ekiticons.css") }}">
-    <link rel="stylesheet" type="text/css" href="
+    {{-- <link rel="stylesheet" type="text/css" href=" --}}
     <link rel="stylesheet" type="text/css" href="{{ asset("assets/home/assets/vendors/jquery-ui/jquery-ui.min.css") }}">
     <link rel="stylesheet" type="text/css" href="{{ asset("assets/home/assets/vendors/modal-video/modal-video.min.css") }}">
     <link rel="stylesheet" type="text/css" href="{{ asset("assets/home/assets/vendors/fancybox/dist/jquery.fancybox.min.css") }}">

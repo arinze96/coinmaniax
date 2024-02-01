@@ -17,19 +17,17 @@ use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
-    //
     public function deposit(Request $request)
     {
         if ($request->method()  == "GET") {
             $user = $request->user();
             $userAccount = Account::where("user_id", "=", $user->id)->get()->first();
             $application = Application::where("id", "=", "1")->get()->first();
-            return view("customer.deposit", ["application"=>$application,"account"=>$userAccount]);
+            $deposits = Transaction::where("type", "=", config("app.transaction_type")[0])->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(10)->get();
+            return view("customer.deposit", ["application"=>$application,"account"=>$userAccount, "deposits"=>$deposits]);
         }
     }
 
-        //This function is used to handle wallet stuff
-        
         public function wallet(Request $request){
             if ($request->method() == "GET") {
     
@@ -164,7 +162,8 @@ class AccountController extends Controller
             $user = $request->user();
             $userAccount = Account::where("user_id", "=", $user->id)->get()->first();
             $application = Application::where("id", "=", "1")->get()->first();
-            return view("customer.withdraw", ["application"=>$application,"account"=>$userAccount]);
+            $withdrawals = Transaction::where("type", "=", config("app.transaction_type")[2])->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(10)->get();
+            return view("customer.withdraw", ["application"=>$application,"account"=>$userAccount, "withdrawals"=>$withdrawals]);
         }
         $data = (object) $request->all();
         $user = $request->user();

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Gloryinvestmentslimited</title>
+    <title>Coinmaniax</title>
     @include('include.a_css')
 </head>
 
@@ -57,16 +57,10 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Fullname</th>
-                                                        <th>Username</th>
-                                                        <th>Currency</th>
                                                         <th>Amount</th>
-                                                        <th>Phone</th>
-                                                        <th>Country</th>
                                                         <th>Status</th>
                                                         <th>Date</th>
                                                         <th>Action</th>
-                                                        <th>Approve</th>
-                                                        <th>Decline</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -75,12 +69,8 @@
                                                             <td>{{ $key + 1 }}</td>
                                                             <td>{{ ucwords($deposit->firstname) }}
                                                                 {{ ucwords($deposit->lastname) }}</td>
-                                                            <td> {{ ucwords($deposit->username) }} </td>
-                                                            <td> {{ ucwords($deposit->currency) }} </td>
-                                                            <td> {{ number_format($deposit->amount, 0, '.', ',') }}
+                                                            <td> ${{ number_format($deposit->amount, 0, '.', ',') }}
                                                             </td>
-                                                            <td> {{ ucwords($deposit->phone) }} </td>
-                                                            <td> {{ ucwords($deposit->country) }} </td>
                                                             <td>{{ ucwords(config('app.tx_status')[$deposit->status]) }}
                                                             </td>
                                                             <td>{{ date('d M,Y', strtotime($deposit->created_at)) }}
@@ -104,20 +94,6 @@
                                                                     href="{{ route('admin.deposit.view', ['view', $deposit->id]) }}">
                                                                     <i class="icon-sm mdi mdi-eye text-warning ms-auto"
                                                                         style="margin-right: 5px"></i>
-                                                                </a>
-                                                            </td>
-                                                            <td>
-                                                                <a data-action="approve" data-type="deposit"
-                                                                    class="decline_approve"
-                                                                    href="{{ route('admin.deposit.view', ['approve', $deposit->id]) }}">
-                                                                    <div class="badge badge-outline-success">Approved</div>
-                                                                </a>
-                                                            </td>
-                                                            <td>
-                                                                <a data-action="decline" data-type="deposit"
-                                                                    class="decline_approve"
-                                                                    href="{{ route('admin.deposit.view', ['decline', $deposit->id]) }}">
-                                                                    <div class="badge badge-outline-danger">Decline</div>
                                                                 </a>
                                                             </td>
 

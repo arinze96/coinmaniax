@@ -35,3 +35,4 @@ class GeneralMailer extends Mailable
         return $this->view('email.register')->subject("Account Activity");
     }
 }
+

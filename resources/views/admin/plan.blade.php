@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Gloryinvestmentslimited</title>
+    <title>Coinmaniax</title>
     @include('include.a_css')
 </head>
 
@@ -61,14 +61,15 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Name</th>
-                                                        <th>Minimum Amount</th>
                                                         <th>Maximum Amount</th>
+                                                        <th>Minimum Amount</th>
                                                         <th>Type</th>
                                                         <th>ROI</th>
-                                                        <th>Currency</th>
                                                         <th>Duration</th>
                                                         <th>Commission</th>
                                                         <th>Action</th>
+                                                        {{-- <th>Plan Image</th> --}}
+                                                        <th>Plan Description</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -76,14 +77,12 @@
                                                         <tr>
                                                             <th scope="row">{{ $key + 1 }}</th>
                                                             <td>{{ ucwords($plan->name) }}</td>
-                                                            <td>{{ $plan->currency == 'USD' ? number_format($plan->min, 0, '.', ',') : $plan->min }}
-                                                                {{ strtoupper($plan->currency) }}</td>
-                                                            <td>{{ $plan->currency == 'USD' ? number_format($plan->max, 0, '.', ',') : $plan->max }}
+                                                            <td>${{ $plan->currency == 'USD' ? number_format($plan->max, 0, '.', ',') : $plan->max }}
+                                                            <td>${{ $plan->currency == 'USD' ? number_format($plan->min, 0, '.', ',') : $plan->min }}
                                                                 {{ strtoupper($plan->currency) }}</td>
                                                             <td>{{ str_replace('-', ' ', $plan->type) }}</td>
                                                             <td>{{ str_replace('-', ' ', $plan->roi) }}</td>
 
-                                                            <td>{{ $plan->currency }}</td>
                                                             <td>{{ ucwords($plan->duration) }}</td>
                                                             <td>{{ $plan->commission }}%</td>
                                                             <td>
@@ -99,6 +98,8 @@
                                                                         style="margin-right: 5px"></i>
                                                                 </a>
                                                             </td>
+                                                            {{-- <td>{{ ucwords($plan->plan_image) }}</td> --}}
+                                                            <td>{{ ucwords($plan->plan_description) }}</td>
 
                                                         </tr>
                                                     @endforeach

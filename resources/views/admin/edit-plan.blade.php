@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Gloryinvestmentslimited</title>
+    <title>Coinmaniax</title>
     @include('include.a_css')
 </head>
 
@@ -60,13 +60,19 @@
                                         <span class="info_box text-danger">{{ $error }}</span>
                                     @endif
                                 </div>
+                                <div style="width: 100%; height: 50px; display: flex; justify-content: space-between">
+                                    <h4 class="card-title">Edit Plan Data</h4>
+                                    <a href="{{ route('admin.plans.view') }}">
+                                        <button type="button" class="btn btn-primary">Back to Plans</button>
+                                    </a>
+                                </div>
 
 
                                 <div class="col-sm-6 col-md-12 mb-2">
                                     <div class="form-group">
                                         <label class="form-label" for="name">Plan Name</label>
                                         <div class="form-control-wrap">
-                                            <input required="" type="text" name="name" class="form-control"
+                                            <input style="color: #fff" required="" type="text" name="name" class="form-control"
                                                 id="name" placeholder="Enter Name"
                                                 value="{{ !empty(old('name')) ? old('name') : $plan->name }}">
                                         </div>
@@ -78,9 +84,23 @@
 
                                 <div class="col-sm-6 col-md-12 mb-2">
                                     <div class="form-group">
+                                        <label class="form-label" for="name">Plan Description</label>
+                                        <div class="form-control-wrap">
+                                            <input style="color: #fff" required="" type="text" name="plan_description" class="form-control"
+                                                id="plan_description" placeholder="Enter Plan Description"
+                                                value="{{ !empty(old('plan_description')) ? old('plan_description') : $plan->plan_description }}">
+                                        </div>
+                                        @error('name')
+                                            <span class="text-danger" id="error_name">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-12 mb-2">
+                                    <div class="form-group">
                                         <label class="form-label" for="min">Plan Minimum Amount</label>
                                         <div class="form-control-wrap">
-                                            <input required="" type="text" name="min" class="form-control"
+                                            <input style="color: #fff" required="" type="text" name="min" class="form-control"
                                                 id="min" placeholder="Enter Min"
                                                 value="{{ !empty(old('min')) ? old('min') : $plan->min }}">
                                         </div>
@@ -94,7 +114,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="max">Plan Maximum Amount</label>
                                         <div class="form-control-wrap">
-                                            <input required="" type="text" name="max" class="form-control"
+                                            <input style="color: #fff" required="" type="text" name="max" class="form-control"
                                                 id="max" placeholder="Enter max"
                                                 value="{{ !empty(old('max')) ? old('max') : $plan->max }}">
                                         </div>
@@ -109,7 +129,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="min">Plan Type</label>
                                         <div class="form-control-wrap">
-                                            <select name="type" class="form-control">
+                                            <select name="type" class="form-control" style="background-color: #fff">
                                                 <option value="" disabled selected>Select</option>
                                                 @foreach (config('app.type') as $type)
                                                     <option @if (old('type') == $type || $plan->type == $type) selected @endif
@@ -146,7 +166,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="roi">ROI</label>
                                         <div class="form-control-wrap">
-                                            <input required="" type="text" name="roi" class="form-control"
+                                            <input style="color: #fff" required="" type="text" name="roi" class="form-control"
                                                 id="roi" placeholder="Enter roi"
                                                 value="{{ !empty(old('roi')) ? old('roi') : $plan->roi }}">
                                         </div>
@@ -162,7 +182,7 @@
                                         <label class="form-label" for="duration">Duration in days (example 30
                                             days)</label>
                                         <div class="form-control-wrap">
-                                            <input required="" type="text" name="duration"
+                                            <input style="color: #fff" required="" type="text" name="duration"
                                                 class="form-control" id="duration" placeholder="Enter duration"
                                                 value="{{ !empty(old('duration')) ? old('duration') : $plan->duration }}">
                                         </div>
@@ -177,7 +197,7 @@
                                         <label class="form-label" for="commission">Total Commission in percent (%)
                                             (example : 60)</label>
                                         <div class="form-control-wrap">
-                                            <input required="" type="text" name="commission"
+                                            <input style="color: #fff" required="" type="text" name="commission"
                                                 class="form-control" id="commission" placeholder="Enter commission"
                                                 value="{{ !empty(old('commission')) ? old('commission') : $plan->commission }}">
                                         </div>

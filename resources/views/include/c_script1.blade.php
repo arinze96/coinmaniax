@@ -39,162 +39,49 @@
 		<script src="{{ asset("assets/customer/assets/js/datatables.js") }}"></script> --}}
 <script src="{{ asset('assets/customer/assets/plugins/chart/chart.min.js') }}"></script>
 <script src="{{ asset('assets/customer/assets/plugins/chart/chart.extension.js') }}"></script>
+<script src="{{ asset('assets/home/assets/js/sweetAlert.js') }}"></script>
+<script src="{{ asset('assets/home/assets/js/realtime.js') }}"></script>
+<script src="{{ asset('assets/js/customer.js') }}"></script>
+<script>
+    var $imageArray = [];
+    var $site = "{{ route('app.home') }}";
+    let $proof_upload = "{{ route('user.deposit.proof.post', ['add']) }}";
+    let $proof_delete = "{{ route('user.deposit.proof.post', ['delete']) }}";
+</script>
+<script src="{{ asset('assets/js/dropzone.min.js') }}"></script>
+<script src="{{ asset('assets/js/dashboard/bundle.js') }}"></script>
+<script src="{{ asset('assets/js/custom_dropzone.js') }}"></script>
+
 
 <script>
-    const baseNumber = 112578;
-
-    function generateRandomNumber(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+    ////////////////////RANDOMIZE CUSTOMER ACTIVITY/////////////////////
+    function showRandomDivs() {
+        const container = document.getElementById('l_card_container');
+        const allDivs = container.getElementsByClassName('l_card');
+        for (let div of allDivs) {
+            div.style.display = 'none';
+        }
+        let indicesToShow = new Set();
+        while (indicesToShow.size < 5) {
+            let randomIndex = Math.floor(Math.random() * allDivs.length);
+            indicesToShow.add(randomIndex);
+        }
+        for (let index of indicesToShow) {
+            allDivs[index].style.display = 'block';
+        }
     }
+    showRandomDivs();
+    setInterval(showRandomDivs, 10000);
 
-    function updateTotalUsers() {
-        let currentTotal = parseInt(localStorage.getItem('currentTotal')) || baseNumber;
-        currentTotal += generateRandomNumber(1, 20);
-        localStorage.setItem('currentTotal', currentTotal);
-        document.getElementById("total_users").textContent = `${currentTotal.toLocaleString()}`;
+    function updateProductCount() {
+        var currentCount = parseInt(localStorage.getItem('product1Count')) || 35;
+        var randomIncrement = Math.floor(Math.random() * 5) + 1;
+        var newCount = currentCount + randomIncrement;
+        document.getElementById('product1').innerText = newCount;
+        localStorage.setItem('product1Count', newCount);
     }
-    updateTotalUsers();
-    setInterval(updateTotalUsers, 30000);
-
-    /////////////////////CORPORATE INVESTORS///////////////////////////////
-
-    const baseInvestors = 112;
-    function updateTotalInvestors() {
-        let currentInvestors = parseInt(localStorage.getItem('currentInvestors')) || baseInvestors;
-        currentInvestors += generateRandomNumber(1, 5);
-        localStorage.setItem('currentInvestors', currentInvestors);
-        document.getElementById("total_investors").textContent = `${currentInvestors.toLocaleString()}`;
-    }
-    updateTotalInvestors();
-    setInterval(updateTotalInvestors, 30000);
-
-
-    ////////////////////////////RANDOM AMOUNT/////////////////////////////
-    const baseAmount = 150650;
-
-    function updateDailyInvestments() {
-        let currentInvestment = parseInt(localStorage.getItem('currentInvestment')) || baseAmount;
-        currentInvestment += generateRandomNumber(50, 100);
-        localStorage.setItem('currentInvestment', currentInvestment);
-        document.getElementById("daily_investments").textContent = `$${currentInvestment.toLocaleString()}`;
-    }
-    updateDailyInvestments();
-    setInterval(updateDailyInvestments, 70000);
-
-    /////////////////////////LOAN APPLICANT////////////////////////////
-
-    const baseLoanApplicant = 4876;
-
-    function updateDailyLoanApplicants() {
-        let currentLoanApplicants = parseInt(localStorage.getItem('currentLoanApplicants')) || baseLoanApplicant;
-        currentLoanApplicants += generateRandomNumber(5, 15);
-        localStorage.setItem('currentLoanApplicants', currentLoanApplicants);
-        document.getElementById("daily_loan_applicants").textContent = `${currentLoanApplicants.toLocaleString()}`;
-    }
-    updateDailyLoanApplicants();
-    setInterval(updateDailyLoanApplicants, 100000);
-
-
-    ///////////////////////////UPDATE COUNTRY1 ONE PERCENTAGE GROWTH/////////////////////////
-    function extractNumberFromString(str) {
-        return parseInt(str.replace(/[^0-9]/g, ''));
-    }
-
-    function updateNumber() {
-        const country1Element = document.getElementById("country1");
-        let currentNumber = extractNumberFromString(country1Element.textContent);
-        currentNumber += generateRandomNumber(1, 10);
-        country1Element.textContent = `$${currentNumber.toLocaleString()}`;
-        localStorage.setItem('country1Number', currentNumber);
-    }
-    updateNumber();
-    setInterval(updateNumber, 30000);
-
-    ///////////////////////////UPDATE COUNTRY2 ONE PERCENTAGE GROWTH/////////////////////////
-    function updateNumber2() {
-        const country2Element = document.getElementById("country2");
-        let currentNumber2 = extractNumberFromString(country2Element.textContent);
-        currentNumber2 += generateRandomNumber(10, 15);
-        country2Element.textContent = `$${currentNumber2.toLocaleString()}`;
-        localStorage.setItem('country2Number', currentNumber2);
-    }
-    updateNumber2();
-    setInterval(updateNumber2, 40000);
-
-    ///////////////////////////UPDATE COUNTRY3 ONE PERCENTAGE GROWTH/////////////////////////
-    function updateNumber3() {
-        const country3Element = document.getElementById("country3");
-        let currentNumber3 = extractNumberFromString(country3Element.textContent);
-        currentNumber3 += generateRandomNumber(5, 10);
-        country3Element.textContent = `$${currentNumber3.toLocaleString()}`;
-        localStorage.setItem('country3Number', currentNumber3);
-    }
-    updateNumber3();
-    setInterval(updateNumber3, 30000);
-
-    ///////////////////////////UPDATE COUNTRY4 ONE PERCENTAGE GROWTH/////////////////////////
-    function updateNumber4() {
-        const country4Element = document.getElementById("country4");
-        let currentNumber4 = extractNumberFromString(country4Element.textContent);
-        currentNumber4 += generateRandomNumber(13, 15);
-        country4Element.textContent = `$${currentNumber4.toLocaleString()}`;
-        localStorage.setItem('country4Number', currentNumber4);
-    }
-    updateNumber4();
-    setInterval(updateNumber4, 50000);
-
-    ///////////////////////////UPDATE COUNTRY5 ONE PERCENTAGE GROWTH/////////////////////////
-    function updateNumber5() {
-        const country5Element = document.getElementById("country5");
-        let currentNumber5 = extractNumberFromString(country5Element.textContent);
-        currentNumber5 += generateRandomNumber(3, 10);
-        country5Element.textContent = `$${currentNumber5.toLocaleString()}`;
-        localStorage.setItem('country5Number', currentNumber5);
-    }
-    updateNumber5();
-    setInterval(updateNumber5, 60000);
-
-    ///////////////////////////UPDATE COUNTRY6 ONE PERCENTAGE GROWTH/////////////////////////
-    function updateNumber6() {
-        const country6Element = document.getElementById("country6");
-        let currentNumber6 = extractNumberFromString(country6Element.textContent);
-        currentNumber6 += generateRandomNumber(7, 10);
-        country6Element.textContent = `$${currentNumber6.toLocaleString()}`;
-        localStorage.setItem('country6Number', currentNumber6);
-    }
-    updateNumber6();
-    setInterval(updateNumber6, 70000);
-
-    ///////////////////////////UPDATE COUNTRY7 ONE PERCENTAGE GROWTH/////////////////////////
-    function updateNumber7() {
-        const country7Element = document.getElementById("country7");
-        let currentNumber7 = extractNumberFromString(country7Element.textContent);
-        currentNumber7 += generateRandomNumber(10, 20);
-        country7Element.textContent = `$${currentNumber7.toLocaleString()}`;
-        localStorage.setItem('country7Number', currentNumber7);
-    }
-    updateNumber7();
-    setInterval(updateNumber7, 50000);
-
-    ///////////////////////////UPDATE TOTAL INVESTMENT AMOUNT GROWTH/////////////////////////
-    function updateTotalInvestments() {
-        const t_investmentElement = document.getElementById("t_investment");
-        let currentNum1 = extractNumberFromString(t_investmentElement.textContent);
-        currentNum1 += generateRandomNumber(1000, 5000);
-        t_investmentElement.textContent = `$${currentNum1.toLocaleString()}`;
-        localStorage.setItem('t_investmentNumber', currentNum1);
-    }
-    updateTotalInvestments();
-    setInterval(updateTotalInvestments, 20000);
-
-    ///////////////////////////UPDATE TOTAL INVESTMENT AMOUNT GROWTH/////////////////////////
-    function updateAverageInvestments() {
-        const a_investmentElement = document.getElementById("a_investment");
-        let currentNum2 = extractNumberFromString(a_investmentElement.textContent);
-        currentNum2 += generateRandomNumber(1000, 5000);
-        a_investmentElement.textContent = `$${currentNum2.toLocaleString()}`;
-        localStorage.setItem('a_investmentNumber', currentNum2);
-    }
-    updateAverageInvestments();
-    setInterval(updateAverageInvestments, 30000);
+    setInterval(updateProductCount, 10000);
+    updateProductCount();
 </script>
+
+

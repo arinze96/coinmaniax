@@ -26,10 +26,7 @@
                                 <div class="btn btn-list">
                                     <a href="{{ route('user.setting.view', ['general']) }}" class="btn btn-info"><i
                                             class="fe fe-settings mr-1"></i>
-                                        General Settings </a>
-                                    <a href="{{ route('user.deposit.view', ['usd']) }}" class="btn btn-danger"><i
-                                            class="fe fe-printer mr-1"></i>
-                                        Deposit </a>
+                                         Settings </a>
                                     <a href="{{ route('user.withdraw.view') }}" class="btn btn-warning"><i
                                             class="fe fe-shopping-cart mr-1"></i> Withdraw </a>
                                 </div>
@@ -43,235 +40,178 @@
                                     <div class="card-header">
                                         <h3 class="card-title">Top Up Your Account Balance!</h3>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="card-pay">
-                                            <ul class="tabs-menu nav">
-                                                <li><a href="#pay1" class="active" data-toggle="tab"><i
-                                                            class="fa fa-bitcoin"
-                                                            style="margin-right: 5px"></i>Cryptocurrency</a></li>
+                                    <form role="form text-left">
+                                        <div class="card-body">
+                                            <div class="card-pay">
+                                                <ul class="tabs-menu nav">
+                                                    <li><a href="#pay1" class="active" data-toggle="tab"><i
+                                                                class="fa fa-bitcoin"
+                                                                style="margin-right: 5px"></i>Cryptocurrency</a></li>
 
-                                                <li><a href="#tab22" data-toggle="tab"><i class="fa fa-university"></i>
-                                                        Bank Transfer</a></li>
-                                            </ul>
-                                            <div class="tab-content">
-                                                <div class="tab-pane active show" id="pay1">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Select Currency</label>
-                                                        <div class="input-group mb-3">
-                                                            <select class="custom-select" id="inputGroupSelect03">
-                                                                <option selected>Choose...</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
-                                                            </select>
+                                                    <li><a href="#tab22" data-toggle="tab"><i
+                                                                class="fa fa-university"></i>
+                                                            Bank Transfer</a></li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active show" id="pay1">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Select Currency</label>
+                                                            <div class="input-group mb-3">
+                                                                <select class="custom-select" name="currency"
+                                                                    id="currency">
+                                                                    <option
+                                                                        {{ request()->account == 'usd' ? 'selected' : '' }}
+                                                                        value="usd" class="small">USD</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="form-label">Amount to Deposit</label>
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Search for...">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Amount to Deposit</label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control"
+                                                                    id="buysell-amount" name="bs-amount"
+                                                                    placeholder="Enter Amount" aria-label="Password"
+                                                                    aria-describedby="password-addon">
+                                                            </div>
+                                                            <span class=" text-center text-danger"
+                                                                    id="error_box" style="margin-top: 10px; margin-bottom: -5px"></span>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="form-label">Payment Method</label>
-                                                        <div class="input-group mb-3">
-                                                            <select class="custom-select" id="inputGroupSelect03">
-                                                                <option selected>Choose...</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
-                                                            </select>
+                                                        <div class="form-group">
+                                                            <label class="form-label">Payment Method</label>
+                                                            <div class="input-group mb-3">
+                                                                <select class="custom-select" name="method"
+                                                                    id="method">
+                                                                    @if ($application->bitcoin_address)
+                                                                        <option value="BTC">BITCOIN </option>
+                                                                    @endif
+
+                                                                    @if ($application->ethereum_address)
+                                                                        <option value="ETH">ETHEREUM </option>
+                                                                    @endif
+
+                                                                    @if ($application->usdt_address)
+                                                                        <option value="USDT">TETHER (USDT) </option>
+                                                                    @endif
+                                                                </select>
+                                                            </div>
                                                         </div>
+                                                        <button data-url="{{ route('user.deposit.post') }}"
+                                                            class="btn  btn-lg btn-primary deposit_cash">+ add
+                                                            funds</button>
                                                     </div>
-                                                    <a href="#" class="btn  btn-lg btn-primary">Confirm</a>
-                                                </div>
-                                                <div class="tab-pane" id="tab22">
-                                                    <p>Bank account details</p>
-                                                    <dl class="card-text">
-                                                        <dt>BANK: </dt>
-                                                        <dd> THE UNION BANK 0456</dd>
-                                                    </dl>
-                                                    <dl class="card-text">
-                                                        <dt>Accaunt number: </dt>
-                                                        <dd> 67542897653214</dd>
-                                                    </dl>
-                                                    <dl class="card-text">
-                                                        <dt>IBAN: </dt>
-                                                        <dd>543218769</dd>
-                                                    </dl>
-                                                    <p class="mb-0"><strong>Note:</strong> Nemo enim ipsam voluptatem
-                                                        quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                                                        consequuntur magni dolores eos qui ratione voluptatem sequi
-                                                        nesciunt. </p>
+                                                    <div class="tab-pane" id="tab22">
+                                                        <p>Bank account details</p>
+                                                        <dl class="card-text">
+                                                            <dt>BANK: </dt>
+                                                            <dd> THE UNION BANK 0456</dd>
+                                                        </dl>
+                                                        <dl class="card-text">
+                                                            <dt>Accaunt number: </dt>
+                                                            <dd> 67542897653214</dd>
+                                                        </dl>
+                                                        <dl class="card-text">
+                                                            <dt>IBAN: </dt>
+                                                            <dd>543218769</dd>
+                                                        </dl>
+                                                        <p class="mb-0"><strong>Note:</strong> Nemo enim ipsam
+                                                            voluptatem
+                                                            quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                                            consequuntur magni dolores eos qui ratione voluptatem sequi
+                                                            nesciunt. </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Recent Customers</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="list-card">
-                                            <span class="bg-warning list-bar"></span>
-                                            <div class="row align-items-center">
-                                                <div class="col-9 col-sm-9">
-                                                    <div class="media mt-0">
-                                                        <div class="media-body">
-                                                            <div class="d-md-flex align-items-center mt-1">
-                                                                <h6 class="mb-1">@Marshall</h6>
-                                                            </div>
-                                                            <span class="mb-0 fs-13 text-muted">User 2342<span
-                                                                    class="ml-2 text-success fs-13 font-weight-semibold">Paid</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-3 col-sm-3">
-                                                    <div class="text-right">
-                                                        <span class="font-weight-semibold fs-16 number-font">$558</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list-card">
-                                            <span class="bg-info list-bar"></span>
-                                            <div class="row align-items-center">
-                                                <div class="col-9 col-sm-9">
-                                                    <div class="media mt-0">
-                                                        <div class="media-body">
-                                                            <div class="d-md-flex align-items-center mt-1">
-                                                                <h6 class="mb-1">@Chapman</h6>
-                                                            </div>
-                                                            <span class="mb-0 fs-13 text-muted">User 6720<span
-                                                                    class="ml-2 text-danger fs-13 font-weight-semibold">Pending</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-3 col-sm-3">
-                                                    <div class="text-right">
-                                                        <span
-                                                            class="font-weight-semibold fs-16 number-font">$458</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list-card">
-                                            <span class="bg-danger list-bar"></span>
-                                            <div class="row align-items-center">
-                                                <div class="col-9 col-sm-9">
-                                                    <div class="media mt-0">
-                                                        <div class="media-body">
-                                                            <div class="d-md-flex align-items-center mt-1">
-                                                                <h6 class="mb-1">@Sonia</h6>
-                                                            </div>
-                                                            <span class="mb-0 fs-13 text-muted">User 8763<span
-                                                                    class="ml-2 text-success fs-13 font-weight-semibold">Paid</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-3 col-sm-3">
-                                                    <div class="text-right">
-                                                        <span
-                                                            class="font-weight-semibold fs-16 number-font">$358</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list-card" style="margin-bottom: 31px">
-                                            <span class="bg-success list-bar"></span>
-                                            <div class="row align-items-center">
-                                                <div class="col-9 col-sm-9">
-                                                    <div class="media mt-0">
-                                                        <div class="media-body">
-                                                            <div class="d-md-flex align-items-center mt-1">
-                                                                <h6 class="mb-1">@Joseph</h6>
-                                                            </div>
-                                                            <span class="mb-0 fs-13 text-muted">User 1076<span
-                                                                    class="ml-2 text-danger fs-13 font-weight-semibold">Pending</span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-3 col-sm-3">
-                                                    <div class="text-right">
-                                                        <span
-                                                            class="font-weight-semibold fs-16 number-font">$796</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @include('include.c_listCards')
                         </div>
                         {{-- /////////////////// DEPOSIT TRANSACTIONS////////////////////////// --}}
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="card-title">MY DEPOSIT TRANSACTIONS</div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered text-nowrap" id="example1">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="wd-15p border-bottom-0">S/N</th>
-                                                        <th class="wd-15p border-bottom-0">MESSAGE</th>
-                                                        <th class="wd-20p border-bottom-0">CURRENCY</th>
-                                                        <th class="wd-15p border-bottom-0">AMOUNT</th>
-                                                        <th class="wd-10p border-bottom-0">TYPE</th>
-                                                        <th class="wd-25p border-bottom-0">STATUS</th>
-                                                        <th class="wd-25p border-bottom-0">DATE</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Bella</td>
-                                                        <td>Chloe</td>
-                                                        <td>System Developer</td>
-                                                        <td>2018/03/12</td>
-                                                        <td>$654,765</td>
-                                                        <td>b.Chloe@datatables.net</td>
-                                                        <td>$654,765</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Donna</td>
-                                                        <td>Bond</td>
-                                                        <td>Account Manager</td>
-                                                        <td>2012/02/21</td>
-                                                        <td>$543,654</td>
-                                                        <td>d.bond@datatables.net</td>
-                                                        <td>$543,654</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Harry</td>
-                                                        <td>Carr</td>
-                                                        <td>Technical Manager</td>
-                                                        <td>20011/02/87</td>
-                                                        <td>$86,000</td>
-                                                        <td>h.carr@datatables.net</td>
-                                                        <td>$86,000</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/div-->
-                            </div>
-                        </div>
+                        @include('include.c_deposit_transaction')
+                        
 
                     </div>
                 </div>
                 <!-- End app-content-->
             </div>
             <!--Footer-->
+            <div class="modal fade" tabindex="-1" role="dialog" id="buy-coin">
+                <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                    <div class="modal-content">
+                        <a href="#" class="close" data-dismiss="modal"><em
+                                class="icon ni ni-cross-sm"></em></a>
+                        <div class="modal-body modal-body-lg">
+                            <div class="nk-block-head nk-block-head-xs text-center">
+                                <h5 class="nk-block-title">
+                                    <!-- <h4 class="time_counter mt-3">10min</h4> -->
+                                </h5>
+                                <div class="nk-block-text">
+                                    <div class="title-sub d-none bank text-primary">
+                                        Make Payment to the Account below , upload your reciept and click the confirm
+                                        button.
+                                        <ul class="text-justify p-3 text-dark">
+                                            <li>Bank Name : <strong class="text-primary">
+                                                    <?= ucwords($application->bank_name) ?></strong></li>
+                                            <li>Account Number :<strong class="text-primary">
+                                                    <?= ucwords($application->bank_account_no) ?></strong></li>
+                                            <li>Account Name :<strong class="text-primary">
+                                                    <?= ucwords($application->bank_account_name) ?></strong></li>
+                                        </ul>
+                                    </div>
+                                    <div class="nk-refwg-invite d-none btc">
+                                        <div class="nk-refwg-head ">
+                                            <div class="nk-refwg-title">
+                                                <div class="title-sub text-primary">Make Payments of <strong
+                                                        class="converted_payment"></strong> to the wallet address below
+                                                    ,
+                                                    upload your transaction screenshot and click confirm button.</div>
+                                            </div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-md-6 col-sm-7 p-1">
+                                                <input readonly style="width:100%;" type="text"
+                                                    class="form-control" value="" id="btc_amount">
+                                            </div>
+                                            <div class="col-md-6 col-sm-5 p-1">
+                                                <button style="width:100%;text-align:center !important;"
+                                                    class="btn btn-primary d-block "
+                                                    onclick="copyText('btc_amount')">Copy
+                                                    Amount</button>
+                                            </div>
+                                        </div>
+                                        <div class="row p-2">
+                                            <div class="col-md-6 col-sm-7 p-1">
+                                                <input readonly style="width:100%;" type="text"
+                                                    class="form-control" value="<?= $application->btc_address ?>"
+                                                    id="wallet_address">
+                                            </div>
+                                            <div class="col-md-6 col-sm-5 p-1">
+                                                <button style="width:100%;text-align:center !important;"
+                                                    class="btn btn-primary d-block "
+                                                    onclick="copyText('wallet_address')">Copy
+                                                    Address</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropzone"></div>
+                            <div class="nk-block">
+                                <div class="buysell-field form-action text-center">
+                                    <div>
+                                        <a href="#" class="btn btn-primary mt-4 btn-lg confirm_deposit"
+                                            data-url="{{ route('user.deposit.confirm.post') }}">Confirm
+                                            Payments</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @include('include.c_footer')
-            @include('include.c_script')
+            @include('include.c_script1')
 </body>
 
 </html>

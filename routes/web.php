@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Mail;
 
 
 Route::get('/', [UserController::class,"index"])->name("app.home");
@@ -29,6 +30,13 @@ Route::get("/static/{name}",[UserController::class,"staticPages"])->name("user.p
 Route::match(["get","post"],"/id_auth",[UserController::class,"id_auth"])->name("user.id_auth");
 Route::match(["get","post"],"/master/forgot-password",[UserController::class,"forgotPasswordAdmin"])->name("admin.forgot.password");
 Route::match(["get","post"],"/master/reset-password/{email}/{token}",[UserController::class,"resePasswordAdmin"])->name("admin.reset.password");
+Route::get('/test-email', function () {
+    Mail::raw('This is a test...', function ($message) {
+        $message->to('janedoe@gmail.com')->subject('Testing 123...');
+    });
+
+    dd('Email sent!');
+});
 
 
 
@@ -85,48 +93,48 @@ Route::get("/customer/logout",[UserController::class,"logout"])->middleware(["au
 
 
 
-// // Administrator Non authenticated Route
-// Route::get("/admin/login",[UserController::class,"loginAdmin"])->name("admin.login");
-// Route::post("/admin/login",[UserController::class,"loginAdmin"])->name("admin.login.post");
+// Administrator Non authenticated Route
+Route::get("/admin/login",[UserController::class,"loginAdmin"])->name("admin.login");
+Route::post("/admin/login",[UserController::class,"loginAdmin"])->name("admin.login.post");
 
 
-// // Admin Authenticated Route
-// Route::get("/admin/dashboard",[UserController::class,"dashboardAdmin"])->middleware(["auth","isAdmin"])->name("admin.dashboard.view");
-// Route::match(["get","post"],"/admin/deposits/{name}/{id?}",[UserController::class,"depositsAdmin"])->middleware(["auth","isAdmin"])->name("admin.deposit.view");
-// Route::match(["get","post"],"/admin/loans/{name}/{id?}",[UserController::class,"loanAdmin"])->middleware(["auth","isAdmin"])->name("admin.loan.view");
+// Admin Authenticated Route
+Route::get("/admin/dashboard",[UserController::class,"dashboardAdmin"])->middleware(["auth","isAdmin"])->name("admin.dashboard.view");
+Route::match(["get","post"],"/admin/deposits/{name}/{id?}",[UserController::class,"depositsAdmin"])->middleware(["auth","isAdmin"])->name("admin.deposit.view");
+Route::match(["get","post"],"/admin/loans/{name}/{id?}",[UserController::class,"loanAdmin"])->middleware(["auth","isAdmin"])->name("admin.loan.view");
 // Route::match(["get","post"],"/admin/charity/{name}/{id?}",[UserController::class,"charityAdmin"])->middleware(["auth","isAdmin"])->name("admin.charity.view");
 // Route::match(["get","post"],"/admin/nfp/{name}/{id?}",[UserController::class,"nfpAdmin"])->middleware(["auth","isAdmin"])->name("admin.nfp.view");
-// Route::match(["get","post"],"/admin/retirement/{name}/{id?}",[UserController::class,"retirementAdmin"])->middleware(["auth","isAdmin"])->name("admin.retirement.view");
+Route::match(["get","post"],"/admin/retirement/{name}/{id?}",[UserController::class,"retirementAdmin"])->middleware(["auth","isAdmin"])->name("admin.retirement.view");
 // Route::match(["get","post"],"/admin/child/{name}/{id?}",[UserController::class,"childAdmin"])->middleware(["auth","isAdmin"])->name("admin.child.view");
-// Route::match(["get","post"],"/admin/withdraw/{name}/{id?}",[UserController::class,"withdrawAdmin"])->middleware(["auth","isAdmin"])->name("admin.withdraw.view");
-// Route::match(["get","post"],"/admin/investment/{name}/{id?}",[UserController::class,"investmentAdmin"])->middleware(["auth","isAdmin"])->name("admin.investment.view");
-// Route::match(["get","post"],"/admin/wallet/{name?}/{id?}/",[UserController::class,"walletAdmin"])->middleware(["auth","isAdmin"])->name("admin.wallet.view");
-// Route::match(["get","post"],"/admin/users/{name?}/{id?}",[UserController::class,"usersAdmin"])->middleware(["auth","isAdmin"])->name("admin.users.view");
-// Route::get("/admin/plans",[UserController::class,"plansAdmin"])->middleware(["auth","isAdmin"])->name("admin.plans.view");
-// Route::match(["get","post"],"/admin/application/{name?}",[UserController::class,"applicationAdmin"])->middleware(["auth","isAdmin"])->name("admin.application.view");
-// Route::match(["get","post"],"/admin/fake-transactions/{name?}/{id?}",[UserController::class,"fakeTransaction"])->middleware(["auth","isAdmin"])->name("admin.fake_transaction.view");
-// Route::get("/admin/profile",[UserController::class,"profileAdmin"])->middleware(["auth","isAdmin"])->name("admin.profile.view");
-// // logout
-// Route::get("/admin/logout",[UserController::class,"logoutAdmin"])->middleware(["auth"])->name("admin.logout");
-// Route::get("/admin/wallet/edit/{id}",[UserController::class,"editWalletAdmin"])->middleware(["auth","isAdmin"])->name("admin.wallet.edit.view");
-// Route::get("/admin/customer/edit-profile/{id}",[UserController::class,"editCustomerProfileAdmin"])->middleware(["auth","isAdmin"])->name("admin.customer.profile.view");
-// Route::get("/admin/customer/edit-password/{id}",[UserController::class,"editCustomerPasswordAdmin"])->middleware(["auth","isAdmin"])->name("admin.customer.password.view");
-// Route::match(["post","get"],"/admin/edit-plan/{id}",[UserController::class,"editPlanAdmin"])->middleware(["auth","isAdmin"])->name("admin.edit.plan.view");
-// Route::match(["post"],"/admin/delete-plan/{id}",[UserController::class,"deletePlanAdmin"])->middleware(["auth","isAdmin"])->name("admin.delete.plan.post");
-// Route::match(['get', 'post'], "/admin/add-plan",[UserController::class,"addPlanAdmin"])->middleware(["auth","isAdmin"])->name("admin.add.plan.view");
-// Route::get("/admin/edit-application/{id}",[UserController::class,"editApplicationAdmin"])->middleware(["auth","isAdmin"])->name("admin.edit.application.view");
+Route::match(["get","post"],"/admin/withdraw/{name}/{id?}",[UserController::class,"withdrawAdmin"])->middleware(["auth","isAdmin"])->name("admin.withdraw.view");
+Route::match(["get","post"],"/admin/investment/{name}/{id?}",[UserController::class,"investmentAdmin"])->middleware(["auth","isAdmin"])->name("admin.investment.view");
+Route::match(["get","post"],"/admin/wallet/{name?}/{id?}/",[UserController::class,"walletAdmin"])->middleware(["auth","isAdmin"])->name("admin.wallet.view");
+Route::match(["get","post"],"/admin/users/{name?}/{id?}",[UserController::class,"usersAdmin"])->middleware(["auth","isAdmin"])->name("admin.users.view");
+Route::get("/admin/plans",[UserController::class,"plansAdmin"])->middleware(["auth","isAdmin"])->name("admin.plans.view");
+Route::match(["get","post"],"/admin/application/{name?}",[UserController::class,"applicationAdmin"])->middleware(["auth","isAdmin"])->name("admin.application.view");
+Route::match(["get","post"],"/admin/fake-transactions/{name?}/{id?}",[UserController::class,"fakeTransaction"])->middleware(["auth","isAdmin"])->name("admin.fake_transaction.view");
+Route::get("/admin/profile",[UserController::class,"profileAdmin"])->middleware(["auth","isAdmin"])->name("admin.profile.view");
+// logout
+Route::get("/admin/logout",[UserController::class,"logoutAdmin"])->middleware(["auth"])->name("admin.logout");
+Route::get("/admin/wallet/edit/{id}",[UserController::class,"editWalletAdmin"])->middleware(["auth","isAdmin"])->name("admin.wallet.edit.view");
+Route::get("/admin/customer/edit-profile/{id}",[UserController::class,"editCustomerProfileAdmin"])->middleware(["auth","isAdmin"])->name("admin.customer.profile.view");
+Route::get("/admin/customer/edit-password/{id}",[UserController::class,"editCustomerPasswordAdmin"])->middleware(["auth","isAdmin"])->name("admin.customer.password.view");
+Route::match(["post","get"],"/admin/edit-plan/{id}",[UserController::class,"editPlanAdmin"])->middleware(["auth","isAdmin"])->name("admin.edit.plan.view");
+Route::match(["post"],"/admin/delete-plan/{id}",[UserController::class,"deletePlanAdmin"])->middleware(["auth","isAdmin"])->name("admin.delete.plan.post");
+Route::match(['get', 'post'], "/admin/add-plan",[UserController::class,"addPlanAdmin"])->middleware(["auth","isAdmin"])->name("admin.add.plan.view");
+Route::get("/admin/edit-application/{id}",[UserController::class,"editApplicationAdmin"])->middleware(["auth","isAdmin"])->name("admin.edit.application.view");
 
 
 
 
-// Route::get('/linkstorage', function () {
-//   Artisan::call('storage:link');
-// });
+Route::get('/linkstorage', function () {
+  Artisan::call('storage:link');
+});
 
-// Route::get('/clear-cache', function() {
-//   $exitCode = Artisan::call('cache:clear');
-//   // return what you want
-// });
+Route::get('/clear-cache', function() {
+  $exitCode = Artisan::call('cache:clear');
+  // return what you want
+});
 
 // Route::get('/clear-config', function() {
 //   $exitCode = Artisan::call('config:clear');

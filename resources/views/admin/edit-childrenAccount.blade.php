@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <title>Gloryinvestmentslimited</title>
+    <title>Coinmaniax</title>
     @include('include.a_css')
 </head>
 

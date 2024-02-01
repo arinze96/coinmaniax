@@ -25,7 +25,7 @@
                             <div class="page-rightheader">
                               <div class="btn btn-list">
                                   <a href="index-2.html#" class="btn btn-info"><i class="fe fe-settings mr-1"></i>
-                                      General Settings </a>
+                                      Settings </a>
                                   <a href="index-2.html#" class="btn btn-danger"><i class="fe fe-printer mr-1"></i>
                                       Deposit </a>
                                   <a href="index-2.html#" class="btn btn-warning"><i

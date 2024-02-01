@@ -31,7 +31,8 @@ return [
     "ranks"=>["green"=>"1000","bronze"=>"10000","silver"=>"100000","gold"=>"1000000","black"=>"10000000"],
 
 
-    "type"=>["total-return-swap","currency-swap","commodity-swap","nfp-swap"],
+    // "type"=>["total-return-swap","currency-swap","commodity-swap","nfp-swap"],
+    "type"=>["agriculture","real_estate","loan","project_funding","stocks","retirment_plan","crypto_investment"],
     "currency"=>["USD","BTC","ETH"],
     'transaction_type'=>["deposit","investment","withdrawal","exchange"],
     "tx_status"=>[1=>"processing",2=>"completed",3=>"cancled"],

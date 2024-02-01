@@ -18,3 +18,15 @@
     <link id="theme" href="{{ asset("assets/customer/assets/colors/color1.css") }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset("assets/customer/assets/switcher/css/switcher.css") }}">
     <link rel="stylesheet" href="{{ asset("assets/customer/assets/switcher/demo.css") }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/maps.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <style>
+        .l_card {
+            display: none; 
+        }
+        .largeFont {
+            font-size: 24px;
+        }
+    </style>

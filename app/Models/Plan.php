@@ -23,6 +23,8 @@ class Plan extends Model
        "type",
        "currency",
        "duration",
-       "commission"
+       "commission",
+       "plan_description",
+    //    "plan_image"
     ];
 }

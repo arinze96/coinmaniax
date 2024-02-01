@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Gloryinvestmentslimited</title>
+    <title>Coinmaniax</title>
     @include('include.a_css')
 </head>
 
@@ -59,8 +59,6 @@
                                                         <th scope="col">Fullname</th>
                                                         <th scope="col">Username</th>
                                                         <th scope="col">Email</th>
-                                                        <th scope="col">Country</th>
-                                                        <th scope="col">Phone</th>
                                                         <th scope="col">Pin</th>
 
                                                         <th scope="col">Status</th>
@@ -77,8 +75,6 @@
                                                                 {{ ucwords($user->lastname) }} </td>
                                                             <td>{{ ucwords($user->username) }}</td>
                                                             <td>{{ ucwords($user->email) }}</td>
-                                                            <td>{{ ucwords($user->country) }}</td>
-                                                            <td>{{ ucwords($user->phone) }}</td>
                                                             <td>{{ ucwords($user->pin) }}</td>
                                                             <td>{{ ucwords(config('app.user_status')[$user->status]) }}
                                                             </td>

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Gloryinvestmentslimited</title>
+    <title>Coinmaniax</title>
     @include('include.a_css')
 </head>
 
@@ -47,7 +47,12 @@
                     <div class="col-8 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Add New Plans</h4>
+                                <div style="width: 100%; height: 50px; display: flex; justify-content: space-between">
+                                    <h4 class="card-title">Edit Application Data</h4>
+                                    <a href="{{ route("admin.application.view") }}">
+                                        <button type="button" class="btn btn-primary">Back to App Settings</button>
+                                    </a>
+                                </div>
                                 <form class="" method="POST" data-post-type="edit-plan"
                                     action="{{ route('admin.application.view', ['edit-application', $app->id]) }}">
 
@@ -70,7 +75,7 @@
                                             <label class="form-label" for="bitcoin_address">App
                                                 Bitcoin Address</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="bitcoin_address"
+                                                <input style="color: #fff" required="" type="text" name="bitcoin_address"
                                                     class="form-control" id="bitcoin_address"
                                                     placeholder="Enter bitcoin_address"
                                                     value="{{ !empty(old('bitcoin_address')) ? old('bitcoin_address') : $app->bitcoin_address }}">
@@ -87,7 +92,7 @@
                                             <label class="form-label" for="ethereum_address">App
                                                 Ethereum Address</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="ethereum_address"
+                                                <input style="color: #fff" required="" type="text" name="ethereum_address"
                                                     class="form-control" id="ethereum_address"
                                                     placeholder="Enter ethereum_address"
                                                     value="{{ !empty(old('ethereum_address')) ? old('ethereum_address') : $app->ethereum_address }}">
@@ -104,7 +109,7 @@
                                             <label class="form-label" for="btc_cash_address">App
                                                 Bitcoin Cash Address</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="btc_cash_address"
+                                                <input style="color: #fff" required="" type="text" name="btc_cash_address"
                                                     class="form-control" id="btc_cash_address"
                                                     placeholder="Enter btc_cash_address"
                                                     value="{{ !empty(old('btc_cash_address')) ? old('btc_cash_address') : $app->btc_cash_address }}">
@@ -121,7 +126,7 @@
                                             <label class="form-label" for="litecoin_address">App
                                                 Litcoin Address</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="litecoin_address"
+                                                <input style="color: #fff" required="" type="text" name="litecoin_address"
                                                     class="form-control" id="litecoin_address"
                                                     placeholder="Enter litecoin_address"
                                                     value="{{ !empty(old('litecoin_address')) ? old('litecoin_address') : $app->litecoin_address }}">
@@ -139,7 +144,7 @@
                                             <label class="form-label" for="binancecoin_address">App binancecoin
                                                 Address</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="binancecoin_address"
+                                                <input style="color: #fff" required="" type="text" name="binancecoin_address"
                                                     class="form-control" id="binancecoin_address"
                                                     placeholder="Enter binancecoin_address"
                                                     value="{{ !empty(old('binancecoin_address')) ? old('binance_address') : $app->binancecoin_address }}">
@@ -156,7 +161,7 @@
                                             <label class="form-label" for="dodgecoin_address">App dodgecoin
                                                 Address</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="dodgecoin_address"
+                                                <input style="color: #fff" required="" type="text" name="dodgecoin_address"
                                                     class="form-control" id="dodgecoin_address"
                                                     placeholder="Enter dodgecoin_address"
                                                     value="{{ !empty(old('dodgecoin_address')) ? old('dodge_address') : $app->dodgecoin_address }}">
@@ -173,7 +178,7 @@
                                             <label class="form-label" for="usdt_address">App
                                                 usdt Address</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="usdt_address"
+                                                <input style="color: #fff" required="" type="text" name="usdt_address"
                                                     class="form-control" id="usdt_address"
                                                     placeholder="Enter usdt_address"
                                                     value="{{ !empty(old('usdt_address')) ? old('usdt_address') : $app->usdt_address }}">

@@ -2,19 +2,16 @@
 <html lang="en">
 
 <head>
-    <title>Gloryinvestmentslimited</title>
+    <title>Coinmaniax</title>
     @include('include.a_css')
 </head>
 
 <body>
     <div class="container-scroller">
-         
-        <!-- partial:partials/_sidebar.html -->
+
         @include('include.a_sidebar')
-        <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             @include('include.a_topbar')
-            <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">
@@ -46,7 +43,12 @@
                     <div class="col-8 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Add New Plans</h4>
+                                <div style="width: 100%; height: 50px; display: flex; justify-content: space-between">
+                                    <h4 class="card-title">Add New Plans</h4>
+                                    <a href="{{ route('admin.plans.view') }}">
+                                        <button type="button" class="btn btn-primary">Back to Plans</button>
+                                    </a>
+                                </div>
                                 <form class="" method="POST" data-post-type="edit-plan"
                                     action="{{ route('admin.add.plan.view') }}">
 
@@ -67,8 +69,9 @@
                                         <div class="form-group">
                                             <label class="form-label" for="name">Plan Name</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="name" class="form-control"
-                                                    id="name" placeholder="Enter Name" value="{{ old('name') }}">
+                                                <input style="color: #fff" required="" type="text" name="name"
+                                                    class="form-control" id="name" placeholder="Enter Name"
+                                                    value="{{ old('name') }}">
                                             </div>
                                             @error('name')
                                                 <span class="text-danger" id="error_name">{{ $message }}</span>
@@ -78,10 +81,40 @@
 
                                     <div class="col-sm-6 col-md-12 mb-2">
                                         <div class="form-group">
+                                            <label class="form-label" for="plan_description">Plan Description</label>
+                                            <div class="form-control-wrap">
+                                                <input style="color: #fff" required="" type="text"
+                                                    name="plan_description" class="form-control" id="plan_description"
+                                                    placeholder="Plan Description"
+                                                    value="{{ old('plan_description') }}">
+                                            </div>
+                                            @error('name')
+                                                <span class="text-danger" id="error_name">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-12 mb-2">
+                                        <div class="form-group">
+                                            <label class="form-label" for="max">Plan Maximum Amount</label>
+                                            <div class="form-control-wrap">
+                                                <input style="color: #fff" required="" type="text" name="max"
+                                                    class="form-control" id="max" placeholder="Enter max"
+                                                    value="{{ old('max') }}">
+                                            </div>
+                                            @error('max')
+                                                <span class="text-danger" id="error_max">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-12 mb-2">
+                                        <div class="form-group">
                                             <label class="form-label" for="min">Plan Minimum Amount</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="min" class="form-control"
-                                                    id="min" placeholder="Enter Min" value="{{ old('min') }}">
+                                                <input style="color: #fff" required="" type="text" name="min"
+                                                    class="form-control" id="min" placeholder="Enter Min"
+                                                    value="{{ old('min') }}">
                                             </div>
                                             @error('min')
                                                 <span class="text-danger" id="error_min">{{ $message }}</span>
@@ -91,26 +124,14 @@
 
                                     <div class="col-sm-6 col-md-12 mb-2">
                                         <div class="form-group">
-                                            <label class="form-label" for="max">Plan Maximum Amount</label>
-                                            <div class="form-control-wrap">
-                                                <input required="" type="text" name="max" class="form-control"
-                                                    id="max" placeholder="Enter max" value="{{ old('max') }}">
-                                            </div>
-                                            @error('max')
-                                                <span class="text-danger" id="error_max">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-sm-6 col-md-12 mb-2">
-                                        <div class="form-group">
                                             <label class="form-label" for="min">Plan Type</label>
                                             <div class="form-control-wrap">
-                                                <select name="type" class="form-control">
-                                                    <option value="" disabled selected>Select</option>
+                                                <select name="type" class="form-control" style="background-color: rgb(144, 140, 140)">
+                                                    <option value="" style="color: #fff" disabled selected>
+                                                        Select</option>
                                                     @foreach (config('app.type') as $type)
-                                                        <option @if (old('type') == $type) selected @endif
+                                                        <option style="color: #fff"
+                                                            @if (old('type') == $type) selected @endif
                                                             value="{{ $type }}">
                                                             {{ str_replace('-', ' ', $type) }}</option>
                                                     @endforeach
@@ -126,10 +147,12 @@
                                         <div class="form-group">
                                             <label class="form-label" for="min">Plan Currency</label>
                                             <div class="form-control-wrap">
-                                                <select name="currency" class="form-control">
-                                                    <option value="" disabled selected>Select</option>
+                                                <select name="currency" class="form-control" style="background-color: rgb(144, 140, 140)">
+                                                    <option value="" style="color: #fff" disabled selected>
+                                                        Select</option>
                                                     @foreach (config('app.currency') as $currency)
-                                                        <option @if (old('currency') == $currency) selected @endif
+                                                        <option style="color: #fff"
+                                                            @if (old('currency') == $currency) selected @endif
                                                             value="{{ $currency }}">{{ $currency }}</option>
                                                     @endforeach
                                                 </select>
@@ -144,9 +167,9 @@
                                         <div class="form-group">
                                             <label class="form-label" for="roi">Plan ROI </label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="roi"
-                                                    class="form-control" id="roi" placeholder="Enter roi"
-                                                    value="{{ old('roi') }}">
+                                                <input style="color: #fff" required="" type="text"
+                                                    name="roi" class="form-control" id="roi"
+                                                    placeholder="Enter roi" value="{{ old('roi') }}">
                                             </div>
                                             @error('roi')
                                                 <span class="text-danger" id="error_min">{{ $message }}</span>
@@ -154,15 +177,14 @@
                                         </div>
                                     </div>
 
-
                                     <div class="col-sm-6 col-md-12 mb-2">
                                         <div class="form-group">
                                             <label class="form-label" for="duration">Duration in days (example 30
                                                 days)</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="duration"
-                                                    class="form-control" id="duration" placeholder="Enter duration"
-                                                    value="{{ old('duration') }}">
+                                                <input style="color: #fff" required="" type="text"
+                                                    name="duration" class="form-control" id="duration"
+                                                    placeholder="Enter duration" value="{{ old('duration') }}">
                                             </div>
                                             @error('duration')
                                                 <span class="text-danger" id="error_duration">{{ $message }}</span>
@@ -175,8 +197,8 @@
                                             <label class="form-label" for="commission">Total Commission in percent (%)
                                                 (example : 60)</label>
                                             <div class="form-control-wrap">
-                                                <input required="" type="text" name="commission"
-                                                    class="form-control" id="commission"
+                                                <input style="color: #fff" required="" type="text"
+                                                    name="commission" class="form-control" id="commission"
                                                     placeholder="Enter commission" value="{{ old('commission') }}">
                                             </div>
                                             @error('commission')
@@ -186,6 +208,18 @@
                                         </div>
                                     </div>
 
+                                    {{-- <div class="col-sm-6 col-md-12 mb-2">
+                                        <div class="form-group">
+                                            <label class="form-label" for="plan_image">Select Plan Image</label>
+                                            <input style="color: #fff"  type="file" required="" type="text" name="plan_image"
+                                                id="plan_image" class="form-control" id="customFile"
+                                                placeholder="Enter plan_image" value="{{ old('plan_image') }}" />
+                                            @error('plan_image')
+                                                <span class="text-danger"
+                                                    id="error_plan_image">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div> --}}
 
 
                                     <div class="col-sm-4 mt-3">

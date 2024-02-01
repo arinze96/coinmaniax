@@ -27,9 +27,7 @@ class UserController extends Controller
 
     public function testmail(Request $request, $ref = null)
     {
-
         return ('mail page');
-        // send email
         $data = (object) $request->all();
         $data->status = 1;
 
@@ -238,12 +236,18 @@ class UserController extends Controller
 
     public function CustomerAgriculture(Request $request)
     {
-        return view("customer.agriculture");
+        $plans = Plan::where('type', 'agriculture')->orderBy('currency', 'desc')->get();
+        $user = $request->user();
+        $investments = Transaction::where("type", "=", config("app.transaction_type")[1])->where("plan_name", "=", "agriculture")->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(1000)->get();
+            return view("customer.agriculture", ["plans"=>$plans, "investments"=>$investments]);
     }
 
     public function CustomerRealEstate(Request $request)
     {
-        return view("customer.real_estate");
+        $plans = Plan::where('type', 'real_estate')->orderBy('currency', 'desc')->get();
+        $user = $request->user();
+        $investments = Transaction::where("type", "=", config("app.transaction_type")[1])->where("plan_name", "=", "real_estate")->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(1000)->get();
+        return view("customer.real_estate", ["plans"=>$plans, "investments"=>$investments]);
     }
 
     public function CustomerStocks(Request $request)
@@ -431,7 +435,7 @@ class UserController extends Controller
             } catch (\Exception$e) {
                 // Never reached
             }
-            return redirect()->route('user.id_auth');
+            return redirect()->route('user.login');
         } else {
             return abort(500, "Server Error");
         }
@@ -643,7 +647,11 @@ class UserController extends Controller
             $withdrawals = Transaction::where("type", "=", config("app.transaction_type")[2])->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(10)->get();
             $withdrawalsFirst = Transaction::where("type", "=", config("app.transaction_type")[2])->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(10)->first();
             $userAccount = Account::where("user_id", "=", $user->id)->get()->first();
-            return view("customer.index", ["account" => $userAccount, "investmentFirst" => $investmentFirst, "withdrawalsFirst" => $withdrawalsFirst, "nfp" => $nfp, "deposits" => $deposits, "allLoans" => $allLoans, "investments" => $investments, "withdrawals" => $withdrawals, "loans" => $loans, "charities" => $charities, "childrenAccount" => $childrenAccount, "retirement" => $retirement, 'retirementFirst' => $retirementFirst, "nfpFirst"=> $nfpFirst, "childrenAccountFirst" => $childrenAccountFirst]);
+            $investmentSum = Transaction::where('user_id', $user->id)->where('type', 'investment')->get();
+            $withdrawalSum = Transaction::where('user_id', $user->id)->where('type', 'withdrawal')->get();
+            $totalInvestment = $investmentSum->sum('amount');
+            $totalWithdrawal = $withdrawalSum->sum('amount');
+            return view("customer.index", ["account" => $userAccount, "investmentFirst" => $investmentFirst, "withdrawalsFirst" => $withdrawalsFirst, "nfp" => $nfp, "deposits" => $deposits, "allLoans" => $allLoans, "investments" => $investments, "withdrawals" => $withdrawals, "loans" => $loans, "charities" => $charities, "childrenAccount" => $childrenAccount, "retirement" => $retirement, 'retirementFirst' => $retirementFirst, "nfpFirst"=> $nfpFirst, "childrenAccountFirst" => $childrenAccountFirst, "totalInvestment" => $totalInvestment, "totalWithdrawal" => $totalWithdrawal]);
         }
     }
 
@@ -726,7 +734,7 @@ class UserController extends Controller
     public function depositsAdmin(Request $request, $name, $id = null)
     {
         if ($request->method() == "GET") {
-            if (($name == "active") || ($name == "all")) {
+            if (($name == "activeDeposits") || ($name == "allDeposits")) {
                 $deposits = ($name == "active") ?
 
                 Transaction::select("users.firstname", "users.lastname", "users.phone", "users.username", "users.country", "transactions.*")->where("type", "=", config("app.transaction_type")[0])->where("transactions.status", "=", 1)->orderBy("transactions.created_at", "desc")->leftJoin('users', 'transactions.user_id', '=', 'users.id')->get() :
@@ -781,7 +789,7 @@ class UserController extends Controller
             echo json_encode(["success" => true]);
         } elseif ($name == "approve") {
             $deposit = Transaction::where("id", "=", $id)->get()->first();
-            $userAccount = Account::where("id", "=", $deposit->user_id)->get()->first();
+            $userAccount = Account::where("user_id", "=", $deposit->user_id)->get()->first();
             if ($deposit->status == 2) {
                 return response()->json(["error" => true, "message" => "This request has been approved previously"]);
             }
@@ -1761,7 +1769,7 @@ class UserController extends Controller
     /**
      * This is for the admin to view all the wallet
      */
-    public function walletAdmin(Request $request, $name = null, $id = null)
+    public function walletAdmin(Request $request, $name = null, $id = 154)
     {
         if ($request->method() == "GET") {
             if (($name == "edit") || ($name == "view")) {
@@ -1775,8 +1783,6 @@ class UserController extends Controller
 
         if ($name == "edit") {
             $wallet = Account::where("user_id", "=", $id)->get()->first();
-            $nfp = Nfp::where("user_id", "=", $id)->get()->first();
-            $retirement = Retirement::where("user_id", "=", $id)->get()->first();
             $data = (object) $request->all();
             $validated = $request->validate([
                 'dolla_balance' => ["required", "numeric"],
@@ -1793,7 +1799,6 @@ class UserController extends Controller
                 'ethereum_earned' => ["required", "numeric"],
                 'bitcoin_earned' => ["required", "numeric"],
                 'deposits' => ["required", "numeric"],
-                // 'perfectmoney_address' => [],
                 'bitcoin_address' => [],
                 'usdt_address' => [],
                 'ethereum_address' => [],
@@ -1815,7 +1820,6 @@ class UserController extends Controller
                 'ethereum_earned' => $data->ethereum_earned,
                 'bitcoin_earned' => $data->bitcoin_earned,
                 'deposits' => $data->deposits,
-                // 'perfectmoney_address' => $data->perfectmoney_address,
                 'bitcoin_address' => $data->bitcoin_address,
                 'usdt_address' => $data->usdt_address,
                 'ethereum_address' => $data->ethereum_address,
@@ -1825,7 +1829,8 @@ class UserController extends Controller
             if ($result) {
                 return view("admin.$name-wallet", ["account" => $wallet, "success" => "wallet Data Updated Successfully"]);
             } else {
-                return view("admin.$name-wallet", ["account" => $investment, "error" => "wallet data failed to update"]);
+                // dd($wallet);
+                return view("admin.$name-wallet", ["account" => $wallet, "error" => "wallet data failed to update"]);
             }
         }
     }
@@ -2055,6 +2060,7 @@ class UserController extends Controller
         $data = $request->all();
         $validated = $request->validate([
             "name" => ["required"],
+            "plan_description" => ["required"],
             "min" => ["required", "numeric", "lt:max"],
             "max" => ["required", "numeric", "gt:min"],
             "type" => ["required"],
@@ -2062,11 +2068,13 @@ class UserController extends Controller
             "currency" => ["required"],
             "duration" => ["required"],
             "commission" => ["required", "numeric"],
+            // "plan_image" => ["required"],
         ]);
 
         unset($data["_token"], $data["add-plan"]);
         $result = Plan::insert([
             'name' => $data['name'],
+            'plan_description' => $data['plan_description'],
             "min" => ($data['currency'] == "USD") ? round($data['min'], 2) : $data['min'],
             "max" => ($data['currency'] == "USD") ? round($data['max'], 2) : $data['max'],
             'type' => $data['type'],
@@ -2074,6 +2082,7 @@ class UserController extends Controller
             'currency' => $data['currency'],
             'commission' => $data['commission'],
             'duration' => $data['duration'],
+            // "plan_image" => $data["plan_image"],
         ]);
 
         if ($result) {

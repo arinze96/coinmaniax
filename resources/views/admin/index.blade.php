@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Gloryinvestmentslimited</title>
+    <title>Coinmaniax</title>
   @include('include.a_css')
 </head>
 
@@ -28,7 +28,7 @@
                                         <div class="col-3 col-sm-2 col-xl-2 ps-0 text-center">
                                             <span>
                                                 <a href="{{ route('app.home') }}"
-                                                    target="_blank"
+                                                    target="_blank" style="padding-bottom: 20px; padding-top: 20px;"
                                                     class="btn btn-outline-light btn-rounded get-started-btn">Go to Home</a>
                                             </span>
                                         </div>
@@ -59,48 +59,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="col-sm-4 grid-margin">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5>App BTC Balance</h5>
-                                    <div class="row">
-                                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                            <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                                <h3 class="mb-0">{{ $account->total_bitcoin_balance }}</h3>
-                                                <p class="text-success ms-2 mb-0 font-weight-medium">0.00%</p>
-                                            </div>
-                                            <h6 class="text-muted font-weight-normal" style="margin-top: 10px">Balance of all
-                                                the customer's bitcoin account</h6>
-                                        </div>
-                                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                            <i class="icon-lg mdi mdi-blur text-danger ms-auto"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                        {{-- <div class="col-sm-4 grid-margin">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5>App ETH Balance</h5>
-                                    <div class="row">
-                                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                            <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                                <h3 class="mb-0">{{ $account->total_ethereum_balance }}</h3>
-                                            </div>
-                                            <h6 class="text-muted font-weight-normal" style="margin-top: 10px">Balance of all
-                                                the customer's ethereum account</h6>
-                                        </div>
-                                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                            <i class="icon-lg mdi mdi-houzz-box text-success ms-auto"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                    </div>
-
-                    <div class="row">
                         <div class="col-sm-4 grid-margin">
                             <div class="card">
                                 <div class="card-body">
@@ -140,49 +98,9 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="col-sm-4 grid-margin">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5>BTC Paid Out</h5>
-                                    <div class="row">
-                                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                            <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                                <h3 class="mb-0">{{ $account->total_bitcoin_withdrawals }}</h3>
-                                                <p class="text-success ms-2 mb-0 font-weight-medium">0.00% </p>
-                                            </div>
-                                            <h6 class="text-muted font-weight-normal" style="margin-top: 10px">Total BTC paid
-                                                out to customer's</h6>
-                                        </div>
-                                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                            <i class="icon-lg mdi mdi-crosshairs-gps text-primary ms-auto"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
 
                     <div class="row">
-                        {{-- <div class="col-sm-4 grid-margin">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5>ETH Paid Out</h5>
-                                    <div class="row">
-                                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                            <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                                <h3 class="mb-0">{{ $account->total_ethereum_withdrawals }}</h3>
-                                                <p class="text-success ms-2 mb-0 font-weight-medium">+3.5%</p>
-                                            </div>
-                                            <h6 class="text-muted font-weight-normal" style="margin-top: 10px">Total ethereum
-                                                paid out to customer's</h6>
-                                        </div>
-                                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                            <i class="icon-lg mdi mdi-arrow-up-bold-hexagon-outline text-success ms-auto"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="col-sm-4 grid-margin">
                             <div class="card">
                                 <div class="card-body">
@@ -219,6 +137,30 @@
                                         </div>
                                         <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                                             <i class="icon-lg mdi mdi-vibrate text-warning ms-auto"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5>Active
+                                        Investments</h5>
+                                    <div class="row">
+                                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                                            <div class="d-flex d-sm-block d-md-flex align-items-center">
+                                                <h3 class="mb-0">{{ $investment->total_investment }}</h3>
+                                                {{-- <p class="text-danger ms-2 mb-0 font-weight-medium">-2.1% </p> --}}
+                                            </div>
+                                            <h6 class="text-muted font-weight-normal" style="margin-top: 10px">
+                                                All the
+                                                investments that are currently
+                                                active
+                                            </h6>
+                                        </div>
+                                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                                            <i class="icon-lg mdi mdi-elevation-decline text-info ms-auto"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -284,33 +226,6 @@
                                         </div>
                                         <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                                             <i class="icon-lg mdi mdi-monitor text-success ms-auto"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-4 grid-margin">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5>Active
-                                        Investments</h5>
-                                    <div class="row">
-                                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
-                                            <div class="d-flex d-sm-block d-md-flex align-items-center">
-                                                <h3 class="mb-0">{{ $investment->total_investment }}</h3>
-                                                {{-- <p class="text-danger ms-2 mb-0 font-weight-medium">-2.1% </p> --}}
-                                            </div>
-                                            <h6 class="text-muted font-weight-normal" style="margin-top: 10px">
-                                                All the
-                                                investments that are currently
-                                                active
-                                            </h6>
-                                        </div>
-                                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-                                            <i class="icon-lg mdi mdi-elevation-decline text-info ms-auto"></i>
                                         </div>
                                     </div>
                                 </div>

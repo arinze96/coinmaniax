@@ -26,7 +26,7 @@
                                 <div class="btn btn-list">
                                     <a href="{{ route('user.setting.view', ['general']) }}" class="btn btn-info"><i
                                             class="fe fe-settings mr-1"></i>
-                                        General Settings </a>
+                                        Settings </a>
                                     <a href="{{ route('user.deposit.view', ['usd']) }}" class="btn btn-danger"><i
                                             class="fe fe-printer mr-1"></i>
                                         Deposit </a>

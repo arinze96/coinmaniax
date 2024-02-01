@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Gloryinvestmentslimited</title>
+    <title>Coinmaniax</title>
     @include('include.a_css')
 </head>
 
@@ -57,11 +57,7 @@
                                                     <tr>
                                                         <th>#</th>
                                                         <th>Fullname</th>
-                                                        <th>Username</th>
-                                                        <th>Currency</th>
                                                         <th>Amount</th>
-                                                        <th>Phone</th>
-                                                        <th>Country</th>
                                                         <th>Status</th>
                                                         <th>Date</th>
                                                         <th>Action</th>
@@ -75,12 +71,8 @@
                                                             <td>{{ $key + 1 }}</td>
                                                             <td>{{ ucwords($deposit->firstname) }}
                                                                 {{ ucwords($deposit->lastname) }}</td>
-                                                            <td> {{ ucwords($deposit->username) }} </td>
-                                                            <td> {{ ucwords($deposit->currency) }} </td>
-                                                            <td> {{ number_format($deposit->amount, 0, '.', ',') }}
+                                                            <td> ${{ number_format($deposit->amount, 0, '.', ',') }}
                                                             </td>
-                                                            <td> {{ ucwords($deposit->phone) }} </td>
-                                                            <td> {{ ucwords($deposit->country) }} </td>
                                                             <td>{{ ucwords(config('app.tx_status')[$deposit->status]) }}
                                                             </td>
                                                             <td>{{ date('d M,Y', strtotime($deposit->created_at)) }}
