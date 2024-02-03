@@ -67,30 +67,32 @@
                                                     placeholder="Enter Current Password">
                                             </div>
                                             @error('current_password')
-                                                <span class="text-danger" id="error_name" style="margin-top: -20px">{{ $message }}</span>
+                                                <span class="text-danger" id="error_name"
+                                                    style="margin-top: -20px">{{ $message }}</span>
                                             @enderror
                                             <div class="form-group">
                                                 <label class="form-label">New Password</label>
                                                 <input type="password" class="form-control" name="new_password"
-                                                        value="{{ old('new_password') }}"
-                                                        placeholder="Enter New Password">
+                                                    value="{{ old('new_password') }}" placeholder="Enter New Password">
                                             </div>
                                             @error('new_password')
-                                                    <span class="text-danger" id="error_name" style="margin-top: -20px">{{ $message }}</span>
-                                                @enderror
+                                                <span class="text-danger" id="error_name"
+                                                    style="margin-top: -20px">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="card-footer text-right">
-                                            <button type="submit" id="edit-plan" class="btn btn-primary">Change Password</button>
+                                            <button type="submit" id="edit-plan" class="btn btn-primary">Change
+                                                Password</button>
                                         </div>
                                     </div>
                                 </form>
                                 <form action="{{ route('user.setting.view', ['security']) }}" method="POST">
                                     @csrf
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="card-title">Edit Pin</div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-12 form-row"
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title">Edit Pin</div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 form-row"
                                             style="width: 100%; justify-content: center">
                                             @if (!empty($success))
                                                 <span style="margin-top: 10px"
@@ -104,29 +106,29 @@
                                                     class="info_box text-danger">{{ $error }}</span>
                                             @endif
                                         </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label class="form-label">Change Pin</label>
-                                            <input type="text" class="form-control" name="current_pin"
-                                                        value="{{ old('current_pin') }}"
-                                                        placeholder="Enter Current Pin">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label class="form-label">Change Pin</label>
+                                                <input type="text" class="form-control" name="current_pin"
+                                                    value="{{ old('current_pin') }}" placeholder="Enter Current Pin">
+                                            </div>
+                                            @error('current_pin')
+                                                <span class="text-danger" id="error_name">{{ $message }}</span>
+                                            @enderror
+                                            <div class="form-group">
+                                                <label class="form-label">New Pin</label>
+                                                <input type="text" class="form-control" name="new_pin"
+                                                    value="{{ old('new_pin') }}" placeholder="Enter new Pin">
+                                            </div>
+                                            @error('new_pin')
+                                                <span class="text-danger" id="error_name">{{ $message }}</span>
+                                            @enderror
                                         </div>
-                                        @error('current_pin')
-                                                    <span class="text-danger" id="error_name">{{ $message }}</span>
-                                                @enderror
-                                        <div class="form-group">
-                                            <label class="form-label">New Pin</label>
-                                            <input type="text" class="form-control" name="new_pin"
-                                                        value="{{ old('new_pin') }}" placeholder="Enter new Pin">
+                                        <div class="card-footer text-right">
+                                            <button type="submit" id="edit-plan" class="btn btn-primary">Change
+                                                Pin</button>
                                         </div>
-                                        @error('new_pin')
-                                        <span class="text-danger" id="error_name">{{ $message }}</span>
-                                    @enderror
                                     </div>
-                                    <div class="card-footer text-right">
-                                        <button type="submit" id="edit-plan" class="btn btn-primary">Change Pin</button>
-                                    </div>
-                                </div>
                                 </form>
                             </div>
                         </div>

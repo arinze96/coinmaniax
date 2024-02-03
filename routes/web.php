@@ -67,16 +67,6 @@ Route::match(["post","get"],"/customer/crypto_invest",[UserController::class,"Cu
 
 // // plan
 Route::match(["get","post"],"/customer/plan/{name}",[AccountController::class,"plans"])->middleware(["auth"])->name("user.plan.view");
-
-// // statistics
-// Route::get("/customer/statistics",[AccountController::class,"statistics"])->middleware(["auth"])->name("user.statistics.view");
-
-// // partners
-// Route::get("/customer/partners",[AccountController::class,"partners"])->middleware(["auth"])->name("user.partners.view");
-
-// // history
-// Route::get("/customer/history/{name}",[AccountController::class,"history"])->middleware(["auth"])->name("user.history.view");
-
 // // history
 Route::match(["get","post"],"/customer/setting/{name}",[AccountController::class,"setting"])->middleware(["auth"])->name("user.setting.view");
 

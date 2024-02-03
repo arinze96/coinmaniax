@@ -16,7 +16,7 @@
                     <div class="navbar-profile">
                         <img class="img-xs rounded-circle"
                             src="{{ asset('assets/admin/images/faces/imog2.png') }}" alt="">
-                        <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
+                        <p class="mb-0 d-none d-sm-block navbar-profile-name">Admin</p>
                         {{-- <i class="mdi mdi-menu-down d-none d-sm-block"></i> --}}
                     </div>
                 </a>

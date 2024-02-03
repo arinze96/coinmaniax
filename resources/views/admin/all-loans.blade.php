@@ -76,16 +76,25 @@
                                                                         {{ ucwords($loan->lastname) }}</td>
 
                                                                     <td>{{ ucwords($loan->currency) }}</td>
-                                                                    <td>{{ ucwords($loan->amount) }}</td>
-                                                                    <td>{{ $loan->status == 0 ? 'unapproved' : 'Approved' }}
-                                                                    </td>
+                                                                    <td>${{ ucwords($loan->amount) }}</td>
+                                                                    <td>
+                                                                        <?php
+                                                                        if($loan->status == 0) {
+                                                                            echo "unapproved";
+                                                                        } elseif ($loan->status == 1) {
+                                                                            echo "Approved";
+                                                                        } else {
+                                                                            echo "Canceled";
+                                                                        }
+                                                                        ?>
+                                                                        </td>
                                                                     <td>{{ date('d M,Y', strtotime($loan->created_at)) }}
                                                                     </td>
                                                                     <td>
-                                                                        <a
+                                                                        {{-- <a
                                                                             href="{{ route('admin.loan.view', ['edit', $loan->id]) }}"><i
                                                                             class="icon-sm mdi mdi-pen text-warning ms-auto"
-                                                                            style="margin-right: 5px"></i></a></a>
+                                                                            style="margin-right: 5px"></i></a></a> --}}
                                                                         <a class="delete_data"
                                                                             href="{{ route('admin.loan.view', ['delete', $loan->id]) }}"
                                                                             data-type="loan"><i

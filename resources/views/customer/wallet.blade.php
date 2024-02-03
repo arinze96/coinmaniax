@@ -18,15 +18,10 @@
     @include('include.c_sidebar')
 
     <main class="main-content  position-relative max-height-vh-100 h-100 ">
-
         @include('include.c_header')
-
-
-
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-xl-2 col-sm-6 mb-xl-0 mb-4" style="margin-top: 20px;">
-                    {{-- <a href="#"> --}}
                     <div class="card" style="background-color: #ffffff40!important; height: 100px">
                         <div class="card-body p-3">
                             <div class="row">
@@ -48,7 +43,6 @@
                             </div>
                         </div>
                     </div>
-                    {{-- </a> --}}
                 </div>
                 @if (!$charities == null)
                     <div class="col-xl-3 col-sm-6 col-md-4 mb-xl-0 mb-4" style="margin-top: 20px">

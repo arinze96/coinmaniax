@@ -347,12 +347,6 @@ class AccountController extends Controller
         if (!empty($plan)) {
             $url = url("/customer/deposit/usd");
             $key = config("app.iso_account")[$plan->currency];
-            // die($key);
-
-          
-            // die(config("app.iso_account")[$plan->currency]);
-            // check if the user has up to that amount
-            // echo $userAccount->{."_balance"};
             if ($userAccount->{$key."_balance"} < $data->amount) {
                 return response()->json(["error"=>true,"message"=>"insufficient fund to perform this investment","url"=>$url]);
             }

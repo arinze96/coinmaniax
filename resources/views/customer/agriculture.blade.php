@@ -319,9 +319,9 @@
                                                             <tr>
                                                                 <td>{{ $key + 1 }}</td>
                                                                 <td>{{ ucwords($investment->message) }}</td>
-                                                                <td>{{ number_format($investment->amount, 0, '.', ',') }}
+                                                                <td>${{ number_format($investment->amount, 0, '.', ',') }}
                                                                 </td>
-                                                                <td>{{ number_format($investment->growth_amount, 0, '.', ',') }}
+                                                                <td>${{ number_format($investment->growth_amount, 0, '.', ',') }}
                                                                 </td>
                                                                 <td>{{ ucwords($investment->type) }}</td>
                                                                 <td>{{ ucwords(config('app.tx_status')[$investment->status]) }}

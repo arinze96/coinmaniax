@@ -50,7 +50,7 @@ class UserController extends Controller
         ];
         try {
             Mail::to('edmund10arinze@gmail.com')->send(new GeneralMailer($details));
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             dd($e);
         }
     }
@@ -59,7 +59,8 @@ class UserController extends Controller
     {
         if ($request->method() == "GET") {
             $user = $request->user();
-            return view("customer.loan", ["userDetails" => $user]);
+            $loans = Loan::where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(1000)->get();
+            return view("customer.loan", ["userDetails" => $user, "loans" => $loans]);
         }
 
         $data = (object) $request->all();
@@ -74,6 +75,7 @@ class UserController extends Controller
             "currency" => ["required"],
             "amount" => ["required"],
             "duration" => ["required"],
+            "type" => ["required"],
         ]);
 
         $loan = Loan::insert([
@@ -86,10 +88,15 @@ class UserController extends Controller
             "currency" => $data->currency,
             "amount" => $data->amount,
             "duration" => $data->duration,
+            "type" => $data->type,
             'status' => 0,
         ]);
 
-        if ($loan) {return redirect()->route('user.dashboard.view');}
+        // if ($loan) {return redirect()->route('user.dashboard.view');}
+        if ($loan) {
+            return redirect()->back()->with('success', 'Your data has been successfully submitted!');
+        }
+
     }
 
     public function CustomerCharity(Request $request)
@@ -164,40 +171,10 @@ class UserController extends Controller
 
     public function CustomerRetirement(Request $request)
     {
-        if ($request->method() == "GET") {
-            $user = $request->user();
-            return view("customer.customer_retirement", ["userDetails" => $user]);
-        }
-        $data = (object) $request->all();
-        $data->status = 0;
-
-        $validated = $request->validate([
-            "firstname" => ["required"],
-            "lastname" => ["required"],
-            "email" => ["required"],
-            "phone" => ["required"],
-            "next_of_kin" => ["required"],
-            "currency" => ["required"],
-            "amount" => ["required"],
-            "duration" => ["required"],
-        ]);
-
-        $childrenAccount = Retirement::insert([
-            "user_id" => $request->user()->id,
-            "firstname" => $data->firstname,
-            "lastname" => $data->lastname,
-            "email" => $data->email,
-            "phone" => $data->phone,
-            "next_of_kin" => $data->next_of_kin,
-            "currency" => $data->currency,
-            "amount" => $data->amount,
-            "duration" => $data->duration,
-            'status' => 0,
-        ]);
-
-        if ($childrenAccount) {
-            return redirect()->route('user.dashboard.view');
-        }
+        $plans = Plan::where('type', 'retirment_plan')->orderBy('currency', 'desc')->get();
+        $user = $request->user();
+        $investments = Transaction::where("type", "=", config("app.transaction_type")[1])->where("plan_name", "=", "retirment_plan")->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(1000)->get();
+        return view("customer.customer_retirement", ["plans" => $plans, "investments" => $investments]);
     }
 
     public function customerChildrenAccount(Request $request)
@@ -239,7 +216,7 @@ class UserController extends Controller
         $plans = Plan::where('type', 'agriculture')->orderBy('currency', 'desc')->get();
         $user = $request->user();
         $investments = Transaction::where("type", "=", config("app.transaction_type")[1])->where("plan_name", "=", "agriculture")->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(1000)->get();
-            return view("customer.agriculture", ["plans"=>$plans, "investments"=>$investments]);
+        return view("customer.agriculture", ["plans" => $plans, "investments" => $investments]);
     }
 
     public function CustomerRealEstate(Request $request)
@@ -247,24 +224,32 @@ class UserController extends Controller
         $plans = Plan::where('type', 'real_estate')->orderBy('currency', 'desc')->get();
         $user = $request->user();
         $investments = Transaction::where("type", "=", config("app.transaction_type")[1])->where("plan_name", "=", "real_estate")->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(1000)->get();
-        return view("customer.real_estate", ["plans"=>$plans, "investments"=>$investments]);
+        return view("customer.real_estate", ["plans" => $plans, "investments" => $investments]);
     }
 
     public function CustomerStocks(Request $request)
     {
-        return view("customer.stocks");
+        $plans = Plan::where('type', 'stocks')->orderBy('currency', 'desc')->get();
+        $user = $request->user();
+        $investments = Transaction::where("type", "=", config("app.transaction_type")[1])->where("plan_name", "=", "stocks")->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(1000)->get();
+        return view("customer.stocks", ["plans" => $plans, "investments" => $investments]);
     }
 
     public function CustomerCrypto(Request $request)
     {
-        return view("customer.crypto_invest");
+        $plans = Plan::where('type', 'crypto_investment')->orderBy('currency', 'desc')->get();
+        $user = $request->user();
+        $investments = Transaction::where("type", "=", config("app.transaction_type")[1])->where("plan_name", "=", "crypto_investment")->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(1000)->get();
+        return view("customer.crypto_invest", ["plans" => $plans, "investments" => $investments]);
     }
 
     public function customerProjectFunding(Request $request)
     {
-        return view("customer.project_funding");
+        $plans = Plan::where('type', 'project_funding')->orderBy('currency', 'desc')->get();
+        $user = $request->user();
+        $investments = Transaction::where("type", "=", config("app.transaction_type")[1])->where("plan_name", "=", "project_funding")->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(1000)->get();
+        return view("customer.project_funding", ["plans" => $plans, "investments" => $investments]);
     }
-    
 
     public function index(Request $request)
     {
@@ -283,7 +268,6 @@ class UserController extends Controller
     {
         return view('home.success_page');
     }
-
 
     public function privacy_policy(Request $request)
     {
@@ -344,7 +328,6 @@ class UserController extends Controller
     {
         return view("home.faq");
     }
-
 
     public function register(Request $request, $ref = null)
     {
@@ -432,7 +415,7 @@ class UserController extends Controller
             try {
                 Mail::to($data->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($adminDetails1));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
             return redirect()->route('user.login');
@@ -532,7 +515,7 @@ class UserController extends Controller
             Mail::to($user->email)->send(new GeneralMailer($details));
             Mail::to(config("app.admin_mail"))->send(new GeneralMailer($adminDetails2));
             // Mail::to(config("app.admin_mail"))->send(new GeneralMailer($adminDetails));
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             // Never reached
         }
 
@@ -591,7 +574,7 @@ class UserController extends Controller
         try {
             Mail::to($user->email)->send(new GeneralMailer($details));
             Mail::to(config("app.admin_mail"))->send(new GeneralMailer($adminDetails3));
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             // Never reached
         }
 
@@ -651,7 +634,7 @@ class UserController extends Controller
             $withdrawalSum = Transaction::where('user_id', $user->id)->where('type', 'withdrawal')->get();
             $totalInvestment = $investmentSum->sum('amount');
             $totalWithdrawal = $withdrawalSum->sum('amount');
-            return view("customer.index", ["account" => $userAccount, "investmentFirst" => $investmentFirst, "withdrawalsFirst" => $withdrawalsFirst, "nfp" => $nfp, "deposits" => $deposits, "allLoans" => $allLoans, "investments" => $investments, "withdrawals" => $withdrawals, "loans" => $loans, "charities" => $charities, "childrenAccount" => $childrenAccount, "retirement" => $retirement, 'retirementFirst' => $retirementFirst, "nfpFirst"=> $nfpFirst, "childrenAccountFirst" => $childrenAccountFirst, "totalInvestment" => $totalInvestment, "totalWithdrawal" => $totalWithdrawal]);
+            return view("customer.index", ["account" => $userAccount, "investmentFirst" => $investmentFirst, "withdrawalsFirst" => $withdrawalsFirst, "nfp" => $nfp, "deposits" => $deposits, "allLoans" => $allLoans, "investments" => $investments, "withdrawals" => $withdrawals, "loans" => $loans, "charities" => $charities, "childrenAccount" => $childrenAccount, "retirement" => $retirement, 'retirementFirst' => $retirementFirst, "nfpFirst" => $nfpFirst, "childrenAccountFirst" => $childrenAccountFirst, "totalInvestment" => $totalInvestment, "totalWithdrawal" => $totalWithdrawal]);
         }
     }
 
@@ -705,10 +688,11 @@ class UserController extends Controller
             return view("auth.admin-login", ["noMatch" => "Invalid Login Detail"]);
         }
     }
-  
+
     public function dashboardAdmin(Request $request)
     {
         if ($request->method() == "GET") {
+            $user = $request->user();
             // $accounts = Account::select('dolla_balance as total_dolla_balance','ethereum_balance as total_ethereum_balance')->sum('dolla_balance','ethereum_balance');
             $account = DB::table('accounts')->selectRaw(
                 'SUM(dolla_balance) as total_dolla_balance,
@@ -727,7 +711,7 @@ class UserController extends Controller
             $plans = DB::table('plans')->selectRaw('COUNT(id) as total_plans')->get()->first();
             $newCustomers = User::where("role", "=", 0)->orderBy("created_at", "desc")->limit(10)->get();
             $activities = Activity::orderBy("created_at", "desc")->limit(10)->get();
-            return view("admin.index", ["account" => $account, "customer" => $customers, "admin" => $admins, "plan" => $plans, "deposit" => $deposits, "investment" => $investments, "withdraw" => $withdrawals, "newCustomers" => $newCustomers, "activities" => $activities]);
+            return view("admin.index", ["account" => $account, "customer" => $customers, "admin" => $admins, "plan" => $plans, "deposit" => $deposits, "investment" => $investments, "withdraw" => $withdrawals, "user" => $user, "newCustomers" => $newCustomers, "activities" => $activities]);
         }
     }
 
@@ -825,7 +809,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -834,7 +818,7 @@ class UserController extends Controller
             $deposit = Transaction::where("id", "=", $id)->get()->first();
             $userAccount = Account::where("id", "=", $deposit->user_id)->get()->first();
             if ($deposit->status == 3) {
-                return response()->json(["error" => true, "message" => "This request has been cancled previously"]);
+                return response()->json(["error" => true, "message" => "This request has been canceled previously"]);
             }
             $result = Account::where("user_id", "=", $deposit->user_id)->update([
                 "deposits" => $userAccount->deposits - $deposit->amount,
@@ -850,7 +834,7 @@ class UserController extends Controller
                 "title" => "Deposit",
                 "username" => $user->username,
                 "content" => "Hello <b>$user->username!</b><br><br>
-                            Your deposit of $message_amount $deposit->currency has been cancled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
+                            Your deposit of $message_amount $deposit->currency has been canceled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
                 "year" => date("Y"),
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
@@ -869,11 +853,11 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
-            return response()->json(["success" => true, "message" => "Deposit successfully cancled"]);
+            return response()->json(["success" => true, "message" => "Deposit successfully canceled"]);
         }
     }
 
@@ -886,11 +870,11 @@ class UserController extends Controller
 
                 Loan::where("status", "=", 1)->orderBy("created_at", "desc")->limit(100)->get() :
 
-                Loan::where("status", "=", 0)->orderBy("created_at", "desc")->limit(100)->get();
+                Loan::orderBy("created_at", "desc")->limit(10000)->get();
 
                 return view("admin.$name-loans", ["loans" => $loans]);
             } else {
-                $loans = DB::table('loans')->where('id','=',$id)->get()->first();
+                $loans = DB::table('loans')->where('id', '=', $id)->get()->first();
                 // dd($loans);
                 return view("admin.$name-loans", ["loans" => $loans]);
             }
@@ -926,18 +910,24 @@ class UserController extends Controller
             echo json_encode(["success" => true]);
         } elseif ($name == "approve") {
             $loans = Loan::where("id", "=", $id)->get()->first();
+            $user = User::where("id", "=", $loans->user_id)->get()->first();
+            $userAccount = Account::where("user_id", "=", $user->id)->get()->first();
+            $message_amount = $loans->amount;
             if ($loans->status == 1) {
                 return response()->json(["error" => true, "message" => "This request has been approved previously"]);
             }
-
-            $user = User::where("id", "=", $loans->user_id)->get()->first();
-            $message_amount = $loans->amount;
+            Loan::where("id", "=", $id)->update([
+                'status' => 1,
+            ]);
+            Account::where("user_id", "=", $user->id)->update([
+                'dolla_balance' => $userAccount->dolla_balance + $loans->amount,
+            ]);
             $details = [
                 "appName" => config("app.name"),
                 "title" => "Loan",
                 "username" => $user->username,
                 "content" => "Hello <b>$user->username!</b><br><br>
-                            Your deposit of $message_amount has been approved successfully.<br>",
+                            Your Loan of $message_amount has been approved successfully.<br>",
                 "year" => date("Y"),
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
@@ -955,7 +945,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -963,9 +953,9 @@ class UserController extends Controller
         } elseif ($name == "decline") {
             $loans = Loan::where("id", "=", $id)->get()->first();
             if ($loans->status == 3) {
-                return response()->json(["error" => true, "message" => "This request has been cancled previously"]);
+                return response()->json(["error" => true, "message" => "This loan has been canceled previously"]);
             }
-            Transaction::where("id", "=", $id)->update([
+            Loan::where("id", "=", $id)->update([
                 'status' => 3,
             ]);
 
@@ -976,7 +966,7 @@ class UserController extends Controller
                 "title" => "Deposit",
                 "username" => $user->username,
                 "content" => "Hello <b>$user->username!</b><br><br>
-                            Your Loan Request of $message_amount has been cancled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
+                            Your Loan Request of $message_amount has been canceled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
                 "year" => date("Y"),
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
@@ -995,11 +985,11 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
-            return response()->json(["success" => true, "message" => "Deposit successfully cancled"]);
+            return response()->json(["success" => true, "message" => "Loan successfully canceled"]);
         }
     }
 
@@ -1016,7 +1006,7 @@ class UserController extends Controller
 
                 return view("admin.$name-charity", ["charities" => $charities]);
             } else {
-                $charities = DB::table('charities')->where('id','=',$id)->get()->first();
+                $charities = DB::table('charities')->where('id', '=', $id)->get()->first();
                 return view("admin.$name-charity", ["charities" => $charities]);
             }
         }
@@ -1086,14 +1076,14 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
             }
 
             return response()->json(["success" => true, "message" => "Donation successfully approved"]);
         } elseif ($name == "decline") {
             $charities = Charity::where("id", "=", $id)->get()->first();
             if ($charities->status == 3) {
-                return response()->json(["error" => true, "message" => "This request has been cancled previously"]);
+                return response()->json(["error" => true, "message" => "This request has been canceled previously"]);
             }
             Charity::where("id", "=", $id)->update([
                 'status' => 3,
@@ -1106,7 +1096,7 @@ class UserController extends Controller
                 "title" => "Donation Declined",
                 "username" => $user->username,
                 "content" => "Hello <b>$user->username!</b><br><br>
-                            Your Donation Request of $message_amount has been cancled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
+                            Your Donation Request of $message_amount has been canceled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
                 "year" => date("Y"),
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
@@ -1125,10 +1115,10 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
             }
 
-            return response()->json(["success" => true, "message" => "Donation successfully cancled"]);
+            return response()->json(["success" => true, "message" => "Donation successfully canceled"]);
         }
     }
 
@@ -1145,7 +1135,7 @@ class UserController extends Controller
 
                 return view("admin.$name-nfp", ["nfps" => $nfps]);
             } else {
-                $nfps = DB::table('nfps')->where('id','=',$id)->get()->first();
+                $nfps = DB::table('nfps')->where('id', '=', $id)->get()->first();
                 // dd($nfps);
                 return view("admin.$name-nfp", ["nfps" => $nfps]);
             }
@@ -1216,7 +1206,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1224,7 +1214,7 @@ class UserController extends Controller
         } elseif ($name == "decline") {
             $nfps = Nfp::where("id", "=", $id)->get()->first();
             if ($nfps->status == 3) {
-                return response()->json(["error" => true, "message" => "This request has been cancled previously"]);
+                return response()->json(["error" => true, "message" => "This request has been canceled previously"]);
             }
             Nfp::where("id", "=", $id)->update([
                 'status' => 3,
@@ -1237,7 +1227,7 @@ class UserController extends Controller
                 "title" => "NFP funds Declined",
                 "username" => $user->username,
                 "content" => "Hello <b>$user->username!</b><br><br>
-                            Your NFP funding Request of $message_amount has been cancled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
+                            Your NFP funding Request of $message_amount has been canceled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
                 "year" => date("Y"),
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
@@ -1256,11 +1246,11 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
-            return response()->json(["success" => true, "message" => "NFP funds successfully cancled"]);
+            return response()->json(["success" => true, "message" => "NFP funds successfully canceled"]);
         }
     }
 
@@ -1271,13 +1261,13 @@ class UserController extends Controller
             if (($name == "active") || ($name == "all")) {
                 $retirement = ($name == "active") ?
 
-                Retirement::where("status", "=", 1)->orderBy("created_at", "desc")->limit(1000)->get():
+                Retirement::where("status", "=", 1)->orderBy("created_at", "desc")->limit(1000)->get() :
 
                 Retirement::where("status", "=", 0)->orderBy("created_at", "desc")->limit(100)->get();
 
                 return view("admin.$name-retirement", ["retirement" => $retirement]);
             } else {
-                $retirement = DB::table('retirements')->where('id','=',$id)->get()->first();
+                $retirement = DB::table('retirements')->where('id', '=', $id)->get()->first();
                 // dd($charities);
                 return view("admin.$name-retirement", ["retirement" => $retirement]);
             }
@@ -1351,7 +1341,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1359,7 +1349,7 @@ class UserController extends Controller
         } elseif ($name == "decline") {
             $retirement = Retirement::where("id", "=", $id)->get()->first();
             if ($retirement->status == 3) {
-                return response()->json(["error" => true, "message" => "This request has been cancled previously"]);
+                return response()->json(["error" => true, "message" => "This request has been canceled previously"]);
             }
             Retirement::where("id", "=", $id)->update([
                 'status' => 3,
@@ -1372,7 +1362,7 @@ class UserController extends Controller
                 "title" => "Donation Declined",
                 "username" => $user->username,
                 "content" => "Hello <b>$user->username!</b><br><br>
-                            Your Donation Request of $message_amount has been cancled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
+                            Your Donation Request of $message_amount has been canceled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
                 "year" => date("Y"),
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
@@ -1391,11 +1381,11 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
-            return response()->json(["success" => true, "message" => "Retirement Fund Deposit Report successfully cancled"]);
+            return response()->json(["success" => true, "message" => "Retirement Fund Deposit Report successfully canceled"]);
         }
     }
 
@@ -1412,7 +1402,7 @@ class UserController extends Controller
 
                 return view("admin.$name-childrenAccount", ["child" => $child]);
             } else {
-                $child = DB::table('children_accounts')->where('id','=',$id)->get()->first();
+                $child = DB::table('children_accounts')->where('id', '=', $id)->get()->first();
                 // dd($child);
                 return view("admin.$name-childrenAccount", ["child" => $child]);
             }
@@ -1486,7 +1476,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1494,7 +1484,7 @@ class UserController extends Controller
         } elseif ($name == "decline") {
             $child = ChildrenAccount::where("id", "=", $id)->get()->first();
             if ($child->status == 3) {
-                return response()->json(["error" => true, "message" => "This request has been cancled previously"]);
+                return response()->json(["error" => true, "message" => "This request has been canceled previously"]);
             }
             ChildrenAccount::where("id", "=", $id)->update([
                 'status' => 3,
@@ -1507,7 +1497,7 @@ class UserController extends Controller
                 "title" => "Children Account Funds Deposit Declined",
                 "username" => $user->username,
                 "content" => "Hello <b>$user->username!</b><br><br>
-                            Your Children Account Deposit Request of $message_amount has been cancled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
+                            Your Children Account Deposit Request of $message_amount has been canceled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
                 "year" => date("Y"),
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
@@ -1526,11 +1516,11 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
-            return response()->json(["success" => true, "message" => "Children Account Fund Deposit Request successfully cancled"]);
+            return response()->json(["success" => true, "message" => "Children Account Fund Deposit Request successfully canceled"]);
         }
     }
 
@@ -1565,7 +1555,7 @@ class UserController extends Controller
                 "title" => "Withdrawal",
                 "username" => $user->username,
                 "content" => "Hello <b>$user->username!</b><br><br>
-                           Your withdrawal request of $message_amount $withdraw->currency has been cancled due to unverified reasons.
+                           Your withdrawal request of $message_amount $withdraw->currency has been canceled due to unverified reasons.
                            <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
                 "year" => date("Y"),
                 "appMail" => config("app.email"),
@@ -1585,7 +1575,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails6));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 // Never reached
             }
 
@@ -1621,7 +1611,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails7));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 //dsdssd
             }
 
@@ -1634,15 +1624,25 @@ class UserController extends Controller
      */
     public function investmentAdmin(Request $request, $name, $id = null)
     {
+        $user = $request->user();
         if ($request->method() == "GET") {
-            if ($name != "edit") {
-                $investments = ($name == "active") ?
-                Transaction::select("users.firstname", "users.lastname", "users.email", "users.username", "users.country", "transactions.*")->where("transactions.type", "=", config("app.transaction_type")[1])->where("transactions.status", "=", 1)->leftJoin('users', 'transactions.user_id', '=', 'users.id')->orderBy("transactions.created_at", "desc")->get() :
-                Transaction::select("users.firstname", "users.lastname", "users.email", "users.username", "users.country", "transactions.*")->where("transactions.type", "=", config("app.transaction_type")[1])->leftJoin('users', 'transactions.user_id', '=', 'users.id')->orderBy("transactions.created_at", "desc")->get();
-                return view("admin.$name-investment", ["investments" => $investments]);
+            if ($name != "edit") {$agricultureInvestment = Transaction::where("plan_name", "=", "agriculture")->get();
+                $realEstateInvestment = Transaction::where("plan_name", "=", "real_estate")->get();
+                $projectFundingInvestment = Transaction::where("plan_name", "=", "project_funding")->get();
+                $stocksInvestment = Transaction::where("plan_name", "=", "stocks")->get();
+                $retirementPlanInvestment = Transaction::where("plan_name", "=", "retirement_plan")->get();
+                $cryptoInvestmentInvestment = Transaction::where("plan_name", "=", "crypto_investment")->get();
+                return view("admin.$name-investment", [
+                    // "investments" => $investments,
+                     "agricultureInvestment" => $agricultureInvestment, "realEstateInvestment" => $realEstateInvestment, "projectFundingInvestment" => $projectFundingInvestment, "stocksInvestment" => $stocksInvestment, "retirementPlanInvestment" => $retirementPlanInvestment, "cryptoInvestmentInvestment" => $cryptoInvestmentInvestment]);
             } else {
-                $investment = Transaction::where("id", "=", $id)->get()->first();
-                return view("admin.$name-investment", ["investment" => $investment]);
+                $agricultureInvestment = Transaction::where("plan_name", "=", "agriculture")->get();
+                $realEstateInvestment = Transaction::where("plan_name", "=", "real_estate")->get();
+                $projectFundingInvestment = Transaction::where("plan_name", "=", "project_funding")->get();
+                $stocksInvestment = Transaction::where("plan_name", "=", "stocks")->get();
+                $retirementPlanInvestment = Transaction::where("plan_name", "=", "retirement_plan")->get();
+                $cryptoInvestmentInvestment = Transaction::where("plan_name", "=", "crypto_investment")->get();
+                return view("admin.$name-investment", ["agricultureInvestment" => $agricultureInvestment, "realEstateInvestment" => $realEstateInvestment, "projectFundingInvestment" => $projectFundingInvestment, "stocksInvestment" => $stocksInvestment, "retirementPlanInvestment" => $retirementPlanInvestment, "cryptoInvestmentInvestment" => $cryptoInvestmentInvestment]);
             }
         }
         if ($name == "delete") {
@@ -1683,22 +1683,19 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails8));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 //dsdssd
             }
 
             return response()->json(["success" => true, "message" => "Today Growth successfully updated "]);
         } elseif ($name == "complete") {
             $investment = Transaction::where("id", "=", $id)->get()->first();
+            $userAccount = Account::where("user_id", "=", $investment->user_id)->get()->first();
             $result = Transaction::where("id", "=", $id)->update([
                 'status' => 2,
             ]);
-            $userAccount = Account::where("id", "=", $investment->user_id)->get()->first();
-            $key = config("app.iso_account")[$investment->currency];
-            $earned = $investment->growth_amount - $investment->amount;
             Account::where("user_id", "=", $investment->user_id)->update([
-                $key . "_balance" => $userAccount->{$key . "_balance"}+$investment->growth_amount,
-                $key . "_earned" => $userAccount->{$key . "_earned"}+$earned,
+                "dolla_balance" => $userAccount->dolla_balance + $investment->growth_amount,
             ]);
 
             $user = User::where("id", "=", $investment->user_id)->get()->first();
@@ -1728,7 +1725,7 @@ class UserController extends Controller
             try {
                 Mail::to($user->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails9));
-            } catch (\Exception$e) {
+            } catch (\Exception $e) {
                 //dsdssd
             }
 
@@ -1923,7 +1920,7 @@ class UserController extends Controller
             $result = User::where("id", "=", $id)->update([
                 'role' => 0,
             ]);
-            return response()->json(["success" => true, "message" => "User  admin cancled successfully"]);
+            return response()->json(["success" => true, "message" => "User  admin canceled successfully"]);
         }
     }
 

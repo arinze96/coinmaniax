@@ -33,251 +33,272 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-8 col-lg-12 col-md-12">
-								<div class="card">
-									<div class="card-header">
-										<h3 class="card-title">Billing Information</h3>
-									</div>
-									<div class="card-body">
-										<div class="row">
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">First Name <span class="text-red">*</span></label>
-													<input type="text" class="form-control" placeholder="First name">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">Last Name <span class="text-red">*</span></label>
-													<input type="text" class="form-control" placeholder="Last name">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Company Name <span class="text-red">*</span></label>
-													<input type="text" class="form-control" placeholder="Company name">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Email address <span class="text-red">*</span></label>
-													<input type="email" class="form-control" placeholder="Email">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Country <span class="text-red">*</span></label>
-													<select class="form-control custom-select select2">
-														<option value="0">--Select--</option>
-														<option value="1">Germany</option>
-														<option value="2">Canada</option>
-														<option value="3">Usa</option>
-														<option value="4">Aus</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Address <span class="text-red">*</span></label>
-													<input type="text" class="form-control" placeholder="Home Address">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">City <span class="text-red">*</span></label>
-													<input type="text" class="form-control" placeholder="City">
-												</div>
-											</div>
-											<div class="col-sm-6 col-md-6">
-												<div class="form-group">
-													<label class="form-label">Postal Code <span class="text-red">*</span></label>
-													<input type="number" class="form-control" placeholder="ZIP Code">
-												</div>
-											</div>
-                                            <div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Amount <span class="text-red">*</span></label>
-													<select class="form-control custom-select select2">
-														<option value="0">--Select--</option>
-														<option value="1">$5,000</option>
-														<option value="2">$15,000</option>
-														<option value="3">$39,000</option>
-														<option value="4">$100,000</option>
-													</select>
-												</div>
-											</div>
-                                            <div class="col-md-12">
-												<div class="form-group">
-													<label class="form-label">Duration <span class="text-red">*</span></label>
-													<select class="form-control custom-select select2">
-														<option value="0">--Select--</option>
-														<option value="1">1 month</option>
-														<option value="2">3 months</option>
-														<option value="3">6 months</option>
-														<option value="4">1 year</option>
-													</select>
-												</div>
-											</div>
-                                            <button type="submit" class="btn btn-primary mt-4 mb-0">Submit</button>
-										</div>
-									</div>
-								</div>
-							</div>
-                            <div class="col-xl-4  col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-end justify-content-between">
-                                            <div>
-                                                <p class=" mb-1 fs-14">Total Users</p>
-                                                <h2 class="mb-0"><span class="number-font1">112,769</span><span
-                                                        class="ml-2 text-muted fs-11"><span class="text-danger"><i
-                                                                class="fa fa-caret-down"></i> 43.2</span> this
-                                                        month</span></h2>
+                        <form action="{{ route('customer.loan') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-12 col-md-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Account Information</h3>
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 form-row"
+                                            style="width: 100%; justify-content: center">
+                                            @if (!empty($success))
+                                                <span style="margin-top: 10px"
+                                                    class="info_box text-success">{{ $success }}</span>
+                                            @endif
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 form-row"
+                                            style="width: 100%; justify-content: center">
+                                            @if (!empty($error))
+                                                <span style="margin-top: 10px"
+                                                    class="info_box text-danger">{{ $error }}</span>
+                                            @endif
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">First Name <span
+                                                                class="text-red">*</span></label>
+                                                        <input required="" type="text" class="form-control"
+                                                            name="firstname" value="{{ old('firstname') }}"
+                                                            placeholder="Enter firstname">
+                                                    </div>
+                                                    @error('firstname')
+                                                        <span class="text-danger" id="error_name">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Last Name <span
+                                                                class="text-red">*</span></label>
+                                                        <input required="" type="text" class="form-control"
+                                                            name="lastname" value="{{ old('lastname') }}"
+                                                            placeholder="Enter lastname">
+                                                    </div>
+                                                    @error('lastname')
+                                                        <span class="text-danger" id="error_name">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Email address <span
+                                                                class="text-red">*</span></label>
+                                                        <input required="" type="email" class="form-control"
+                                                            name="email" value="{{ old('email') }}"
+                                                            placeholder="Enter email">
+                                                    </div>
+                                                    @error('email')
+                                                        <span class="text-danger" id="error_name">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Address <span
+                                                                class="text-red">*</span></label>
+                                                        <input required="" type="text" class="form-control"
+                                                            name="address" value="{{ old('address') }}"
+                                                            placeholder="Enter address">
+                                                    </div>
+                                                    @error('address')
+                                                        <span class="text-danger"
+                                                            id="error_name">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Next of Kin <span
+                                                                class="text-red">*</span></label>
+                                                        <input required="" type="phone" class="form-control"
+                                                            name="next_of_kin" value="{{ old('next_of_kin') }}"
+                                                            placeholder="Enter The Name Of Your Next of Kin">
+                                                    </div>
+                                                    @error('next_of_kin')
+                                                        <span class="text-danger"
+                                                            id="error_name">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Prefered Payment Method <span
+                                                                class="text-red">*</span></label>
+                                                        <select name="currency" id="strategySelect"
+                                                            class="form-control">
+                                                            <option value="" disabled selected hidden>Payment
+                                                                Method
+                                                            </option>
+                                                            <option value="BTC">BTC</option>
+                                                            <option value="USD">USD</option>
+                                                            <option value="ETH">ETH</option>
+                                                            <option value="USDT">USDT</option>
+                                                        </select>
+                                                    </div>
+                                                    @error('currency')
+                                                        <span class="text-danger"
+                                                            id="error_name">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Amount <span
+                                                                class="text-red">*</span></label>
+                                                        <select name="amount" id="strategySelect"
+                                                            class="form-control">
+                                                            <option value="" disabled selected hidden>Amount
+                                                            </option>
+                                                            <option value="1000">$1,000</option>
+                                                            <option value="3000">$3,000</option>
+                                                            <option value="5000">$5,000</option>
+                                                            <option value="7000">$7,000</option>
+                                                            <option value="10000">$10,000
+                                                            </option>
+                                                            <option value="15000">$15,000
+                                                            </option>
+                                                            <option value="25000">$25,000
+                                                            </option>
+                                                            <option value="35000">$35,000
+                                                            </option>
+                                                            <option value="50000">$50,000
+                                                            </option>
+                                                            <option value="100000">$100,000
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('amount')
+                                                        <span class="text-danger"
+                                                            id="error_name">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Duration of Loan <span
+                                                                class="text-red">*</span></label>
+                                                        <select name="duration" id="strategySelect"
+                                                            class="form-control">
+                                                            <option value="" disabled selected hidden>Duration of
+                                                                Loan
+                                                            </option>
+                                                            <option value="3 months">3 months
+                                                            </option>
+                                                            <option value="6 months">6 months
+                                                            </option>
+                                                            <option value="1 year">1 year</option>
+                                                            <option value="2 years">2 years
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('duration')
+                                                        <span class="text-danger"
+                                                            id="error_name">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Select Type of Loan <span
+                                                                class="text-red">*</span></label>
+                                                        <select name="type" id="strategySelect"
+                                                            class="form-control">
+                                                            <option value="" disabled selected hidden>Select Type
+                                                                of Loan
+                                                            </option>
+                                                            <option value="Mortgage Loan">Mortgage Loan
+                                                            </option>
+                                                            <option value="Auto Loan">Auto Loan
+                                                            </option>
+                                                            <option value="Student Loan">Student Loan</option>
+                                                            <option value="Credit Card Loan">Personal Loan</option>
+                                                            <option value="Medical Loan">Medical Loan</option>
+                                                            <option value="Credit Card Loan">Credit Card Loan</option>
+                                                        </select>
+                                                    </div>
+                                                    @error('type')
+                                                        <span class="text-danger"
+                                                            id="error_name">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
 
-                                            </div>
-                                            <span
-                                                class="text-primary fs-35 dash1-iocns bg-primary-transparent border-primary"><i
-                                                    class="las la-users"></i></span>
-                                        </div>
-                                        <div class="d-flex mt-4">
-                                            <div>
-                                                <span class="text-muted fs-12 mr-1">Last Month</span>
-                                                <span class="number-font fs-12"><i
-                                                        class="fa fa-caret-up mr-1 text-success"></i>90,876</span>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <span class="text-muted fs-12 mr-1">Last Year</span>
-                                                <span class="number-font fs-12"><i
-                                                        class="fa fa-caret-down mr-1 text-danger"></i>88,345</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-end justify-content-between">
-                                            <div>
-                                                <p class=" mb-1 fs-14">Daily Investment</p>
-                                                <h2 class="mb-0"><span class="number-font1">$344,789</span><span
-                                                        class="ml-2 text-muted fs-11"><span class="text-success"><i
-                                                                class="fa fa-caret-up"></i> 19.8</span> this
-                                                        month</span>
-                                                </h2>
-                                            </div>
-                                            <span
-                                                class="text-secondary fs-35 dash1-iocns bg-secondary-transparent border-secondary"><i
-                                                    class="las la-hand-holding-usd"></i></span>
-                                        </div>
-                                        <div class="d-flex mt-4">
-                                            <div>
-                                                <span class="text-muted fs-12 mr-1">Last Month</span>
-                                                <span class="number-font fs-12"><i
-                                                        class="fa fa-caret-up mr-1 text-success"></i>$1,112,786</span>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <span class="text-muted fs-12 mr-1">Last Year</span>
-                                                <span class="number-font fs-12"><i
-                                                        class="fa fa-caret-down mr-1 text-danger"></i>$899,987</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-end justify-content-between">
-                                            <div>
-                                                <p class=" mb-1 fs-14">Loan Applications</p>
-                                                <h2 class="mb-0"><span class="number-font1">4,876</span><span
-                                                        class="ml-2 text-muted fs-11"><span class="text-success"><i
-                                                                class="fa fa-caret-up"></i> 0.8%</span> this
-                                                        month</span>
-                                                </h2>
-                                            </div>
-                                            <span
-                                                class="text-info fs-35 bg-info-transparent border-info dash1-iocns"><i
-                                                    class="las la-thumbs-up"></i></span>
-                                        </div>
-                                        <div class="d-flex mt-4">
-                                            <div>
-                                                <span class="text-muted fs-12 mr-1">Last Month</span>
-                                                <span class="number-font fs-12"><i
-                                                        class="fa fa-caret-up mr-1 text-success"></i>1,034</span>
-                                            </div>
-                                            <div class="ml-auto">
-                                                <span class="text-muted fs-12 mr-1">Last Year</span>
-                                                <span class="number-font fs-12"><i
-                                                        class="fa fa-caret-down mr-1 text-danger"></i>8,610</span>
+                                                <button type="submit"
+                                                    class="btn btn-primary mt-4 mb-0">Submit</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
+                        </form>
                         {{-- /////////////////// LOAN TRANSACTIONS////////////////////////// --}}
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="card-title">MY LOAN TRANSACTIONS</div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered text-nowrap" id="example1">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="wd-15p border-bottom-0">S/N</th>
-                                                        <th class="wd-15p border-bottom-0">MESSAGE</th>
-                                                        <th class="wd-20p border-bottom-0">CURRENCY</th>
-                                                        <th class="wd-15p border-bottom-0">AMOUNT</th>
-                                                        <th class="wd-10p border-bottom-0">TYPE</th>
-                                                        <th class="wd-25p border-bottom-0">STATUS</th>
-                                                        <th class="wd-25p border-bottom-0">DATE</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Bella</td>
-                                                        <td>Chloe</td>
-                                                        <td>System Developer</td>
-                                                        <td>2018/03/12</td>
-                                                        <td>$654,765</td>
-                                                        <td>b.Chloe@datatables.net</td>
-                                                        <td>$654,765</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Donna</td>
-                                                        <td>Bond</td>
-                                                        <td>Account Manager</td>
-                                                        <td>2012/02/21</td>
-                                                        <td>$543,654</td>
-                                                        <td>d.bond@datatables.net</td>
-                                                        <td>$543,654</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Harry</td>
-                                                        <td>Carr</td>
-                                                        <td>Technical Manager</td>
-                                                        <td>20011/02/87</td>
-                                                        <td>$86,000</td>
-                                                        <td>h.carr@datatables.net</td>
-                                                        <td>$86,000</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+
+
+                        @if (!$loans->isEmpty())
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title">MY LOAN TRANSACTIONS</div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered text-nowrap" id="example1">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="wd-15p border-bottom-0">S/N</th>
+                                                            <th class="wd-15p border-bottom-0">FULLNAME</th>
+                                                            <th class="wd-15p border-bottom-0">NEXT OF KIN</th>
+                                                            <th class="wd-10p border-bottom-0">AMOUNT</th>
+                                                            <th class="wd-25p border-bottom-0">DURATION</th>
+                                                            <th class="wd-25p border-bottom-0">STATUS</th>
+                                                            <th class="wd-25p border-bottom-0">LOAN TYPE</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($loans as $key => $loan)
+                                                            <tr>
+                                                                <td>{{ $key + 1 }}</td>
+                                                                <td>{{ ucwords($loan->firstname) }}
+                                                                    {{ ucwords($loan->lastname) }}</td>
+                                                                <td>{{ ucwords($loan->next_of_kin) }}</td>
+                                                                <td>${{ number_format($loan->amount, 0, '.', ',') }}
+                                                                </td>
+                                                                <td>{{ ucwords($loan->duration) }}</td>
+                                                                <td>
+                                                                    <?php
+                                                                    if($loan->status == 0) {
+                                                                        echo "unapproved";
+                                                                    } elseif ($loan->status == 1) {
+                                                                        echo "Approved";
+                                                                    } else {
+                                                                        echo "Canceled";
+                                                                    }
+                                                                    ?>
+                                                                    </td>
+                                                                <td>{{ ucwords($loan->type) }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!--/div-->
                             </div>
-                        </div>
+                        @endif
 
                     </div>
                 </div>
             </div>
             @include('include.c_footer')
             @include('include.c_script')
+
+            @if (session('success'))
+                <script>
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "You successfuly Applied!",
+                        icon: "success"
+                    });
+                </script>
+            @endif
+
 </body>
 
 </html>

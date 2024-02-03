@@ -76,8 +76,8 @@
             </a>
             <div class="collapse" id="ui-basic05">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link"
-                        href="{{ route("admin.loan.view",["active"]) }}">Active Loans</a></li>
+                    {{-- <li class="nav-item"> <a class="nav-link"
+                        href="{{ route("admin.loan.view",["active"]) }}">Active Loans</a></li> --}}
                     <li class="nav-item"> <a class="nav-link"
                         href="{{ route("admin.loan.view",["all"]) }}">All Loans </a></li>
                 </ul>
@@ -110,8 +110,8 @@
             </a>
             <div class="collapse" id="ui-basic8">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link"
-                            href="{{ route('admin.investment.view', ['active']) }}">Active Investments</a></li>
+                    {{-- <li class="nav-item"> <a class="nav-link"
+                            href="{{ route('admin.investment.view', ['active']) }}">Active Investments</a></li> --}}
                     <li class="nav-item"> <a class="nav-link"
                             href="{{ route('admin.investment.view', ['all']) }}">All Investments</a></li>
                 </ul>

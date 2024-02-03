@@ -35,7 +35,7 @@ return [
     "type"=>["agriculture","real_estate","loan","project_funding","stocks","retirment_plan","crypto_investment"],
     "currency"=>["USD","BTC","ETH"],
     'transaction_type'=>["deposit","investment","withdrawal","exchange"],
-    "tx_status"=>[1=>"processing",2=>"completed",3=>"cancled"],
+    "tx_status"=>[1=>"processing",2=>"completed",3=>"canceled"],
     "user_status"=>[1=>"active",2=>"suspended"],
 
     "deposit_status"=>[1=>"processing",2=>"approve",3=>"decline"],

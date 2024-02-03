@@ -110,30 +110,117 @@
                                 @foreach ($plans as $key => $plan)
                                     <div class="col-md-12 col-xl-4">
                                         <div class="card overflow-hidden">
-                                            @if ($plan->name == "Warsaw condo complex")
-                                                <a><img class="card-img-top"
-                                                        src="{{ asset('assets/customer/assets/images/photos/real3.png') }}"
-                                                        alt="img"></a>
+                                            @if ($plan->name == 'Warsaw condo complex')
+                                                <div id="carouselExampleSlidesOnly" class="carousel slide"
+                                                    data-ride="carousel">
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est3.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est1.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est2.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             @elseif($plan->name == 'Barcelona condo complex')
-                                                <a><img class="card-img-top "
+                                                {{-- <a><img class="card-img-top "
                                                         src="{{ asset('assets/customer/assets/images/photos/real4.png') }}"
-                                                        alt="img"></a>
+                                                        alt="img"></a> --}}
+                                                <div id="carouselExampleSlidesOnly" class="carousel slide"
+                                                    data-ride="carousel">
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est6.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est18.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est20.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             @elseif($plan->name == 'Rotterdam high-rise apartment')
-                                                <a><img class="card-img-top "
-                                                        src="{{ asset('assets/customer/assets/images/photos/real1.png') }}"
-                                                        alt="img"></a>
+                                                <div id="carouselExampleSlidesOnly" class="carousel slide"
+                                                    data-ride="carousel">
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est11.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est21.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est22.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             @elseif($plan->name == 'Frankfurt high-rise apartment')
-                                                <a><img class="card-img-top  "
-                                                        src="{{ asset('assets/customer/assets/images/photos/real2.png') }}"
-                                                        alt="img"></a>
+                                                <div id="carouselExampleSlidesOnly" class="carousel slide"
+                                                    data-ride="carousel">
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est23.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est24.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        {{-- <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est12.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div> --}}
+                                                    </div>
+                                                </div>
                                             @elseif($plan->name == 'Dubai Creek Club Villas.')
-                                                <a><img class="card-img-top "
-                                                        src="{{ asset('assets/customer/assets/images/photos/real5.png') }}"
-                                                        alt="img"></a>
+                                                <div id="carouselExampleSlidesOnly" class="carousel slide"
+                                                    data-ride="carousel">
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est9.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est16.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est17.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             @elseif($plan->name == 'Club Villas at Dubai Hills')
-                                                <a><img class="card-img-top "
-                                                        src="{{ asset('assets/customer/assets/images/photos/real6.png') }}"
-                                                        alt="img"></a>
+                                                <div id="carouselExampleSlidesOnly" class="carousel slide"
+                                                    data-ride="carousel">
+                                                    <div class="carousel-inner">
+                                                        <div class="carousel-item active">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est13.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est14.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                        <div class="carousel-item">
+                                                            <img src="{{ asset('assets/customer/assets/images/photos/est15.png') }}"
+                                                                class="d-block w-100" alt="img">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             @else
                                                 <div></div>
                                             @endif
@@ -198,7 +285,7 @@
                         </div>
 
                         {{-- /////////////////// REAL ESTATE TRANSACTIONS////////////////////////// --}}
-                       
+
 
                         @if (!$investments->isEmpty())
                             <div class="row">
@@ -227,9 +314,9 @@
                                                             <tr>
                                                                 <td>{{ $key + 1 }}</td>
                                                                 <td>{{ ucwords($investment->message) }}</td>
-                                                                <td>{{ number_format($investment->amount, 0, '.', ',') }}
+                                                                <td>${{ number_format($investment->amount, 0, '.', ',') }}
                                                                 </td>
-                                                                <td>{{ number_format($investment->growth_amount, 0, '.', ',') }}
+                                                                <td>${{ number_format($investment->growth_amount, 0, '.', ',') }}
                                                                 </td>
                                                                 <td>{{ ucwords($investment->type) }}</td>
                                                                 <td>{{ ucwords(config('app.tx_status')[$investment->status]) }}
@@ -261,17 +348,17 @@
                     document.getElementById('properties1').innerText = `${newCount1.toLocaleString()}`;
                     localStorage.setItem('RE1Count', newCount1);
                 }
-                setInterval(updatePropertiesCount1, 30000);
+                setInterval(updatePropertiesCount1, 3600000);
                 updatePropertiesCount1();
 
                 function updatePropertiesCount2() {
                     var currentCount2 = parseInt(localStorage.getItem('RE2Count')) || 30175;
                     var randomIncrement2 = Math.floor(Math.random() * 5) + 1;
-                    var newCount2 = currentCount2 + randomIncrement3;
+                    var newCount2 = currentCount2 + randomIncrement2;
                     document.getElementById('properties2').innerText = `${newCount2.toLocaleString()}`;
                     localStorage.setItem('RE2Count', newCount2);
                 }
-                setInterval(updatePropertiesCount2, 60000);
+                setInterval(updatePropertiesCount2, 3600000);
                 updatePropertiesCount2();
 
                 function updatePropertiesCount3() {
@@ -281,7 +368,7 @@
                     document.getElementById('properties3').innerText = `${newCount3.toLocaleString()}`;
                     localStorage.setItem('RE3Count', newCount3);
                 }
-                setInterval(updatePropertiesCount3, 10000);
+                setInterval(updatePropertiesCount3, 3600000);
                 updatePropertiesCount3();
             </script>
 </body>

@@ -26,6 +26,7 @@ class Loan extends Authenticatable
         'currency',
         'amount',
         'duration',
+        'type',
         'status',
     ];
 
