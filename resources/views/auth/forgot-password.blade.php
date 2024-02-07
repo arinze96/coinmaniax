@@ -11,7 +11,7 @@
         <div class="row row-bg">
             <div class="col-md-3 register-left">
                 <div class="logo-container">
-                    <img src="{{ asset('assets/home/assets/img/logo_main.png') }}" alt="">
+                    <img src="{{ asset('assets/home/assets/img/logo-img.png') }}" alt="">
                 </div>
                 <h3 class="welcome-txt">Welcome</h3>
                 <p class="description">Coinmaniax revolutionizes finance with cutting-edge asset management solutions,

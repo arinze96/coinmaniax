@@ -9,4 +9,3 @@
     </div>
 </footer>
 </div>
-<a href="#top" id="back-to-top"><i class="fe fe-chevrons-up"></i></a>

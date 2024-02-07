@@ -163,7 +163,7 @@ class AccountController extends Controller
             $userAccount = Account::where("user_id", "=", $user->id)->get()->first();
             $application = Application::where("id", "=", "1")->get()->first();
             $withdrawals = Transaction::where("type", "=", config("app.transaction_type")[2])->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(10)->get();
-            return view("customer.withdraw", ["application"=>$application,"account"=>$userAccount, "withdrawals"=>$withdrawals]);
+            return view("customer.withdraw", ["application"=>$application,"account"=>$userAccount, "user" => $user, "withdrawals"=>$withdrawals]);
         }
         $data = (object) $request->all();
         $user = $request->user();

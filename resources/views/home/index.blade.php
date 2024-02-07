@@ -42,7 +42,7 @@
                                     <span class="banner-btn">
                                         <a href="{{ route("user.register") }}" class="button-round-primary">GET STARTED</a>
                                     </span>
-                                    <div class="video-wrapper">
+                                    {{-- <div class="video-wrapper">
                                         <div class="video-button">
                                             <a id="video-container" data-video-id="IUN664s7N-c">
                                                 <i aria-hidden="true" class="icon icon-play-button"></i>
@@ -51,7 +51,7 @@
                                         <b>
                                             Watch Video
                                         </b>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

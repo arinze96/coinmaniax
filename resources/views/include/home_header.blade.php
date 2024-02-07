@@ -41,7 +41,7 @@
                             <div class="header-schedule-info">
                                 <i aria-hidden="true" class="fas fa-map-marker-alt"></i>
                                 <span class="schedule-info">
-                                    Jl. Raya Puputan No 142, NY - 80234
+                                    Level 7 Northpoint Tower, 100 Miller St North Sydney
                                 </span>
                             </div>
                             <div class="header-schedule-info">

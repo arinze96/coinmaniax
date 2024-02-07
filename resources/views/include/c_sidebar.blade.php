@@ -14,7 +14,7 @@
     <div class="app-sidebar__user">
         <div class="dropdown user-pro-body text-center">
             <div class="user-pic">
-                <img src="{{ asset('assets/customer/assets/images/users/2.jpg') }}" alt="user-img"
+                <img src="{{ asset('assets/home/assets/img/me.png') }}" alt="user-img"
                     class="avatar-xl rounded-circle mb-1">
             </div>
             <div class="user-info">

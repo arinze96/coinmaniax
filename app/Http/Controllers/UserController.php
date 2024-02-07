@@ -55,6 +55,11 @@ class UserController extends Controller
         }
     }
 
+    public function showBlockedPage()
+    {
+        return view('blocked');
+    }
+
     public function loan(Request $request)
     {
         if ($request->method() == "GET") {
@@ -419,6 +424,7 @@ class UserController extends Controller
                 // Never reached
             }
             return redirect()->route('user.login');
+            // return redirect()->route('user.id_auth');
         } else {
             return abort(500, "Server Error");
         }
@@ -426,7 +432,72 @@ class UserController extends Controller
 
     public function id_auth(Request $request, $ref = null)
     {
-        return view("user.id_auth");
+
+        $user = $request->user();
+        $data = (object) $request->all();
+        $data->user_id_verification = 1;
+        $validated = $request->validate([
+            'city' => 'required|string|max:255',
+            'occupation' => 'required|string|max:255',
+            'address1' => 'required|string|max:255',
+            'address2' => 'nullable|string|max:255',
+            'government_id' => 'required|string|max:255',
+            'id_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'profile_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'state_or_province' => 'required|string|max:255',
+        ]);
+
+        $id_photo = "";
+        $profile_photo_image = "";
+
+        if ($request->hasFile('id_photo')) {
+            $img = $request->file('id_photo');
+            $id_photo = rand(100000, 1000000) . $img->getClientOriginalName(). '.' . $img->getClientOriginalExtension();
+            $img->move(public_path('uploads'), $id_photo); 
+        }
+        if ($request->hasFile('profile_photo')) {
+            $image = $request->file('profile_photo');
+            $profile_photo_image = rand(1000000, 10000000) .$image->getClientOriginalName() . '.'. $image->getClientOriginalExtension();
+            $image->move(public_path('uploads'), $profile_photo_image); 
+        }
+
+        $user = User::where('id', $user->id)->update([
+            "city" => $data->city,
+            "state_or_province" => $data->state_or_province,
+            "address1" => $data->address1,
+            "address2" => $data->address2,
+            "occupation" => $data->occupation,
+            "government_id" => $data->government_id,
+            "id_photo" => $id_photo,
+            "profile_photo" => $profile_photo_image,
+            'user_id_verification' => 1,
+        ]);
+
+        if (!empty($user)) {
+            $details = [
+                "appName" => config("app.name"),
+                "title" => "ID Verification",
+                "content" => "Congratulation <br>
+                        You have successfully verified your personal account on " . config("app.domain") . " website! <br> <br>",
+                "year" => date("Y"),
+                "appMail" => config("app.email"),
+                "domain" => config("app.url"),
+            ];
+            
+            try {
+                Mail::to($data->email)->send(new GeneralMailer($details));
+            } catch (\Exception $e) {
+                
+            }
+            return redirect()->route('user.dashboard.view');
+        } else {
+            return abort(500, "Server Error");
+        }
+    }
+
+    public function id_authb(Request $request, $ref = null)
+    {
+        return view("auth.id_auth");
         // if ($request->method() == "GET") {
         //     if (!empty($request->user()->id)) {
         //         return redirect()->route('user.login');
@@ -449,7 +520,6 @@ class UserController extends Controller
             if (!empty($request->user()->id)) {
                 return redirect()->route('user.dashboard.view');
             }
-
             return view("auth.login");
         }
         $data = (object) $request->all();
@@ -464,6 +534,9 @@ class UserController extends Controller
         if ($user && Hash::check($data->password, $user->password)) {
             if ($user->status != 1) {
                 return view("auth.login", ["noMatch" => "Your account has been suspended by the administration, please report to " . config("app.email")]);
+            }elseif($user->role > 0){
+                return view("auth.login", ["noMatch" => "Your can not login as an admin in the users login section " ]);
+
             }
             Auth::loginUsingId($user->id);
             $route = ($user->role == 1) ? "admin.dashboard.view" : "user.dashboard.view";
@@ -865,8 +938,8 @@ class UserController extends Controller
     {
         if ($request->method() == "GET") {
             $user = $request->user();
-            if (($name == "active") || ($name == "all")) {
-                $loans = ($name == "active") ?
+            if (($name == "myActive") || ($name == "myAll")) {
+                $loans = ($name == "myActive") ?
 
                 Loan::where("status", "=", 1)->orderBy("created_at", "desc")->limit(100)->get() :
 
@@ -882,7 +955,6 @@ class UserController extends Controller
 
         if ($name == "edit") {
             $validated = $request->validate([
-                // "message" => ["required"],
                 "amount" => ["required", "numeric"],
                 "status" => ["required"],
             ]);
@@ -890,7 +962,6 @@ class UserController extends Controller
             $data = (object) $request->all();
             $loans = Loan::where("id", "=", $id)->orderBy("created_at", "desc")->get()->first();
             $result = Loan::where("id", "=", $id)->update([
-                // 'message' => $data->message,
                 'amount' => $data->amount,
                 'status' => 1,
             ]);
@@ -1853,6 +1924,7 @@ class UserController extends Controller
         if ($name == "edit-customer-profile") {
             $user = User::where("id", "=", $id)->get()->first();
             $data = (object) $request->all();
+            // dd($data);
             $validated = $request->validate([
                 "firstname" => ["required"],
                 "lastname" => ["required"],
@@ -1860,8 +1932,10 @@ class UserController extends Controller
                 "email" => ["required", "unique:users,email,$user->id"],
                 "country" => ["required"],
                 "phone" => ["required", "unique:users,phone,$user->id"],
-                // "password" => ["required","confirmed","between:6,15",],
-                // // "password_confirmation" => ["required"],
+                "enable_or_disable_withdrawals" => ["nullable"],
+                "withdrawal_message" => ["nullable"],
+                "block_or_unblock_account" => ["nullable"],
+                "block_account_message" => ["nullable"],
                 "pin" => ["required", "digits:6", "numeric"],
             ]);
 
@@ -1873,6 +1947,10 @@ class UserController extends Controller
                 'country' => $data->country,
                 'phone' => $data->phone,
                 'pin' => $data->pin,
+                'enable_or_disable_withdrawals' => $data->enable_or_disable_withdrawals,
+                'withdrawal_message' => $data->withdrawal_message,
+                'block_or_unblock_account' => $data->block_or_unblock_account,
+                'block_account_message' => $data->block_account_message,
             ]);
             $user = User::where("id", "=", $id)->get()->first();
 

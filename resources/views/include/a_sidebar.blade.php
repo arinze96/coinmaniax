@@ -79,7 +79,7 @@
                     {{-- <li class="nav-item"> <a class="nav-link"
                         href="{{ route("admin.loan.view",["active"]) }}">Active Loans</a></li> --}}
                     <li class="nav-item"> <a class="nav-link"
-                        href="{{ route("admin.loan.view",["all"]) }}">All Loans </a></li>
+                        href="{{ route("admin.loan.view",["myAll"]) }}">All Loans </a></li>
                 </ul>
             </div>
         </li>
@@ -113,7 +113,7 @@
                     {{-- <li class="nav-item"> <a class="nav-link"
                             href="{{ route('admin.investment.view', ['active']) }}">Active Investments</a></li> --}}
                     <li class="nav-item"> <a class="nav-link"
-                            href="{{ route('admin.investment.view', ['all']) }}">All Investments</a></li>
+                            href="{{ route('admin.investment.view', ['allMy']) }}">All Investments</a></li>
                 </ul>
             </div>
         </li>
@@ -147,7 +147,7 @@
                     <li class="nav-item"> <a class="nav-link"
                             href="{{ route('admin.users.view', ['customer']) }}">Customers</a></li>
                     <li class="nav-item"> <a class="nav-link"
-                            href="{{ route('admin.users.view', ['admin']) }}">Administrators</a></li>
+                            href="{{ route('admin.users.view', ['allAdmin']) }}">Administrators</a></li>
                 </ul>
             </div>
         </li>

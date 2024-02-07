@@ -42,14 +42,14 @@
                     <a href="index-2.html#" class="nav-link pr-0 leading-none"
                         data-toggle="dropdown">
                         <span>
-                            <img src="{{ asset("assets/customer/assets/images/users/2.jpg") }}" alt="img"
+                            <img src="{{ asset("assets/home/assets/img/me.png") }}" alt="img"
                                 class="avatar avatar-md brround">
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow animated">
                         <div class="text-center">
                             <a href="index-2.html#"
-                                class="dropdown-item text-center user pb-0 font-weight-bold">{{ auth()->user()->username }}</a>
+                                class="dropdown-item text-center user pb-0 font-weight-bold">{{ ucfirst(auth()->user()->firstname) }} {{ ucfirst(auth()->user()->lastname) }}</a>
                             <span class="text-center user-semi-title">Customer</span>
                             <div class="dropdown-divider"></div>
                         </div>

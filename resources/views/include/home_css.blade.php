@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="{{ asset('assets/home/assets/img/fabicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/home/assets/img/mug.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/home/assets/vendors/bootstrap/css/bootstrap.min.css') }}" media="all">
     <link rel="stylesheet" type="text/css" href="{{ asset("assets/home/assets/vendors/fontawesome/css/all.min.css") }}">
     <link rel="stylesheet" type="text/css" href="{{ asset("assets/home/assets/vendors/elementskit-icon-pack/assets/css/ekiticons.css") }}">

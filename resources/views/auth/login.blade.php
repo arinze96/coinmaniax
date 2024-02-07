@@ -7,7 +7,7 @@
 <body>
     <div class="container">
         <div class="login">
-            <img src="{{ asset('assets/home/assets/img/fabicon.png') }}" class="logo" alt="">
+            <img src="{{ asset('assets/home/assets/img/mug.png') }}" class="logo" alt="">
             <h1 style="margin-top: 10px">Login</h1>
             <form class="validate-form" action="{{ route('user.login') }}">
                 @csrf
@@ -52,13 +52,13 @@
     <title>Coinmaniax</title>
 </head>
 
-<body class="register">
+<body class="register1">
 
     <div class="container register">
         <div class="row row-bg">
             <div class="col-md-3 register-left">
                 <div class="logo-container">
-                    <a href="{{ route("app.home") }}"><img src="{{ asset('assets/home/assets/img/logo_main.png') }}" alt=""></a>
+                    <a href="{{ route("app.home") }}"><img src="{{ asset('assets/home/assets/img/logo-img.png') }}" alt=""></a>
                 </div>
                 <h3 class="welcome-txt">Welcome</h3>
                 <p class="description">Coinmaniax revolutionizes finance with cutting-edge asset management solutions,

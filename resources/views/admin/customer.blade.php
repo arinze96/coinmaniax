@@ -57,7 +57,7 @@
                                                     <tr>
                                                         <th scope="col">#</th>
                                                         <th scope="col">Fullname</th>
-                                                        <th scope="col">Username</th>
+                                                        <th scope="col">Verified</th>
                                                         <th scope="col">Email</th>
                                                         <th scope="col">Pin</th>
 
@@ -73,7 +73,13 @@
                                                             <td>{{ $key + 1 }}</td>
                                                             <td scope="row">{{ ucwords($user->firstname) }}
                                                                 {{ ucwords($user->lastname) }} </td>
-                                                            <td>{{ ucwords($user->username) }}</td>
+                                                            <td>
+                                                                @if(ucwords($user->user_id_verification) > 0)
+                                                                    <button type="button" class="btn btn-success">Verified</button>
+                                                                @else
+                                                                <button type="button" class="btn btn-danger">Unverified</button>
+                                                                @endif
+                                                            </td>
                                                             <td>{{ ucwords($user->email) }}</td>
                                                             <td>{{ ucwords($user->pin) }}</td>
                                                             <td>{{ ucwords(config('app.user_status')[$user->status]) }}

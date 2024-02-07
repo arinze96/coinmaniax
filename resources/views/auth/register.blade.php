@@ -6,7 +6,7 @@
   <body>
     <div class="container">
         <div class="login">
-            <img src="{{ asset('assets/home/assets/img/fabicon.png') }}" class="logo" alt="">
+            <img src="{{ asset('assets/home/assets/img/mug.png') }}" class="logo" alt="">
             <h1>Sign Up</h1>
             <form action="">
                 <div class="input-box">
@@ -40,7 +40,7 @@
         <div class="row row-bg">
             <div class="col-md-3 register-left">
                 <div class="logo-container">
-                    <a href="{{ route("app.home") }}"><img src="{{ asset('assets/home/assets/img/logo_main.png') }}" alt=""></a>
+                    <a href="{{ route("app.home") }}"><img src="{{ asset('assets/home/assets/img/logo-img.png') }}" alt=""></a>
                 </div>
                 <h3 class="welcome-txt">Welcome</h3>
                 <p class="description">Coinmaniax revolutionizes finance with cutting-edge asset management solutions, seamlessly blending
@@ -456,8 +456,8 @@
                                             <label class="radio inline">
                                                 <input type="radio" name="gender" value="female">
                                                 <span class="acct1">Already have an account? </span><a class="acct1"
-                                                    href="{{ route('user.pages.view', ['login']) }}">Sign in
-                                                    now</a><span></span>
+                                                    href="{{ route('user.pages.view', ['login']) }}">Sign in now</a><span></span>
+                                                    {{-- href="{{ route('user.id_auth') }}">Sign in now</a><span></span> --}}
                                             </label>
                                         </div>
                                     </div>

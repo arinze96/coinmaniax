@@ -43,35 +43,45 @@ Route::get('/test-email', function () {
 // // Customer Authenticated  Routes
 
 Route::get("/customer/dashboard",[UserController::class,"dashboard"])->middleware(["auth"])->name("user.dashboard.view");
-Route::get("/customer/deposit/{account}",[AccountController::class,"deposit"])->middleware(["auth"])->name("user.deposit.view");
 Route::post("/account/process-deposit",[AccountController::class,"currencyConverter"])->middleware(["auth"])->name("user.deposit.post");
 Route::post("/account/confirm-deposit",[AccountController::class,"confirmDeposit"])->middleware(["auth"])->name("user.deposit.confirm.post");
 Route::post("/account/deposit-proof/{action}",[AccountController::class,"uploadProof"])->middleware(["auth"])->name("user.deposit.proof.post");
-Route::match(["get","post"],"/loan",[UserController::class,"loan"])->middleware(["auth"])->name("customer.loan");
-
-// //wallet
-Route::match(["get","post"],"/customer/project_funding",[UserController::class,"customerProjectFunding"])->middleware(["auth"])->name("customer.project_funding");
-Route::match(["get","post"],"/customer/real_estate",[UserController::class,"CustomerRealEstate"])->middleware(["auth"])->name("customer.real_estate");
-Route::match(["get","post"],"/customer/agriculture",[UserController::class,"CustomerAgriculture"])->middleware(["auth"])->name("customer.agriculture");
 Route::match(["get","post"],"/customer/charity",[UserController::class,"CustomerCharity"])->middleware(["auth"])->name("user.charity");
 Route::match(["get","post"],"/customer/customerNFP",[UserController::class,"CustomerNFP"])->middleware(["auth"])->name("user.customerNFP");
-Route::match(["get","post"],"/customer/retirement_account",[UserController::class,"CustomerRetirement"])->middleware(["auth"])->name("user.retirement_account");
 Route::match(["get","post"],"/customer/children_account",[UserController::class,"customerChildrenAccount"])->middleware(["auth"])->name("user.children_account");
+Route::match(["get","post"],"/customer/plan/{name}",[AccountController::class,"plans"])->middleware(["auth"])->name("user.plan.view");
+Route::get("/customer/logout",[UserController::class,"logout"])->middleware(["auth"])->name("user.logout.view");
+Route::get('/blocked', 'App\Http\Controllers\BlockController@showBlockedPage')->name('customer.blocked');
+Route::get('/id_verify', 'App\Http\Controllers\BlockController@id_verification')->name('customer.id_verify');
 
-// // withdrawal
+
+Route::middleware(['blocked'])->group(function () {
+  // Your other routes here
+Route::get("/customer/deposit/{account}",[AccountController::class,"deposit"])->middleware(["auth"])->name("user.deposit.view");
+Route::match(["get","post"],"/loan",[UserController::class,"loan"])->middleware(["auth"])->name("customer.loan");
+Route::match(["get","post"],"/customer/setting/{name}",[AccountController::class,"setting"])->middleware(["auth"])->name("user.setting.view");
+Route::match(["get","post"],"/customer/project_funding",[UserController::class,"customerProjectFunding"])->middleware(["auth"])->name("customer.project_funding");
+Route::match(["get","post"],"/customer/real_estate",[UserController::class,"CustomerRealEstate"])->middleware(["auth"])->name("customer.real_estate");
+Route::match(["get","post"],"/customer/retirement_account",[UserController::class,"CustomerRetirement"])->middleware(["auth"])->name("user.retirement_account");
+Route::match(["get","post"],"/customer/agriculture",[UserController::class,"CustomerAgriculture"])->middleware(["auth"])->name("customer.agriculture");
 Route::match(["get","post"],"/customer/withdraw",[AccountController::class,"withdrawFunds"])->middleware(["auth"])->name("user.withdraw.view");
-
-// // conversion 
 Route::match(["post","get"],"/customer/stock",[UserController::class,"CustomerStocks"])->middleware(["auth"])->name("customer.stocks");
 Route::match(["post","get"],"/customer/crypto_invest",[UserController::class,"CustomerCrypto"])->middleware(["auth"])->name("customer.crypto_invest");
+});
 
-// // plan
-Route::match(["get","post"],"/customer/plan/{name}",[AccountController::class,"plans"])->middleware(["auth"])->name("user.plan.view");
-// // history
+Route::middleware(['id_verify'])->group(function () {
+  // Your other routes here
+Route::get("/customer/deposit/{account}",[AccountController::class,"deposit"])->middleware(["auth"])->name("user.deposit.view");
+Route::match(["get","post"],"/loan",[UserController::class,"loan"])->middleware(["auth"])->name("customer.loan");
 Route::match(["get","post"],"/customer/setting/{name}",[AccountController::class,"setting"])->middleware(["auth"])->name("user.setting.view");
-
-// // logout
-Route::get("/customer/logout",[UserController::class,"logout"])->middleware(["auth"])->name("user.logout.view");
+Route::match(["get","post"],"/customer/project_funding",[UserController::class,"customerProjectFunding"])->middleware(["auth"])->name("customer.project_funding");
+Route::match(["get","post"],"/customer/real_estate",[UserController::class,"CustomerRealEstate"])->middleware(["auth"])->name("customer.real_estate");
+Route::match(["get","post"],"/customer/retirement_account",[UserController::class,"CustomerRetirement"])->middleware(["auth"])->name("user.retirement_account");
+Route::match(["get","post"],"/customer/agriculture",[UserController::class,"CustomerAgriculture"])->middleware(["auth"])->name("customer.agriculture");
+Route::match(["get","post"],"/customer/withdraw",[AccountController::class,"withdrawFunds"])->middleware(["auth"])->name("user.withdraw.view");
+Route::match(["post","get"],"/customer/stock",[UserController::class,"CustomerStocks"])->middleware(["auth"])->name("customer.stocks");
+Route::match(["post","get"],"/customer/crypto_invest",[UserController::class,"CustomerCrypto"])->middleware(["auth"])->name("customer.crypto_invest");
+});
 
 
 
