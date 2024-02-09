@@ -255,7 +255,7 @@
                                                                             data-balance="{{ $account->dolla_balance }}"
                                                                             value="USD">
                                                                             </i>USD</option>
-                                                                        <option
+                                                                        {{-- <option
                                                                             data-balance="{{ $account->bitcoin_balance }}"
                                                                             value="BTC">
                                                                             </i>BTC</option>
@@ -266,7 +266,7 @@
                                                                         <option
                                                                             data-balance="{{ $account->referral_balance }}"
                                                                             value="BONUS">
-                                                                            </i>BONUS</option>
+                                                                            </i>BONUS</option> --}}
                                                                     </select>
                                                                 </div>
                                                             </div>

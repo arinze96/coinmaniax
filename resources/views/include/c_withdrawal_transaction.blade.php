@@ -24,8 +24,8 @@
                                                         @foreach ($withdrawals as $key => $data)
                                                             <tr>
                                                                 <td>{{ $key + 1 }}</td>
-                                                                <td>{{ ucwords($deposit->message) }}</td>
-                                                                <td>{{ ucwords($deposit->currency) }}</td>
+                                                                <td>{{ ucwords($data->message) }}</td>
+                                                                <td>{{ ucwords($data->currency) }}</td>
                                                                 <td>{{ $data->currency == 'USD' ? number_format($data->amount, 0, '.', ',') : $data->amount }}
                                                                 </td>
                                                                 <td>{{ $data->withdrawal_payment_method }}</td>

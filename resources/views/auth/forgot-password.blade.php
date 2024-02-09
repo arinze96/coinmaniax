@@ -7,6 +7,7 @@
 </head>
 
 <body class="register">
+    @include('include.auth_nav')
     <div class="container register">
         <div class="row row-bg">
             <div class="col-md-3 register-left">
@@ -46,8 +47,10 @@
                                         <div class="maxl">
                                             <label class="radio inline">
                                                 <input type="radio" name="gender" value="female">
-                                                <span class="acct1">Remembered your login details? </span><a class="acct1"
-                                                    href="{{ route('user.pages.view', ['login']) }}">Sign in
+                                                <span class="acct1">Remembered your login details? </span><a
+                                                    class="acct1"
+                                                    href="{{ route('user.pages.view', ['login']) }}">Sign
+                                                    in
                                                     now</a><span></span>
                                             </label>
                                         </div>

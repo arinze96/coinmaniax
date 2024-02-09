@@ -56,11 +56,9 @@
                                                     <table class="table">
                                                         <thead>
                                                             <tr>
-                                                                <th scope="col">##</th>
+                                                                <th scope="col">#</th>
                                                                 <th scope="col">Fullname</th>
-                                                                <th scope="col">Next or Kin</th>
-                                                                <th scope="col">Duration</th>
-                                                                <th scope="col">Type of Loan</th>
+                                                                <th scope="col">Currency</th>
                                                                 <th scope="col">Amount</th>
                                                                 <th scope="col">Status</th>
                                                                 <th scope="col">Date</th>
@@ -74,10 +72,10 @@
                                                             @foreach ($loans as $key => $loan)
                                                                 <tr>
                                                                     <th scope="row">{{ $key + 1 }}</th>
-                                                                    <td>{{ ucwords($loan->firstname) }}{{ ucwords($loan->lastname) }}</td>
-                                                                    <td>{{ ucwords($loan->next_of_kin) }}</td>
-                                                                    <td>{{ ucwords($loan->duration) }}</td>
-                                                                    <td>{{ ucwords($loan->type) }}</td>
+                                                                    <td>{{ ucwords($loan->firstname) }}
+                                                                        {{ ucwords($loan->lastname) }}</td>
+
+                                                                    <td>{{ ucwords($loan->currency) }}</td>
                                                                     <td>${{ ucwords($loan->amount) }}</td>
                                                                     <td>
                                                                         <?php

@@ -7,7 +7,7 @@
                         class="col-sm-3 d-flex align-items-center justify-content-center justify-content-sm-start">
                         <div class="header-social social-links">
                             <ul>
-                                <li>
+                                {{-- <li>
                                     <a href="#" target="_blank">
                                         <i class="fab fa-facebook" aria-hidden="true"></i>
                                     </a>
@@ -21,15 +21,15 @@
                                     <a href="#" target="_blank">
                                         <i class="fab fa-youtube" aria-hidden="true"></i>
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li>
-                                    <a href="#" target="_blank">
+                                    <a href="https://www.instagram.com/1coinmaniax?igsh=MWdsdjZxa2MwZDk0aw==" target="_blank">
                                         <i class="fab fa-instagram" aria-hidden="true"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank">
-                                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                    <a href="https://t.me/coinmaniaxpublic" target="_blank">
+                                        <i class="fab fa-telegram" aria-hidden="true"></i>
                                     </a>
                                 </li>
                             </ul>

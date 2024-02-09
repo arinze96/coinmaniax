@@ -1,6 +1,6 @@
 <div class="app-header header">
     <div class="container-fluid">
-        <div class="d-flex">
+        <div class="d-flex" >
             <a class="header-brand" href="index.html">
                 <img src="{{ asset("assets/customer/assets/images/brand/logo.png") }}" class="header-brand-img desktop-lgo"
                     alt="Admintro logo">
@@ -28,8 +28,9 @@
                     </svg>
                 </a>
             </div>
+            <img id="middle_logo" src="{{ asset("assets/home/assets/img/new_logo.png") }}" alt="">
             <div class="d-flex order-lg-2 ml-auto">
-                <div class="dropdown   header-fullscreen">
+                {{-- <div class="dropdown   header-fullscreen" style="background-color: red">
                     <a class="nav-link icon full-screen-link p-0" id="fullscreen-button">
                         <svg xmlns="http://www.w3.org/2000/svg" class="header-icon"
                             width="24" height="24" viewBox="0 0 24 24">
@@ -37,7 +38,7 @@
                                 d="M10 4L8 4 8 8 4 8 4 10 10 10zM8 20L10 20 10 14 4 14 4 16 8 16zM20 14L14 14 14 20 16 20 16 16 20 16zM20 8L16 8 16 4 14 4 14 10 20 10z" />
                         </svg>
                     </a>
-                </div>
+                </div> --}}
                 <div class="dropdown profile-dropdown">
                     <a href="index-2.html#" class="nav-link pr-0 leading-none"
                         data-toggle="dropdown">

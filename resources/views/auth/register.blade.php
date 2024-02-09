@@ -32,18 +32,23 @@
 
 <head>
     @include('include.main_css')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <title>Coinmaniax</title>
 </head>
 
 <body class="register">
+    @include('include.auth_nav')
     <div class="container register">
         <div class="row row-bg">
             <div class="col-md-3 register-left">
                 <div class="logo-container">
-                    <a href="{{ route("app.home") }}"><img src="{{ asset('assets/home/assets/img/logo-img.png') }}" alt=""></a>
+                    <a href="{{ route('app.home') }}"><img src="{{ asset('assets/home/assets/img/logo-img.png') }}"
+                            alt=""></a>
                 </div>
                 <h3 class="welcome-txt">Welcome</h3>
-                <p class="description">Coinmaniax revolutionizes finance with cutting-edge asset management solutions, seamlessly blending
+                <p class="description">Coinmaniax revolutionizes finance with cutting-edge asset management solutions,
+                    seamlessly blending
                     technology and expertise.</p>
             </div>
             <div class="col-md-9 register-right">
@@ -51,7 +56,7 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Sign-up for a Coinmaniax Account</h3>
                         <form class="login100-form validate-form" method="POST"
-                            action="{{ route('user.register.post') }}">
+                            action="{{ route('user.register.post') }}" id="registerForm">
                             @csrf
                             <div class="row register-form">
                                 <div class="col-md-6">
@@ -456,18 +461,29 @@
                                             <label class="radio inline">
                                                 <input type="radio" name="gender" value="female">
                                                 <span class="acct1">Already have an account? </span><a class="acct1"
-                                                    href="{{ route('user.pages.view', ['login']) }}">Sign in now</a><span></span>
-                                                    {{-- href="{{ route('user.id_auth') }}">Sign in now</a><span></span> --}}
+                                                    href="{{ route('user.pages.view', ['login']) }}">Sign in
+                                                    now</a><span></span>
+                                                {{-- href="{{ route('user.id_auth') }}">Sign in now</a><span></span> --}}
                                             </label>
                                         </div>
                                     </div>
 
-                                    <button type="submit" id="submit" class="btnRegister" value="Login"
-                                    class="btn btn-primary">
-                                    <img id="register_loader-img" src="{{ asset('assets/home/assets/img/loading.gif') }}"
-                                        style="width: 20px; height: 20px" alt="">
-                                    <span>Register</span>
-                                </button>
+                                    <div class="g-recaptcha" data-sitekeys="{{ config('services.recaptcha.site_key') }}"></div>
+
+                                    <button 
+                                    class="g-recaptcha btnRegister btn btn-primary"
+                                    {{-- data-sitekey="{{ config('services.recaptcha.site_key') }}" --}}
+                                    data-callback='onSubmit'
+                                    data-action='register'
+                                    type="submit"
+                                    id="submit"
+                                    value="Login"
+                                    >
+                                        <img id="register_loader-img"
+                                            src="{{ asset('assets/home/assets/img/loading.gif') }}"
+                                            style="width: 20px; height: 20px" alt="">
+                                        <span>Register</span>
+                                    </button>
                                 </div>
                             </div>
                         </form>

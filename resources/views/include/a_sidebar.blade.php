@@ -84,6 +84,25 @@
             </div>
         </li>
         <li class="nav-item menu-items">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic0511" aria-expanded="false"
+                aria-controls="ui-basic0511">
+                <span class="menu-icon">
+                    <i class="mdi mdi-contacts"></i>
+                </span>
+                <span class="menu-title">Project Fundings</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic0511">
+                <ul class="nav flex-column sub-menu">
+                    {{-- <li class="nav-item"> <a class="nav-link"
+                        href="{{ route("admin.loan.view",["active"]) }}">Active Loans</a></li> --}}
+                    <li class="nav-item"> <a class="nav-link"
+                        href="{{ route("admin.projects.view",["allMyP"]) }}">All Project funds Requests </a></li>
+                </ul>
+            </div>
+        </li>
+        
+        <li class="nav-item menu-items">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic6" aria-expanded="false"
                 aria-controls="ui-basic6">
                 <span class="menu-icon">

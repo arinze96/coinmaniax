@@ -53,7 +53,7 @@
 </head>
 
 <body class="register">
-
+    @include('include.auth_nav')
     <div class="container register">
         <div class="row row-bg">
             <div class="col-md-3 register-left">

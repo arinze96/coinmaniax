@@ -11,6 +11,7 @@ use App\Models\ChildrenAccount;
 use App\Models\fakeTransaction;
 use App\Models\Loan;
 use App\Models\Nfp;
+use App\Models\PFunding;
 use App\Models\Plan;
 use App\Models\Retirement;
 use App\Models\Token;
@@ -250,10 +251,46 @@ class UserController extends Controller
 
     public function customerProjectFunding(Request $request)
     {
-        $plans = Plan::where('type', 'project_funding')->orderBy('currency', 'desc')->get();
-        $user = $request->user();
-        $investments = Transaction::where("type", "=", config("app.transaction_type")[1])->where("plan_name", "=", "project_funding")->where("user_id", "=", $user->id)->orderBy("created_at", "desc")->orderBy("status", "asc")->limit(1000)->get();
-        return view("customer.project_funding", ["plans" => $plans, "investments" => $investments]);
+
+        if ($request->method() == "GET") {
+            $user = $request->user();
+            $p_funds = PFunding::where('user_id', $user->id)->first();
+            // dd($p_funds);
+            return view("customer.project_funding", ["userDetails" => $user, "p_funds" => $p_funds]);
+        }
+
+        $data = (object) $request->all();
+        $data->status = 0;
+
+        $validated = $request->validate([
+            "project_name" => ["required"],
+            "project_description" => ["required"],
+            "project_location" => ["required"],
+            "organization" => ["required"],
+            "principal_officer" => ["required"],
+            "currency" => ["required"],
+            "amount" => ["required"],
+            "duration" => ["required"],
+            "type" => ["required"],
+        ]);
+
+        $project = PFunding::insert([
+            "user_id" => $request->user()->id,
+            "project_name" => $data->project_name,
+            "project_description" => $data->project_description,
+            "project_location" => $data->project_location,
+            "organization" => $data->organization,
+            "principal_officer" => $data->principal_officer,
+            "currency" => $data->currency,
+            "amount" => $data->amount,
+            "duration" => $data->duration,
+            "type" => $data->type,
+            'status' => 1,
+        ]);
+
+        if ($project) {
+            return redirect()->back()->with('success', 'Your data has been successfully submitted!');
+        }
     }
 
     public function index(Request $request)
@@ -344,7 +381,6 @@ class UserController extends Controller
             return view("auth.register", ["ref" => $ref]);
         }
         $data = (object) $request->all();
-        // dd($data);
         $data->status = 1;
 
         $validated = $request->validate([
@@ -452,13 +488,13 @@ class UserController extends Controller
 
         if ($request->hasFile('id_photo')) {
             $img = $request->file('id_photo');
-            $id_photo = rand(100000, 1000000) . $img->getClientOriginalName(). '.' . $img->getClientOriginalExtension();
-            $img->move(public_path('uploads'), $id_photo); 
+            $id_photo = rand(100000, 1000000) . $img->getClientOriginalName() . '.' . $img->getClientOriginalExtension();
+            $img->move(public_path('uploads'), $id_photo);
         }
         if ($request->hasFile('profile_photo')) {
             $image = $request->file('profile_photo');
-            $profile_photo_image = rand(1000000, 10000000) .$image->getClientOriginalName() . '.'. $image->getClientOriginalExtension();
-            $image->move(public_path('uploads'), $profile_photo_image); 
+            $profile_photo_image = rand(1000000, 10000000) . $image->getClientOriginalName() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads'), $profile_photo_image);
         }
 
         $user = User::where('id', $user->id)->update([
@@ -483,11 +519,11 @@ class UserController extends Controller
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
             ];
-            
+
             try {
                 Mail::to($data->email)->send(new GeneralMailer($details));
             } catch (\Exception $e) {
-                
+
             }
             return redirect()->route('user.dashboard.view');
         } else {
@@ -534,8 +570,8 @@ class UserController extends Controller
         if ($user && Hash::check($data->password, $user->password)) {
             if ($user->status != 1) {
                 return view("auth.login", ["noMatch" => "Your account has been suspended by the administration, please report to " . config("app.email")]);
-            }elseif($user->role > 0){
-                return view("auth.login", ["noMatch" => "Your can not login as an admin in the users login section " ]);
+            } elseif ($user->role > 0) {
+                return view("auth.login", ["noMatch" => "Your can not login as an admin in the users login section "]);
 
             }
             Auth::loginUsingId($user->id);
@@ -945,10 +981,10 @@ class UserController extends Controller
 
                 Loan::orderBy("created_at", "desc")->limit(10000)->get();
 
+                // dd($loans);
                 return view("admin.$name-loans", ["loans" => $loans]);
             } else {
                 $loans = DB::table('loans')->where('id', '=', $id)->get()->first();
-                // dd($loans);
                 return view("admin.$name-loans", ["loans" => $loans]);
             }
         }
@@ -999,6 +1035,130 @@ class UserController extends Controller
                 "username" => $user->username,
                 "content" => "Hello <b>$user->username!</b><br><br>
                             Your Loan of $message_amount has been approved successfully.<br>",
+                "year" => date("Y"),
+                "appMail" => config("app.email"),
+                "domain" => config("app.url"),
+            ];
+            $admindetails4 = [
+                "appName" => config("app.name"),
+                "title" => "Deposit",
+                "username" => "Admin",
+                "content" => "Hello <b>$user->username!</b><br><br>
+                                Your deposit of $message_amount  has been approved successfully.<br>",
+                "year" => date("Y"),
+                "appMail" => config("app.email"),
+                "domain" => config("app.url"),
+            ];
+            try {
+                Mail::to($user->email)->send(new GeneralMailer($details));
+                Mail::to(config("app.admin_email"))->send(new GeneralMailer($admindetails4));
+            } catch (\Exception $e) {
+                // Never reached
+            }
+
+            return response()->json(["success" => true, "message" => "Loan successfully approved"]);
+        } elseif ($name == "decline") {
+            $loans = Loan::where("id", "=", $id)->get()->first();
+            if ($loans->status == 3) {
+                return response()->json(["error" => true, "message" => "This loan has been canceled previously"]);
+            }
+            Loan::where("id", "=", $id)->update([
+                'status' => 3,
+            ]);
+
+            $user = User::where("id", "=", $loans->user_id)->get()->first();
+            $message_amount = $loans->amount;
+            $details = [
+                "appName" => config("app.name"),
+                "title" => "Deposit",
+                "username" => $user->username,
+                "content" => "Hello <b>$user->username!</b><br><br>
+                            Your Loan Request of $message_amount has been canceled. <br><br> This is due to unverified evidence or proof of payment. <br><br> Please chat our support team for proper verifiation or mail us at " . config("app.email"),
+                "year" => date("Y"),
+                "appMail" => config("app.email"),
+                "domain" => config("app.url"),
+            ];
+            $admindetails5 = [
+                "appName" => config("app.name"),
+                "title" => "Deposit",
+                "username" => "Admin",
+                "content" => "You cancelled <b>$message_amount !</b><br><br>
+                                deposit of $user->username <br><br> due to unverified evidence or proof of payment. " . config("app.email"),
+                "year" => date("Y"),
+                "appMail" => config("app.email"),
+                "domain" => config("app.url"),
+            ];
+
+            try {
+                Mail::to($user->email)->send(new GeneralMailer($details));
+                Mail::to(config("app.admin_mail"))->send(new GeneralMailer($admindetails5));
+            } catch (\Exception $e) {
+                // Never reached
+            }
+
+            return response()->json(["success" => true, "message" => "Loan successfully canceled"]);
+        }
+    }
+
+    public function projectsAdmin(Request $request, $name, $id = null)
+    {
+        if ($request->method() == "GET") {
+            $user = $request->user();
+            if (($name == "myActive") || ($name == "allMyP")) {
+                $loans = ($name == "myActive") ? DB::table('p_fundings')->get() : DB::table('p_fundings')->get();
+                return view("admin.$name-projects", ["loans" => $loans]);
+            } else {
+                $p_funds = DB::table('p_fundings')->get();
+                return view("admin.$name-projects", ["p_funds" => $p_funds]);
+            }
+        }
+
+        if ($name == "edit") {
+            $validated = $request->validate([
+                "amount" => ["required", "numeric"],
+                "status" => ["required"],
+            ]);
+
+            $data = (object) $request->all();
+            $loans = Loan::where("id", "=", $id)->orderBy("created_at", "desc")->get()->first();
+            $result = Loan::where("id", "=", $id)->update([
+                'amount' => $data->amount,
+                'status' => 1,
+            ]);
+
+            // if ($loans->status == 1) {
+            //     return view("admin.$name-loans", ["loans" => $loans, "error" => "You can't role back request after approval"]);
+            // }
+
+            if ($result) {
+                return view("admin.$name-loans", ["loans" => $loans, "success" => "Loan Data Updated Successfully"]);
+            } else {
+                return view("admin.$name-loans", ["deposit" => $loans, "error" => "Loan data failed to update"]);
+            }
+        } elseif ($name == "delete") {
+            $loans = PFunding::where("id", "=", $id)->get()->first();
+            $loans->delete();
+            echo json_encode(["success" => true]);
+        } elseif ($name == "approve") {
+            $loans = PFunding::where("id", "=", $id)->get()->first();
+            $user = User::where("id", "=", $loans->user_id)->get()->first();
+            $userAccount = Account::where("user_id", "=", $user->id)->get()->first();
+            $message_amount = $loans->amount;
+            if ($loans->status == 1) {
+                return response()->json(["error" => true, "message" => "This request has been approved previously"]);
+            }
+            PFunding::where("id", "=", $id)->update([
+                'status' => 1,
+            ]);
+            Account::where("user_id", "=", $user->id)->update([
+                'dolla_balance' => $userAccount->dolla_balance + $loans->amount,
+            ]);
+            $details = [
+                "appName" => config("app.name"),
+                "title" => "Loan",
+                "username" => $user->username,
+                "content" => "Hello <b>$user->username!</b><br><br>
+                            Your Project Fund of $message_amount has been approved successfully.<br>",
                 "year" => date("Y"),
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
@@ -1705,7 +1865,7 @@ class UserController extends Controller
                 $cryptoInvestmentInvestment = Transaction::where("plan_name", "=", "crypto_investment")->get();
                 return view("admin.$name-investment", [
                     // "investments" => $investments,
-                     "agricultureInvestment" => $agricultureInvestment, "realEstateInvestment" => $realEstateInvestment, "projectFundingInvestment" => $projectFundingInvestment, "stocksInvestment" => $stocksInvestment, "retirementPlanInvestment" => $retirementPlanInvestment, "cryptoInvestmentInvestment" => $cryptoInvestmentInvestment]);
+                    "agricultureInvestment" => $agricultureInvestment, "realEstateInvestment" => $realEstateInvestment, "projectFundingInvestment" => $projectFundingInvestment, "stocksInvestment" => $stocksInvestment, "retirementPlanInvestment" => $retirementPlanInvestment, "cryptoInvestmentInvestment" => $cryptoInvestmentInvestment]);
             } else {
                 $agricultureInvestment = Transaction::where("plan_name", "=", "agriculture")->get();
                 $realEstateInvestment = Transaction::where("plan_name", "=", "real_estate")->get();
@@ -1936,6 +2096,7 @@ class UserController extends Controller
                 "withdrawal_message" => ["nullable"],
                 "block_or_unblock_account" => ["nullable"],
                 "block_account_message" => ["nullable"],
+                "verification_status" => ["nullable"],
                 "pin" => ["required", "digits:6", "numeric"],
             ]);
 
@@ -1951,6 +2112,7 @@ class UserController extends Controller
                 'withdrawal_message' => $data->withdrawal_message,
                 'block_or_unblock_account' => $data->block_or_unblock_account,
                 'block_account_message' => $data->block_account_message,
+                'user_id_verification' => $data->verification_status,
             ]);
             $user = User::where("id", "=", $id)->get()->first();
 

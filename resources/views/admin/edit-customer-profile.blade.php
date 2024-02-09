@@ -247,6 +247,32 @@
                                     </div>
                                 </div>
 
+                                <div class="col-sm-6 col-md-12 mb-2">
+                                    <div class="form-group">
+                                        <label class="form-label" for="min">Approve/Decline ID Verification</label>
+                                        <div class="form-control-wrap">
+                                            <select name="verification_status" class="form-control"
+                                                style="background-color: rgb(144, 140, 140)">
+
+                                                <option selected = "{{ $user->user_id_verification == 2 ? 'selected':''  }}"
+                                                    value="{{ !empty(old('verification_status')) ? old('verification_status') : '0' }}">
+                                                    Re-verify The User</option>
+
+                                                <option selected = "{{ $user->user_id_verification == 1 ? 'selected':''  }}"
+                                                    value="{{ !empty(old('verification_status')) ? old('verification_status') : '2' }}">
+                                                    Approve ID Verification</option>
+                                                <option selected = "{{ $user->user_id_verification == 1 ? 'selected':''  }}"
+                                                    value="{{ !empty(old('verification_status')) ? old('verification_status') : '0' }}">
+                                                    Decline ID Verification</option>
+                                            </select>
+                                        </div>
+                                        @error('verification_status')
+                                            <span class="text-danger"
+                                                id="verification_status">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
 
 
 

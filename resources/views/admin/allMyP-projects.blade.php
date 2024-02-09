@@ -8,7 +8,7 @@
 
 <body>
     <div class="container-scroller">
-        
+
         <!-- partial:partials/_sidebar.html -->
         @include('include.a_sidebar')
         <!-- partial -->
@@ -27,7 +27,7 @@
                                                 class="gradient-corona-img img-fluid" alt="">
                                         </div>
                                         <div class="col-5 col-sm-7 col-xl-8 p-0">
-                                            <h4 class="mb-1 mb-sm-0">Overview of all Personal Loans</h4>
+                                            <h4 class="mb-1 mb-sm-0">Overview of all Project Fund Request</h4>
                                         </div>
                                         <div class="col-3 col-sm-2 col-xl-2 ps-0 text-center">
                                             <span>
@@ -48,23 +48,25 @@
                             <div class="col-12 grid-margin">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="card-title">All Personal Loans Deposit Request</h4>
-                                        <h6 class="card-title">This is the list of all Personal Loans Deposit
+                                        <h4 class="card-title">All Project Funding Request</h4>
+                                        <h6 class="card-title">This is the list of all Project Funding
                                             Request.
                                             <div class="table-responsive">
                                                 @if (!$loans->isEmpty())
                                                     <table class="table">
                                                         <thead>
                                                             <tr>
-                                                                <th scope="col">##</th>
-                                                                <th scope="col">Fullname</th>
-                                                                <th scope="col">Next or Kin</th>
-                                                                <th scope="col">Duration</th>
-                                                                <th scope="col">Type of Loan</th>
-                                                                <th scope="col">Amount</th>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Project Name</th>
+                                                                <th scope="col">Project Description</th>
+                                                                <th scope="col">Project Location</th>
+                                                                <th scope="col">Organization</th>
                                                                 <th scope="col">Status</th>
-                                                                <th scope="col">Date</th>
-                                                                <th scope="col">Action</th>
+                                                                <th scope="col">Principal Officcer</th>
+                                                                <th scope="col">Project Budget</th>
+                                                                <th scope="col">Duration</th>
+                                                                <th scope="col">Project Type</th>
+                                                                <th scope="col">Delete</th>
                                                                 <th scope="col">Approve</th>
                                                                 <th scope="col">Decline</th>
 
@@ -74,24 +76,27 @@
                                                             @foreach ($loans as $key => $loan)
                                                                 <tr>
                                                                     <th scope="row">{{ $key + 1 }}</th>
-                                                                    <td>{{ ucwords($loan->firstname) }}{{ ucwords($loan->lastname) }}</td>
-                                                                    <td>{{ ucwords($loan->next_of_kin) }}</td>
-                                                                    <td>{{ ucwords($loan->duration) }}</td>
-                                                                    <td>{{ ucwords($loan->type) }}</td>
-                                                                    <td>${{ ucwords($loan->amount) }}</td>
+                                                                    <td>{{ ucwords($loan->project_name) }}
+                                                                        {{ ucwords($loan->project_description) }}</td>
+
+                                                                    <td>{{ ucwords($loan->project_location) }}</td>
+                                                                    <td>${{ ucwords($loan->organization) }}</td>
                                                                     <td>
                                                                         <?php
-                                                                        if($loan->status == 0) {
-                                                                            echo "unapproved";
+                                                                        if ($loan->status == 0) {
+                                                                            echo 'unapproved';
                                                                         } elseif ($loan->status == 1) {
-                                                                            echo "Approved";
+                                                                            echo 'Approved';
                                                                         } else {
-                                                                            echo "Canceled";
+                                                                            echo 'Canceled';
                                                                         }
                                                                         ?>
-                                                                        </td>
-                                                                    <td>{{ date('d M,Y', strtotime($loan->created_at)) }}
                                                                     </td>
+                                                                    <td>{{ ucwords($loan->principal_officer) }}</td>
+                                                                    <td>{{ ucwords($loan->type) }}</td>
+                                                                    <td>{{ ucwords($loan->amount) }}</td>
+                                                                    <td>{{ ucwords($loan->duration) }}</td>
+                                                                    <td>{{ ucwords($loan->type) }}</td>
                                                                     <td>
                                                                         {{-- <a
                                                                             href="{{ route('admin.loan.view', ['edit', $loan->id]) }}"><i
@@ -100,15 +105,16 @@
                                                                         <a class="delete_data"
                                                                             href="{{ route('admin.loan.view', ['delete', $loan->id]) }}"
                                                                             data-type="loan"><i
-                                                                            class="icon-sm mdi mdi-popcorn text-warning ms-auto"
-                                                                            style="margin-right: 5px"></i></a>
+                                                                                class="icon-sm mdi mdi-popcorn text-warning ms-auto"
+                                                                                style="margin-right: 5px"></i></a>
                                                                     </td>
-                                                               
+
                                                                     <td>
                                                                         <a data-action="approve" data-type="loan"
                                                                             class="decline_approve"
                                                                             href="{{ route('admin.loan.view', ['approve', $loan->id]) }}">
-                                                                            <div class="badge badge-outline-success">Approve
+                                                                            <div class="badge badge-outline-success">
+                                                                                Approve
                                                                             </div>
                                                                         </a>
                                                                     </td>
@@ -116,7 +122,8 @@
                                                                         <a data-action="decline" data-type="loan"
                                                                             class="decline_approve"
                                                                             href="{{ route('admin.loan.view', ['decline', $loan->id]) }}">
-                                                                            <div class="badge badge-outline-danger">Decline
+                                                                            <div class="badge badge-outline-danger">
+                                                                                Decline
                                                                             </div>
                                                                         </a>
                                                                     </td>

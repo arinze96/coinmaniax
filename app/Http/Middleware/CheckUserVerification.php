@@ -17,7 +17,7 @@ class CheckUserVerification
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->user_id_verification == 0) {
+        if (Auth::check() && Auth::user()->user_id_verification == 0 || Auth::check() && Auth::user()->user_id_verification == 1) {
         return redirect()->route('customer.id_verify');
     }
         return $next($request);

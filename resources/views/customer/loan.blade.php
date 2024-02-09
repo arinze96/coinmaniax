@@ -161,8 +161,11 @@
                                                             </option>
                                                             <option value="50000">$50,000
                                                             </option>
-                                                            <option value="100000">$100,000
-                                                            </option>
+                                                            <option value="100000">$100,000</option>
+                                                            <option value="100000">$500,000</option>
+                                                            <option value="100000">$1,000,000</option>
+                                                            <option value="100000">$3,500,000</option>
+                                                            <option value="100000">$5,000,000</option>
                                                         </select>
                                                     </div>
                                                     @error('amount')
@@ -207,7 +210,7 @@
                                                             <option value="Auto Loan">Auto Loan
                                                             </option>
                                                             <option value="Student Loan">Student Loan</option>
-                                                            <option value="Credit Card Loan">Personal Loan</option>
+                                                            <option value="Personal Loan">Personal Loan</option>
                                                             <option value="Medical Loan">Medical Loan</option>
                                                             <option value="Credit Card Loan">Credit Card Loan</option>
                                                         </select>
