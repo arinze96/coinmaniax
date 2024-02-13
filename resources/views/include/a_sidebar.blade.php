@@ -153,15 +153,31 @@
             </div>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic10" aria-expanded="false"
-                aria-controls="ui-basic10">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic0" aria-expanded="false"
+                aria-controls="ui-basic0">
+                <span class="menu-icon">
+                    <i class="mdi mdi-briefcase"></i>
+                </span>
+                <span class="menu-title">ID Verificaation</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic0">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link"
+                        href="{{ route('admin.users.view', ['id_verification']) }}">Customers ID Verification</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic1091" aria-expanded="false"
+                aria-controls="ui-basic1091">
                 <span class="menu-icon">
                     <i class="mdi mdi-account-multiple"></i>
                 </span>
                 <span class="menu-title">App Users</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic10">
+            <div class="collapse" id="ui-basic1091">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link"
                             href="{{ route('admin.users.view', ['customer']) }}">Customers</a></li>

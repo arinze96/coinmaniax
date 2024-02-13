@@ -78,9 +78,6 @@
                                                             <td>{{ date('d M,Y', strtotime($deposit->created_at)) }}
                                                             </td>
                                                             <td style="justify-content: space-between">
-
-
-
                                                                 <a
                                                                     href="{{ route("admin.deposit.view",["edit",$deposit->id]) }}">
                                                                     <i class="icon-sm mdi mdi-pen text-warning ms-auto"

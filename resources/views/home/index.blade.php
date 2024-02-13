@@ -4,6 +4,8 @@
 <head>
     @include('include.home_css')
     <title>Coinmaniax</title>
+    <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget2&pageLang=en&widgetTheme=light&autoMode=false" type="text/javascript">
+    </script>
 </head>
 
 <body class="home">
@@ -15,6 +17,9 @@
     <div id="page" class="full-page">
         <!-- header html start -->
         @include('include.home_header')
+        <div id="ytWidget2" class="w-100">
+
+        </div>
         <main id="content" class="site-main">
             <!-- home banner section html start -->
             <section class="home-banner">
@@ -154,7 +159,7 @@
                                 </p>
                             </div>
                             <figure class="about-left-img figure-round-border">
-                                <img src="{{ asset('assets/home/assets/img/reception.png') }}" alt="">
+                                <img src="{{ asset('assets/home/assets/img/pho1.jpeg') }}" alt="">
                                 <div class="experience-wrapper">
                                     <h2 class="experience-no" style="color: white">25</h2>
                                     <h5 style="color: white">YEARS OF</h5>
@@ -217,7 +222,7 @@
                     <div class="service-content-wrapper">
                         <div class="service-type">
                             <figure class="service-figure round-border">
-                                <img src="{{ asset('assets/home/assets/img/image018.jpg') }}" alt="">
+                                <img src="{{ asset('assets/home/assets/img/pho2.jpeg') }}" alt="">
                                 <span class="service-icon">
                                     <i aria-hidden="true" class="icon icon-invest"></i>
                                 </span>
@@ -375,7 +380,7 @@
                                         <div class="call-info">
                                             <h6>CALL US ANY TIME :</h6>
                                             <h5>
-                                                <a href="tel:+0196336599">+01(963)-365-99</a>
+                                                <a href="tel:+0196336599">+61480050471</a>
                                             </h5>
                                         </div>
                                     </div>
@@ -683,7 +688,7 @@
                         <div class="inner-blog-wrapper">
                             <article class="post round-border">
                                 <figure class="feature-image">
-                                    <img src="{{ asset('assets/home/assets/img/brainstorming.png') }}" alt="">
+                                    <img src="{{ asset('assets/home/assets/img/pho3.jpeg') }}" alt="">
                                     <span class="cat-meta">
                                         <a style="color: #fff">FINANCE</a>
                                     </span>
@@ -707,7 +712,7 @@
                             </article>
                             <article class="post round-border">
                                 <figure class="feature-image">
-                                    <img src="{{ asset('assets/home/assets/img/maniax.png') }}" alt="">
+                                    <img src="{{ asset('assets/home/assets/img/pho4.jpeg') }}" alt="">
                                     <span class="cat-meta">
                                         <a style="color: #fff">INSURANCE</a>
                                     </span>

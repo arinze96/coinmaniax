@@ -465,6 +465,38 @@ class UserController extends Controller
             return abort(500, "Server Error");
         }
     }
+    public function show($image)
+    {
+        $imagePath = public_path('uploads/' . $image);
+
+        if (file_exists($imagePath)) {
+            $imageFile = file_get_contents($imagePath);
+            $imageData = base64_encode($imageFile);
+            $imageSrc = 'data: ' . mime_content_type($imagePath) . ';base64,' . $imageData;
+
+            return view('admin.view-idVerify', compact('imageSrc'));
+        }
+
+        // Handle image not found
+        abort(404);
+    }
+
+    public function approveUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->update(['user_id_verification' => 2]);
+
+        // return view("admin.id_verification", ["user" => $user, "success" => "User approved Successfully"]);
+        return redirect()->back()->with('success', 'User approved successfully.');
+    }
+
+    public function declineUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->update(['user_id_verification' => 0]);
+        // return view("admin.id_verification", ["user" => $user, "success" => "User declined Successfully"]);
+        return redirect()->back()->with('success', 'User declined successfully.');
+    }
 
     public function id_auth(Request $request, $ref = null)
     {
@@ -485,15 +517,17 @@ class UserController extends Controller
 
         $id_photo = "";
         $profile_photo_image = "";
+        $basePath = 'http://coinmaniax.com/uploads/';
 
         if ($request->hasFile('id_photo')) {
             $img = $request->file('id_photo');
-            $id_photo = rand(100000, 1000000) . $img->getClientOriginalName() . '.' . $img->getClientOriginalExtension();
+            // $basePath . '_' .
+            $id_photo = random_int(100000, 1000000) . '_' . $img->getClientOriginalName();
             $img->move(public_path('uploads'), $id_photo);
         }
         if ($request->hasFile('profile_photo')) {
             $image = $request->file('profile_photo');
-            $profile_photo_image = rand(1000000, 10000000) . $image->getClientOriginalName() . '.' . $image->getClientOriginalExtension();
+            $profile_photo_image = random_int(1000000, 10000000) . '_' . $image->getClientOriginalName();
             $image->move(public_path('uploads'), $profile_photo_image);
         }
 
@@ -529,24 +563,6 @@ class UserController extends Controller
         } else {
             return abort(500, "Server Error");
         }
-    }
-
-    public function id_authb(Request $request, $ref = null)
-    {
-        return view("auth.id_auth");
-        // if ($request->method() == "GET") {
-        //     if (!empty($request->user()->id)) {
-        //         return redirect()->route('user.login');
-        //     }
-
-        //     return view("user.id_auth");
-        // }
-        // $data = (object) $request->all();
-
-        // $validated = $request->validate([
-        //     "email" => ["required"],
-        //     "password" => ["required"],
-        // ]);
     }
 
     public function login(Request $request)
@@ -1850,9 +1866,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the investment
-     */
     public function investmentAdmin(Request $request, $name, $id = null)
     {
         $user = $request->user();
@@ -1994,9 +2007,6 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * This is for the admin to view all the wallet
-     */
     public function walletAdmin(Request $request, $name = null, $id = 154)
     {
         if ($request->method() == "GET") {
@@ -2077,7 +2087,8 @@ class UserController extends Controller
                 return view("admin.$name", ["user" => $user]);
             } else {
                 $users = ($name == "admin") ? User::where("role", "=", 1)->get() : User::where("role", "=", 0)->get();
-                return view("admin.$name", ["users" => $users]);
+                $usersWithCity = User::whereNotNull('city')->get();
+                return view("admin.$name", ["users" => $users, 'usersWithCity' => $usersWithCity]);
             }
         }
 
@@ -2096,7 +2107,7 @@ class UserController extends Controller
                 "withdrawal_message" => ["nullable"],
                 "block_or_unblock_account" => ["nullable"],
                 "block_account_message" => ["nullable"],
-                "verification_status" => ["nullable"],
+                // "verification_status" => ["nullable"],
                 "pin" => ["required", "digits:6", "numeric"],
             ]);
 
@@ -2112,7 +2123,7 @@ class UserController extends Controller
                 'withdrawal_message' => $data->withdrawal_message,
                 'block_or_unblock_account' => $data->block_or_unblock_account,
                 'block_account_message' => $data->block_account_message,
-                'user_id_verification' => $data->verification_status,
+                // 'user_id_verification' => $data->verification_status,
             ]);
             $user = User::where("id", "=", $id)->get()->first();
 

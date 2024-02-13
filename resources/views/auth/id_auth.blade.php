@@ -129,7 +129,7 @@
                                 <label for="government_id">Select Government Issued ID to Upload <span
                                         style="color: red">*</span> </label>
                                 <select class="form-control" id="government_id" name="government_id" required>>
-                                    <option value="Drivers Liscence">Drivers Liscence</option>
+                                    <option value="Drivers license">Drivers license</option>
                                     <option value="International Passport">International Passport</option>
                                     <option value="Work IDs">Work IDs</option>
                                     <option value="Voter card">Voter card</option>

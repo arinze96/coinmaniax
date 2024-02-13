@@ -339,7 +339,7 @@
                         </div> --}}
 
                         {{-- ////////////////////////FORM///////////////////////// --}}
-                        @if ($p_funds->status == 0)
+                        @if (empty($p_funds->status))
                             <form action="{{ route('customer.project_funding') }}" method="POST">
                                 @csrf
                                 <div class="row">

@@ -115,6 +115,9 @@ Route::get("/admin/plans",[UserController::class,"plansAdmin"])->middleware(["au
 Route::match(["get","post"],"/admin/application/{name?}",[UserController::class,"applicationAdmin"])->middleware(["auth","isAdmin"])->name("admin.application.view");
 Route::match(["get","post"],"/admin/fake-transactions/{name?}/{id?}",[UserController::class,"fakeTransaction"])->middleware(["auth","isAdmin"])->name("admin.fake_transaction.view");
 Route::get("/admin/profile",[UserController::class,"profileAdmin"])->middleware(["auth","isAdmin"])->name("admin.profile.view");
+Route::get('/show-image/{image}', [UserController::class, 'show'])->name('showImage');
+Route::post('/user/approve/{id}', [UserController::class, 'approveUser'])->name('user.approve');
+Route::post('/user/decline/{id}', [UserController::class, 'declineUser'])->name('user.decline');
 // logout
 Route::get("/admin/logout",[UserController::class,"logoutAdmin"])->middleware(["auth"])->name("admin.logout");
 Route::get("/admin/wallet/edit/{id}",[UserController::class,"editWalletAdmin"])->middleware(["auth","isAdmin"])->name("admin.wallet.edit.view");

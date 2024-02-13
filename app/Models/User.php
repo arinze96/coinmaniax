@@ -29,7 +29,8 @@ class User extends Authenticatable
         'password',
         'role',
         'status',
-        "referral_count"
+        "referral_count",
+        "user_id_verification"
     ];
 
     /**

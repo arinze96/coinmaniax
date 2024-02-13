@@ -267,7 +267,7 @@
                                                                 name="government_id" class="form-control">
                                                                 <option value="" disabled selected hidden>Select
                                                                     Government Issued ID to Upload</option>
-                                                                <option value="Drivers Liscence">Drivers Liscence
+                                                                <option value="Drivers license">Drivers license
                                                                 </option>
                                                                 <option value="International Passport">International
                                                                     Passport</option>

@@ -3,8 +3,7 @@
         <div class="container">
             <div class="top-header-wrapper">
                 <div class="row align-items-center">
-                    <div
-                        class="col-sm-3 d-flex align-items-center justify-content-center justify-content-sm-start">
+                    <div class="col-sm-3 d-flex align-items-center justify-content-center justify-content-sm-start">
                         <div class="header-social social-links">
                             <ul>
                                 {{-- <li>
@@ -23,7 +22,8 @@
                                     </a>
                                 </li> --}}
                                 <li>
-                                    <a href="https://www.instagram.com/1coinmaniax?igsh=MWdsdjZxa2MwZDk0aw==" target="_blank">
+                                    <a href="https://www.instagram.com/1coinmaniax?igsh=MWdsdjZxa2MwZDk0aw=="
+                                        target="_blank">
                                         <i class="fab fa-instagram" aria-hidden="true"></i>
                                     </a>
                                 </li>
@@ -47,8 +47,7 @@
                             <div class="header-schedule-info">
                                 <i aria-hidden="true" style="color: white" class="fas fa-envelope"></i>
                                 <span class="schedule-info">
-                                    <a
-                                    href="mailto:support@coinmaniax.com">support@coinmaniax.com</span></a>
+                                    <a href="mailto:support@coinmaniax.com">support@coinmaniax.com</span></a>
                                 </span>
                             </div>
                         </div>
@@ -69,49 +68,57 @@
                     <nav id="navigation" class="navigation d-none d-lg-inline-block">
                         <ul>
                             <li class="current-menu-item">
-                                <a href="{{ route("app.home") }}">Home</a>
+                                <div id="ytWidget2" class="w-100">
+
+                                </div>
+                                <script
+                                    src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget2&pageLang=en&widgetTheme=light&autoMode=false"
+                                    type="text/javascript"></script>
+                            </li>
+                            <li class="current-menu-item">
+                                <a href="{{ route('app.home') }}">Home</a>
                             </li>
                             <li>
-                                <a href="{{ route("about") }}">About us</a>
+                                <a href="{{ route('about') }}">About us</a>
                             </li>
                             <li class="menu-item-has-children">
                                 <a>Services</a>
                                 <ul>
                                     <li>
-                                        <a href="{{ route("cryptocurrency") }}">Crypto Investment</a>
+                                        <a href="{{ route('cryptocurrency') }}">Crypto Investment</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route("loans") }}">Loans</a>
+                                        <a href="{{ route('loans') }}">Loans</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route("stocks") }}">Stock Trades</a>
+                                        <a href="{{ route('stocks') }}">Stock Trades</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route("project_funding") }}">Project Funding</a>
+                                        <a href="{{ route('project_funding') }}">Project Funding</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route("real_estate") }}">Real Estate</a>
+                                        <a href="{{ route('real_estate') }}">Real Estate</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route("agriculture") }}">Agriculture</a>
+                                        <a href="{{ route('agriculture') }}">Agriculture</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('retirement') }}">Retirment Plans</a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
+                            {{-- <li>
+                                <a href="{{ route('faq') }}">FAQ's</a>
+                            </li> --}}
                             <li>
-                                <a href="{{ route("faq") }}">FAQ's</a>
+                                <a href="{{ route('user.contact') }}">Contact Us</a>
                             </li>
                             <li>
-                                <a href="{{ route("user.contact") }}">Contact Us</a>
+                                <a href="{{ route('user.login') }}">Login</a>
                             </li>
                             <li>
-                                <a href="{{ route("user.login") }}">Login</a>
-                            </li>
-                            <li>
-                                <a href="{{ route("user.register") }}">Register</a>
+                                <a href="{{ route('user.register') }}">Register</a>
                             </li>
                         </ul>
                     </nav>

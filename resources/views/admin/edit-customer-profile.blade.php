@@ -247,7 +247,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-6 col-md-12 mb-2">
+                                {{-- <div class="col-sm-6 col-md-12 mb-2">
                                     <div class="form-group">
                                         <label class="form-label" for="min">Approve/Decline ID Verification</label>
                                         <div class="form-control-wrap">
@@ -271,7 +271,7 @@
                                                 id="verification_status">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
 
 
