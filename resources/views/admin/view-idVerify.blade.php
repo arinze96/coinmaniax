@@ -87,7 +87,7 @@
                                                                 <div class="card-inner">
                                                                     <div class="card-title-group align-start pb-3 g-2">
                                                                         <div class="card-tools text-center">
-                                                                            <img src="{{ $imageSrc }}" alt="Image">
+                                                                            <img src="{{ $imageSrc }}" alt="Image" style="object-fit: contain">
 
 {{-- 
                                                                             @foreach (json_decode($deposit->proof) as $key => $image)

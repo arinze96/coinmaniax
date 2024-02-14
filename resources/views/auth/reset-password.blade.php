@@ -11,6 +11,7 @@
 	
 	<link rel="stylesheet" href="{{ asset("assets/css/home/style.css") }}">
 
+	
 	</head>
 	<body>
 	<section class="ftco-section">

@@ -445,6 +445,7 @@
                                                                 <option value="USD">USD</option>
                                                                 <option value="ETH">ETH</option>
                                                                 <option value="USDT">USDT</option>
+                                                                <option value="USDT">BANK</option>
                                                             </select>
                                                         </div>
                                                         @error('currency')

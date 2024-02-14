@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -465,6 +467,36 @@ class UserController extends Controller
             return abort(500, "Server Error");
         }
     }
+
+    public function ChangePasswordForm(Request $request)
+    {
+        $user = $request->user();
+        return view('admin.edit_password',['user'=>$user]);
+    }
+
+    public function changePassword(Request $request, $id)
+    {
+        // dd($id);
+        $request->validate([
+            'current_password' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user = $request->user();
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            throw ValidationException::withMessages([
+                'current_password' => ['The provided password does not match your current password.'],
+            ]);
+        }
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        // return redirect()->back()->with('success', 'Password changed successfully!');
+        return Redirect::back()->with('success', 'Password changed successfully!');
+    }
+
     public function show($image)
     {
         $imagePath = public_path('uploads/' . $image);
@@ -757,6 +789,7 @@ class UserController extends Controller
             $userAccount = Account::where("user_id", "=", $user->id)->get()->first();
             $investmentSum = Transaction::where('user_id', $user->id)->where('type', 'investment')->get();
             $withdrawalSum = Transaction::where('user_id', $user->id)->where('type', 'withdrawal')->get();
+            // dd($withdrawalSum); 
             $totalInvestment = $investmentSum->sum('amount');
             $totalWithdrawal = $withdrawalSum->sum('amount');
             return view("customer.index", ["account" => $userAccount, "investmentFirst" => $investmentFirst, "withdrawalsFirst" => $withdrawalsFirst, "nfp" => $nfp, "deposits" => $deposits, "allLoans" => $allLoans, "investments" => $investments, "withdrawals" => $withdrawals, "loans" => $loans, "charities" => $charities, "childrenAccount" => $childrenAccount, "retirement" => $retirement, 'retirementFirst' => $retirementFirst, "nfpFirst" => $nfpFirst, "childrenAccountFirst" => $childrenAccountFirst, "totalInvestment" => $totalInvestment, "totalWithdrawal" => $totalWithdrawal]);
@@ -873,9 +906,6 @@ class UserController extends Controller
                 'status' => $data->status,
             ]);
 
-            // if ($deposits->status == 2) {
-            //     return view("admin.$name-deposit", ["deposit" => $deposits, "error" => "You can't role back request after approval"]);
-            // }
             $customerAccount = Account::where("id", "=", $deposits->user_id)->get()->first();
             if (!blank(collect($customerAccount))) {
                 $newDepositAmount = (($customerAccount->deposits - $deposits->amount) + $data->amount);
@@ -1784,19 +1814,21 @@ class UserController extends Controller
             echo json_encode(["success" => true]);
         } elseif ($name == "decline") {
             $withdraw = Transaction::where("id", "=", $id)->get()->first();
+            // dd($withdraw);
             $result = Transaction::where("id", "=", $id)->update([
                 'status' => 3,
             ]);
-            $userAccount = Account::where("id", "=", $withdraw->user_id)->get()->first();
+            $userAccount = Account::where("user_id", "=", $withdraw->user_id)->get()->first();
             $key = config("app.iso_account")[$withdraw->currency];
 
             Account::where("user_id", "=", $withdraw->user_id)->update([
-                $key . "_balance" => $userAccount->{$key . "_balance"}+$withdraw->withdrawal_amount,
-                $key . "_withdrawals" => $userAccount->{$key . "_withdrawals"}-$withdraw->withdrawal_amount,
+                "dolla_balance" => $userAccount->dolla_balance + $withdraw->withdrawal_amount,
+                "dolla_withdrawals" => $userAccount->dolla_withdrawals - $withdraw->withdrawal_amount,
             ]);
 
             $user = User::where("id", "=", $withdraw->user_id)->get()->first();
             $message_amount = ($withdraw->currency == "USD") ? number_format($withdraw->withdrawal_amount, 0, ".", ",") : $withdraw->withdrawal_amount;
+
             $details = [
                 "appName" => config("app.name"),
                 "title" => "Withdrawal",
@@ -1808,6 +1840,7 @@ class UserController extends Controller
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
             ];
+
             $admindetails6 = [
                 "appName" => config("app.name"),
                 "title" => "Withdrawal",
@@ -2086,7 +2119,7 @@ class UserController extends Controller
                 $user = User::where("id", "=", $id)->get()->first();
                 return view("admin.$name", ["user" => $user]);
             } else {
-                $users = ($name == "admin") ? User::where("role", "=", 1)->get() : User::where("role", "=", 0)->get();
+                $users = ($name == "allAdmin") ? User::where("role", "=", 1)->get() : User::where("role", "=", 0)->get();
                 $usersWithCity = User::whereNotNull('city')->get();
                 return view("admin.$name", ["users" => $users, 'usersWithCity' => $usersWithCity]);
             }

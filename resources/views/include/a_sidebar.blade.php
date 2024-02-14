@@ -186,6 +186,22 @@
                 </ul>
             </div>
         </li>
+        {{-- <li class="nav-item menu-items">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5610" aria-expanded="false"
+                aria-controls="ui-basic5610">
+                <span class="menu-icon">
+                    <i class="mdi mdi-account-multiple"></i>
+                </span>
+                <span class="menu-title">Edit Admin/Users Password</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic5610">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link"
+                            href="{{ route('admin.customer.password.view') }}">Customers</a></li>
+                </ul>
+            </div>
+        </li> --}}
 
         <li class="nav-item menu-items">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic13" aria-expanded="false"

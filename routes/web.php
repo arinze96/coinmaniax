@@ -127,6 +127,10 @@ Route::match(["post","get"],"/admin/edit-plan/{id}",[UserController::class,"edit
 Route::match(["post"],"/admin/delete-plan/{id}",[UserController::class,"deletePlanAdmin"])->middleware(["auth","isAdmin"])->name("admin.delete.plan.post");
 Route::match(['get', 'post'], "/admin/add-plan",[UserController::class,"addPlanAdmin"])->middleware(["auth","isAdmin"])->name("admin.add.plan.view");
 Route::get("/admin/edit-application/{id}",[UserController::class,"editApplicationAdmin"])->middleware(["auth","isAdmin"])->name("admin.edit.application.view");
+Route::get('/change-password/{id}',[UserController::class,"ChangePasswordForm"])->middleware(["auth","isAdmin"])->name("change-password");
+Route::post('/change-password/{id}',[UserController::class,"changePassword"])->middleware(["auth","isAdmin"])->name("user.change-password");
+// Route::get('/change-password', 'UserController@showChangePasswordForm')->name('change-password');
+// Route::post('/change-password', 'UserController@changePassword')->name('user.change-password');
 
 
 

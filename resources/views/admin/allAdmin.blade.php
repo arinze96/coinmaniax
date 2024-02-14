@@ -63,6 +63,7 @@
 
                                                         <th scope="col">Status</th>
                                                         <th scope="col">Action</th>
+                                                        <th scope="col">Edit Password</th>
                                                         <th scope="col">Switch status</th>
                                                         <th scope="col">Switch Admin</th>
                                                     </tr>
@@ -90,14 +91,14 @@
                                                                     class="icon-sm mdi mdi-popcorn text-warning ms-auto"
                                                                     style="margin-right: 5px"></i>
                                                                 </a>
-                                                                <a href="{{ route("admin.users.view",["view-profile",$user->id]) }}">
-                                                                    <i
-                                                                    class="icon-sm mdi mdi-eye text-warning ms-auto"
-                                                                    style="margin-right: 5px"></i>
+                                                                
+                                                            </td>
+                                                            <td>
+                                                                <a href="{{ route('change-password',["id",$user->id]) }}">
+                                                                    Edit Password
                                                                 </a>
                                                             </td>
                                                             
-
                                                             <td>
                                                                 @if ($user->status == 1)
                                                                 <a data-action="suspend" data-type="profile"  class="decline_approve" href="{{ route("admin.users.view",["suspend",$user->id]) }}">

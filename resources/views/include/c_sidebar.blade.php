@@ -1,16 +1,17 @@
 <aside class="app-sidebar">
     <div class="app-sidebar__logo">
         <a class="header-brand" href="{{ route('app.home') }}">
-            <img src="{{ asset('assets/home/assets/img/logo_black.png') }}" class="header-brand-img desktop-lgo"
+            <img src="{{ asset('assets/home/assets/img/logo-img.png') }}" class="header-brand-img desktop-lgo"
                 alt="Coinmaniax logo">
-            <img src="{{ asset('assets/home/assets/img/logo_black.png') }}" class="header-brand-img dark-logo"
+            <img src="{{ asset('assets/home/assets/img/logo-img.png') }}" class="header-brand-img dark-logo"
                 alt="Coinmaniax logo">
-            <img src="{{ asset('assets/home/assets/img/logo_black.png') }}" class="header-brand-img mobile-logo"
+            <img src="{{ asset('assets/home/assets/img/logo-img.png') }}" class="header-brand-img mobile-logo"
                 alt="Coinmaniax logo">
-            <img src="{{ asset('assets/home/assets/img/logo_black.png') }}" class="header-brand-img darkmobile-logo"
+            <img src="{{ asset('assets/home/assets/img/logo-img.png') }}" class="header-brand-img darkmobile-logo"
                 alt="Coinmaniax logo">
         </a>
     </div>
+
     <div class="app-sidebar__user">
         <div class="dropdown user-pro-body text-center">
             <div class="user-pic">

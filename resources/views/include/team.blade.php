@@ -13,7 +13,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-member">
                         <figure class="team-img figure-round-border">
-                            <img src="{{ asset('assets/home/assets/img/image029.png') }}" alt="">
+                            <img src="{{ asset('assets/home/assets/img/team2.jpeg') }}" alt="">
                         </figure>
                         <div class="team-detail section-head">
                             <span class="job-title section-sub-title">ASSETS AGENT</span>
@@ -28,7 +28,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-member">
                         <figure class="team-img figure-round-border">
-                            <img src="{{ asset('assets/home/assets/img/image030.png') }}" alt="">
+                            <img src="{{ asset('assets/home/assets/img/team1.jpeg') }}" alt="">
                         </figure>
                         <div class="team-detail section-head">
                             <span class="job-title section-sub-title">ANALYSIST</span>
@@ -43,7 +43,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-member">
                         <figure class="team-img figure-round-border">
-                            <img src="{{ asset('assets/home/assets/img/image031.png') }}" alt="">
+                            <img src="{{ asset('assets/home/assets/img/team3.jpeg') }}" alt="">
                         </figure>
                         <div class="team-detail section-head">
                             <span class="job-title section-sub-title">SUPERVISOR</span>
@@ -58,7 +58,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-member">
                         <figure class="team-img figure-round-border">
-                            <img src="{{ asset('assets/home/assets/img/image032.png') }}" alt="">
+                            <img src="{{ asset('assets/home/assets/img/team4.jpeg') }}" alt="">
                         </figure>
                         <div class="team-detail section-head">
                             <span class="job-title section-sub-title">MARKETING AGENT</span>

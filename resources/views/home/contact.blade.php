@@ -24,9 +24,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <!-- contact form html start -->
-            
+            </section>            
             <section class="contact-page-section">
                 <div class="background-world-map-img"></div>
                 <div class="container">
@@ -85,7 +83,7 @@
                                                 </span>
                                                 <div class="details-content">
                                                     <h5>Location Address :</h5>
-                                                    <span>Jl. Raya Puputan No 142, NY - 80234</span>
+                                                    <span>Level 7 Northpoint Tower, 100 Miller St North Sydney</span>
                                                 </div>
                                             </li>
                                             <li>
@@ -95,8 +93,7 @@
                                                 </span>
                                                 <div class="details-content">
                                                     <h5>Phone Number :</h5>
-                                                    <span><a href="tel:+98156259365">Telephone : +1 (156) 259
-                                                            365</a></span>
+                                                    <span><a href="tel:+98156259365">Telephone : +61480050471</a></span>
                                                 </div>
                                             </li>
                                             <li>
@@ -125,10 +122,8 @@
                     height="300" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </main>
-        <!-- footer part -->
         @include('include.home_footer')
     </div>
-    <!-- JavaScript -->
     @include('include.home_js')
 </body>
 
