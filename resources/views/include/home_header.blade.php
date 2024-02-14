@@ -32,6 +32,9 @@
                                         <i class="fab fa-telegram" aria-hidden="true"></i>
                                     </a>
                                 </li>
+                                <li>
+
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -39,17 +42,20 @@
                         <div
                             class="schedule-wrapper d-flex justify-content-sm-end justify-content-center flex-wrap flex-sm-nowrap">
                             <div class="header-schedule-info">
-                                <i aria-hidden="true" class="fas fa-map-marker-alt"></i>
-                                <span class="schedule-info">
-                                    Level 7 Northpoint Tower, 100 Miller St North Sydney
-                                </span>
-                            </div>
-                            <div class="header-schedule-info">
                                 <i aria-hidden="true" style="color: white" class="fas fa-envelope"></i>
                                 <span class="schedule-info">
                                     <a href="mailto:support@coinmaniax.com">support@coinmaniax.com</span></a>
                                 </span>
                             </div>
+                            <div class="header-schedule-info">
+                                <div id="ytWidget2" class="w-100" style="margin-top: 30px">
+
+                                </div>
+                                <script
+                                    src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget2&pageLang=en&widgetTheme=light&autoMode=false"
+                                    type="text/javascript"></script>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -67,14 +73,14 @@
                 <div class="main-navigation col-lg-9">
                     <nav id="navigation" class="navigation d-none d-lg-inline-block">
                         <ul>
-                            <li class="current-menu-item">
+                            {{-- <li class="current-menu-item">
                                 <div id="ytWidget2" class="w-100">
 
                                 </div>
                                 <script
                                     src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget2&pageLang=en&widgetTheme=light&autoMode=false"
                                     type="text/javascript"></script>
-                            </li>
+                            </li> --}}
                             <li class="current-menu-item">
                                 <a href="{{ route('app.home') }}">Home</a>
                             </li>
