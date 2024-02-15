@@ -35,6 +35,11 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <title>Coinmaniax</title>
+    <style>
+        .g-recaptcha {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body class="register">
@@ -468,17 +473,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="g-recaptcha" data-sitekeys="{{ config('services.recaptcha.site_key') }}"></div>
+                                    {{-- <div class="g-recaptcha" data-sitekeys="{{ config('services.recaptcha.site_key') }}"></div> --}}
+                                    <div class="g-recaptcha" data-sitekey="{{ config('app.recaptcha_site_key') }}"></div>
 
-                                    <button 
-                                    class="g-recaptcha btnRegister btn btn-primary"
-                                    {{-- data-sitekey="{{ config('services.recaptcha.site_key') }}" --}}
-                                    data-callback='onSubmit'
-                                    data-action='register'
-                                    type="submit"
-                                    id="submit"
-                                    value="Login"
-                                    >
+                                    <button class="g-recaptcha btnRegister btn btn-primary" {{-- data-sitekey="{{ config('services.recaptcha.site_key') }}" --}}
+                                        data-callback='onSubmit' data-action='register' type="submit"
+                                        id="submit" value="Login">
                                         <img id="register_loader-img"
                                             src="{{ asset('assets/home/assets/img/loading.gif') }}"
                                             style="width: 20px; height: 20px" alt="">
@@ -494,6 +494,21 @@
 
     </div>
     @include('include.auth_js')
+    <script>
+        function validateForm() {
+            var valid = false;
+            return valid;
+        }
+
+        // function onClick(e) {
+        //     e.preventDefault();
+        //     grecaptcha.enterprise.ready(async () => {
+        //         const token = await grecaptcha.enterprise.execute('6LeyU3MpAAAAAKDYoCC7nKRHickd48X-guFNKRS_', {
+        //             action: 'LOGIN'
+        //         });
+        //     });
+        // }
+    </script>
 </body>
 
 </html>

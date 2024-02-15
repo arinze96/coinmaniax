@@ -1,11 +1,17 @@
 <div class="nav">
     <input type="checkbox" id="nav-check">
     <div class="nav-header">
-        <div class="nav-title">
-            <img src="{{ asset('assets/home/assets/img/fabicon.png') }}" style="width: 35px; height: 35px"
-                alt="">
+        {{-- <div class="nav-title">
+            <img src="{{ asset('assets/home/assets/img/fabicon.png') }}" style="width: 35px; height: 35px" alt="">
+        </div> --}}
+        <div id="ytWidget2" class="w-60" style="margin-top: 10px">
+
         </div>
+        <script
+            src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget2&pageLang=en&widgetTheme=light&autoMode=false"
+            type="text/javascript"></script>
     </div>
+
     <div class="nav-btn">
         <label for="nav-check">
             <span></span>
@@ -24,7 +30,8 @@
             <input type="checkbox" class="dd-input" id="test" style="color: #fff">
             <ul class="dd-menu">
                 <li>
-                    <a style="text-decoration: none; color: #000" href="{{ route('cryptocurrency') }}">Crypto Investment</a>
+                    <a style="text-decoration: none; color: #000" href="{{ route('cryptocurrency') }}">Crypto
+                        Investment</a>
                 </li>
                 <li>
                     <a style="text-decoration: none; color: #000" href="{{ route('loans') }}">Loans</a>
@@ -33,7 +40,8 @@
                     <a style="text-decoration: none; color: #000" href="{{ route('stocks') }}">Stock Trades</a>
                 </li>
                 <li>
-                    <a style="text-decoration: none; color: #000" href="{{ route('project_funding') }}">Project Funding</a>
+                    <a style="text-decoration: none; color: #000" href="{{ route('project_funding') }}">Project
+                        Funding</a>
                 </li>
                 <li>
                     <a style="text-decoration: none; color: #000" href="{{ route('real_estate') }}">Real Estate</a>

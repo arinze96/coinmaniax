@@ -230,7 +230,7 @@
                                         <div class="card-body">
                                             <div class="card-pay">
                                                 <p style="text-align: center; color: rgb(171, 167, 167)">
-                                                    Withdrawal of funds from your Glorylimited account balance is
+                                                    Withdrawal of funds from your Coinmaniax account balance is
                                                     available
                                                     using 5 payment systems - BTC, ETH, LTC, USDT, Perfect Money. Select
                                                     the

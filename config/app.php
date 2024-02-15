@@ -46,6 +46,9 @@ return [
     "referral_initial_percent"=>5,
     "referral_consequent_percent"=>1,
     "admin_mail"=>"coinmaniax@gmail.com",
+    "recaptcha_site_key"=>"6LcoYXMpAAAAANy74PCwJtOZcmKge6uOTtiynL8D",
+    "recaptcha_secret_key"=>"6LcoYXMpAAAAAKHQbH26CFxlmxJhGEHGp37GXQIT",
+    "recaptcha_key"=>"6LeyU3MpAAAAAKDYoCC7nKRHickd48X-guFNKRS_",
 
     /*
     |--------------------------------------------------------------------------

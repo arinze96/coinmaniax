@@ -48,7 +48,7 @@
                                 </span>
                             </div>
                             <div class="header-schedule-info">
-                                <div id="ytWidget2" class="w-100" style="margin-top: 30px">
+                                <div id="ytWidget2" class="w-100" style="margin-top: 10px">
 
                                 </div>
                                 <script
