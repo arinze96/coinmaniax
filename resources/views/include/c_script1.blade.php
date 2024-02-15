@@ -92,6 +92,7 @@
 </script>
 <noscript><a href="https://www.livechat.com/chat-with/17190879/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
 <!-- End of LiveChat code -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 
 

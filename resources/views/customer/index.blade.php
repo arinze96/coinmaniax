@@ -4,6 +4,17 @@
 
 <head>
     @include('include.c_css')
+    <style>
+        @media screen and (max-width: 479px) {
+            #settings {
+                display: none
+            }
+            #translator{
+                margin-left: 100px
+
+            }
+        }
+    </style>
 </head>
 
 <body class="app sidebar-mini">
@@ -21,7 +32,7 @@
                         <div class="page-header">
                             <div class="page-leftheader">
                                 <h4 class="page-title mb-0">Welcome {{ ucfirst(auth()->user()->username) }}</h4>
-                                <ol class="breadcrumb">
+                                {{-- <ol class="breadcrumb">
 
                                     <li class="breadcrumb-item active" aria-current="page">
                                         <input type="text" class=" form-control" id="myInput"
@@ -29,10 +40,14 @@
                                     </li>
                                     <li class=""><i style="margin-left: 10px; margin-top: 10px; font-size: 20px"
                                             id="copyIcon" class="fa fa-clone" aria-hidden="true"></i></li>
-                                </ol>
+                                </ol> --}}
+                                <div id="translator">
+                                    <div id="ytWidget2" class="w-60" style="margin-top: 10px;"></div>
+                                    <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget2&pageLang=en&widgetTheme=light&autoMode=false"type="text/javascript"></script>
+                                </div>
                             </div>
                             <div class="page-rightheader">
-                                <div class="btn btn-list">
+                                <div class="btn btn-list" id="settings">
                                     <a href="{{ route('user.setting.view', ['general']) }}" class="btn btn-info"><i
                                             class="fe fe-settings mr-1"></i>
                                         Settings </a>
