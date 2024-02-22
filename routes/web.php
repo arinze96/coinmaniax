@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Mail;
 
 Route::get('/', [UserController::class,"index"])->name("app.home");
 Route::get('/about', [UserController::class,"about"])->name("about");
+Route::get("/updateInvestment",[UserController::class,"updateInvestment"])->name("user.updateInvestment");
 Route::get('/faq', [UserController::class,"returnFAQ"])->name("faq");
 Route::get("/register/{ref?}",[UserController::class,"register"])->name("user.register");
 Route::get("/forgot-password",[UserController::class,"forgotPasswordAdmin"])->name("user.forgot-password");
-Route::get("/login",[UserController::class,"login"])->name("user.login");
 Route::get("/agriculture",[UserController::class,"agriculture"])->name("agriculture");
 Route::get('/loans', [UserController::class,"loans"])->name("loans");
 Route::get("/stocks",[UserController::class,"stocks"])->name("stocks");
@@ -24,19 +24,18 @@ Route::get('/retirement', [UserController::class,"retirement"])->name("retiremen
 Route::get('/success_page', [UserController::class,"success_page"])->name("success_page");
 Route::get('/real_estate', [UserController::class,"realestate"])->name("real_estate");
 Route::post("/register/{ref?}",[UserController::class,"register"])->name("user.register.post");
-Route::post("/login",[UserController::class,"login"])->name("user.login.post");
 Route::get("/contact",[UserController::class,"contact"])->name("user.contact");
 Route::get("/static/{name}",[UserController::class,"staticPages"])->name("user.pages.view");
 Route::match(["get","post"],"/id_auth",[UserController::class,"id_auth"])->name("user.id_auth");
 Route::match(["get","post"],"/master/forgot-password",[UserController::class,"forgotPasswordAdmin"])->name("admin.forgot.password");
 Route::match(["get","post"],"/master/reset-password/{email}/{token}",[UserController::class,"resePasswordAdmin"])->name("admin.reset.password");
-Route::get('/test-email', function () {
-    Mail::raw('This is a test...', function ($message) {
-        $message->to('janedoe@gmail.com')->subject('Testing 123...');
-    });
+// Route::get('/test-email', function () {
+//     Mail::raw('This is a test...', function ($message) {
+//         $message->to('janedoe@gmail.com')->subject('Testing 123...');
+//     });
 
-    dd('Email sent!');
-});
+//     dd('Email sent!');
+// });
 
 
 
@@ -83,19 +82,23 @@ Route::match(["post","get"],"/customer/stock",[UserController::class,"CustomerSt
 Route::match(["post","get"],"/customer/crypto_invest",[UserController::class,"CustomerCrypto"])->middleware(["auth"])->name("customer.crypto_invest");
 });
 
+// Route::group(['middleware' => 'web'], function () {
+  // User Routes
+  // Route::group(['middleware' => 'auth:user'], function () {
+    Route::post("/login",[UserController::class,"login"])->name("user.login.post");
+    Route::get("/login",[UserController::class,"login"])->name("user.login");
+  // });
+
+  // Admin Routes
+  // Route::group(['middleware' => 'auth:admin'], function () {
+    Route::get("/admin/login", [UserController::class, "loginAdmin"])->name("admin.login");
+    Route::post("/admin/login", [UserController::class, "loginAdmin"])->name("admin.login.post");
+  // });
+// });
 
 
 
-
-
-
-
-
-
-
-// Administrator Non authenticated Route
-Route::get("/admin/login",[UserController::class,"loginAdmin"])->name("admin.login");
-Route::post("/admin/login",[UserController::class,"loginAdmin"])->name("admin.login.post");
+ 
 
 
 // Admin Authenticated Route

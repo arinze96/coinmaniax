@@ -198,4 +198,36 @@ return [
 
     'same_site' => 'lax',
 
+    'user' => [
+        'driver' => 'session',
+        'provider' => 'users',
+        'lifetime' => 120,
+        'expire_on_close' => false,
+        'encrypt' => false,
+        'lottery' => [2, 100],
+        'path' => '/',
+        'domain' => null,
+        'secure' => false,
+        'http_only' => true,
+        'same_site' => 'lax',
+        'max_age' => 120 * 60,
+        'key' => 'user_session', // Change the session key for the user guard
+    ],
+    
+    'admin' => [
+        'driver' => 'session',
+        'provider' => 'admins',
+        'lifetime' => 120,
+        'expire_on_close' => false,
+        'encrypt' => false,
+        'lottery' => [2, 100],
+        'path' => '/',
+        'domain' => null,
+        'secure' => false,
+        'http_only' => true,
+        'same_site' => 'lax',
+        'max_age' => 120 * 60,
+        'key' => 'admin_session', // Change the session key for the admin guard
+    ],
+
 ];
