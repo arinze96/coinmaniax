@@ -169,21 +169,19 @@
                                         <div class="form-control-wrap">
                                             <select name="enable_or_disable_withdrawals" class="form-control"
                                                 style="background-color: rgb(144, 140, 140)">
-                                                <option
-                                                    selected = "{{ $user->enable_or_disable_withdrawals == 1 ? 'selected':''  }}"
-                                                value="{{ !empty(old('enable_or_disable_withdrawals')) ? old('enable_or_disable_withdrawals') : '1' }}">
-                                                Enable withdrawals</option>
+                                                {{-- <option
+                                                    selected = "{{ $user->enable_or_disable_withdrawals == 1 ? 'selected' : '' }}"
+                                                    value="{{ !empty(old('enable_or_disable_withdrawals')) ? old('enable_or_disable_withdrawals') : '1' }}">
+                                                    Enable withdrawals</option>
 
                                                 <option
+                                                    selected = "{{ $user->enable_or_disable_withdrawals == 2 ? '' : 'selected' }}"
+                                                    value="{{ !empty(old('enable_or_disable_withdrawals')) ? old('enable_or_disable_withdrawals') : '2' }}">
+                                                    Disable Withdrawals</option> --}}
 
-                                                selected = "{{ $user->enable_or_disable_withdrawals == 2 ? '':'selected'  }}"
+                                                    <option value="1" {{ $user->enable_or_disable_withdrawals == 1 ? 'selected' : '' }}>Enable withdrawals</option>
+                                                    <option value="2" {{ $user->enable_or_disable_withdrawals == 2 ? 'selected' : '' }}>Disable Withdrawals</option>
 
-
-                                                value="{{ !empty(old('enable_or_disable_withdrawals')) ? old('enable_or_disable_withdrawals') : '2' }}">
-                                                Disable Withdrawals</option>
-                                                    
-                                      
-                                    
                                             </select>
                                         </div>
                                         @error('enable_or_disable_withdrawals')
@@ -197,9 +195,9 @@
                                     <div class="form-group">
                                         <label class="form-label" for="phone">Disable Withdrawals Message</label>
                                         <div class="form-control-wrap">
-                                            <input style="color: #fff" required="" type="text"
-                                                name="withdrawal_message" class="form-control"
-                                                id="withdrawal_message" placeholder="Enter Withdrawals Message"
+                                            <input style="color: #fff" type="text" name="withdrawal_message"
+                                                class="form-control" id="withdrawal_message"
+                                                placeholder="Enter Withdrawals Message"
                                                 value="{{ !empty(old('withdrawal_message')) ? old('withdrawal_message') : $user->withdrawal_message }}">
                                         </div>
                                         @error('withdrawal_message')
@@ -216,12 +214,14 @@
                                             <select name="block_or_unblock_account" class="form-control"
                                                 style="background-color: rgb(144, 140, 140)">
 
-                                                <option selected = "{{ $user->block_or_unblock_account == 1 ? 'selected':''  }}"
+                                                {{-- <option selected = "{{ $user->block_or_unblock_account == 1 ? 'selected':''  }}"
                                                     value="{{ !empty(old('block_or_unblock_account')) ? old('block_or_unblock_account') : '1' }}">
                                                     Unblock Account</option>
                                                 <option selected = "{{ $user->block_or_unblock_account == 2 ? 'selected':''  }}"
                                                     value="{{ !empty(old('block_or_unblock_account')) ? old('block_or_unblock_account') : '2' }}">
-                                                    Block Account</option>
+                                                    Block Account</option> --}}
+                                                    <option value="1" {{ $user->block_or_unblock_account == 1 ? 'selected' : '' }}>Unblock Account</option>
+                                                    <option value="2" {{ $user->block_or_unblock_account == 2 ? 'selected' : '' }}>Block Account</option>
                                             </select>
                                         </div>
                                         @error('block_or_unblock_account')
@@ -235,9 +235,9 @@
                                     <div class="form-group">
                                         <label class="form-label" for="phone">Block Account Message</label>
                                         <div class="form-control-wrap">
-                                            <input style="color: #fff" required="" type="text"
-                                                name="block_account_message" class="form-control"
-                                                id="block_account_message" placeholder="Enter Block Account Message"
+                                            <input style="color: #fff" type="text" name="block_account_message"
+                                                class="form-control" id="block_account_message"
+                                                placeholder="Enter Block Account Message"
                                                 value="{{ !empty(old('block_account_message')) ? old('block_account_message') : $user->block_account_message }}">
                                         </div>
                                         @error('block_account_message')
