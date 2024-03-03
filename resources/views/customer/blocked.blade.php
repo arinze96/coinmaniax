@@ -184,9 +184,9 @@
                                             </div>
                                             <div class="card-features">
                                                 <div class="subscribtion">
-                                                    <h3 class="feature-title">Reinstatement Fee</h3>
+                                                    {{-- <h3 class="feature-title">Reinstatement Fee</h3> --}}
                                                     <div class="pricing-plan">
-                                                        <p><span>&dollar;299</span> <br> One-time Payment</p>
+                                                        {{-- <p><span>&dollar;299</span> <br> One-time Payment</p> --}}
                                                         <p>Contact support for more enquires</p>
                                                     </div>
                                                     <a href="mailto:support@coinmaniax.com" class="btn">Email Us</a>

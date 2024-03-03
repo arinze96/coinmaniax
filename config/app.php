@@ -42,7 +42,7 @@ return [
     "donation_status"=>[1=>"processing",2=>"approve",3=>"decline"],
     "edit_names"=>[],
     "address"=>"1260 Broadway, New York, NY 10001",
-    "domain"=> "Prostackinvest",
+    "domain"=> "Coinmaniax",
     "referral_initial_percent"=>5,
     "referral_consequent_percent"=>1,
     "admin_mail"=>"coinmaniax@gmail.com",
