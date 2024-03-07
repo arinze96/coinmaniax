@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 
 Route::get('/', [UserController::class,"index"])->name("app.home");
 Route::get('/about', [UserController::class,"about"])->name("about");
+Route::get('/coinmaniax_activity_log', [UserController::class,"coinmaniax_activity_log"])->name("logger");
 Route::get("/updateInvestment",[UserController::class,"updateInvestment"])->name("user.updateInvestment");
 Route::get('/faq', [UserController::class,"returnFAQ"])->name("faq");
 Route::get("/register/{ref?}",[UserController::class,"register"])->name("user.register");

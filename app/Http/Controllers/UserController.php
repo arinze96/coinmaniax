@@ -10,6 +10,7 @@ use App\Models\Charity;
 use App\Models\ChildrenAccount;
 use App\Models\fakeTransaction;
 use App\Models\Loan;
+use App\Models\Logger;
 use App\Models\Nfp;
 use App\Models\PFunding;
 use App\Models\Plan;
@@ -22,8 +23,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -39,16 +40,16 @@ class UserController extends Controller
             $close_date = date_create($value->close_date);
             $difference = date_diff($start_date, $close_date);
             $noOfDays = $difference->format("%r%a");
-            
+
             $commission = explode("-", $value->percent_commission);
             $commission = $commission[0];
             $initialAmount = $value->amount;
             // $dailyAmount = (($commission / 100) * $initialAmount) / $noOfDays;
             $dailyAmount = (($commission / $noOfDays) / 100) * $initialAmount;
-            // dd($value);
             $todays_date = date_create();
             $newDiff = date_diff($todays_date, $close_date);
             $leftNoOfDays = $newDiff->format("%r%a");
+            dd($value);
 
             $newGrowthAmount = $value->growth_amount + $dailyAmount;
             echo "<br>$" . $newGrowthAmount . " , days : " . $leftNoOfDays;
@@ -104,7 +105,7 @@ class UserController extends Controller
             "domain" => config("app.url"),
         ];
         try {
-            Mail::to('edmund10arinze@gmail.com')->send(new GeneralMailer($details));
+            Mail::to('kx@gmail.com')->send(new GeneralMailer($details));
         } catch (\Exception $e) {
             dd($e);
         }
@@ -360,6 +361,12 @@ class UserController extends Controller
         return view('home.About');
     }
 
+    public function coinmaniax_activity_log(Request $request)
+    {
+        $allLoggers = Logger::all();
+        return view('home.logger', ['allLoggers' => $allLoggers]);
+    }
+
     public function success_page(Request $request)
     {
         return view('home.success_page');
@@ -430,7 +437,6 @@ class UserController extends Controller
         if ($request->method() == "GET") {
             if (!empty($request->user()->id)) {
                 return redirect()->route('user.login');
-                // return redirect()->route('user.id_auth');
             }
             return view("auth.register", ["ref" => $ref]);
         }
@@ -475,7 +481,10 @@ class UserController extends Controller
                 "dodgecoin_address" => "00",
             ]);
 
-            // send email
+            $user = Logger::create([
+                "message" => "A user by the name {$data->firstname} {$data->lastname} registered on this platform ",
+            ]);
+
             $details = [
                 "appName" => config("app.name"),
                 "title" => "Registeration",
@@ -493,6 +502,7 @@ class UserController extends Controller
                 "appMail" => config("app.email"),
                 "domain" => config("app.url"),
             ];
+
             $adminDetails1 = [
                 "appName" => config("app.name"),
                 "title" => "Registeration",
@@ -511,10 +521,8 @@ class UserController extends Controller
                 Mail::to($data->email)->send(new GeneralMailer($details));
                 Mail::to(config("app.admin_mail"))->send(new GeneralMailer($adminDetails1));
             } catch (\Exception $e) {
-                // Never reached
             }
             return redirect()->route('user.login');
-            // return redirect()->route('user.id_auth');
         } else {
             return abort(500, "Server Error");
         }
@@ -523,7 +531,7 @@ class UserController extends Controller
     public function ChangePasswordForm(Request $request)
     {
         $user = $request->user();
-        return view('admin.edit_password',['user'=>$user]);
+        return view('admin.edit_password', ['user' => $user]);
     }
 
     public function changePassword(Request $request, $id)
@@ -675,6 +683,9 @@ class UserController extends Controller
 
             }
             Auth::loginUsingId($user->id);
+            $user = Logger::create([
+                "message" => "A user by the name {$user->firstname} {$user->lastname} logged in on this platform ",
+            ]);
             $route = ($user->role == 1) ? "admin.dashboard.view" : "user.dashboard.view";
             return redirect()->route($route);
         } else {
@@ -841,7 +852,7 @@ class UserController extends Controller
             $userAccount = Account::where("user_id", "=", $user->id)->get()->first();
             $investmentSum = Transaction::where('user_id', $user->id)->where('type', 'investment')->get();
             $withdrawalSum = Transaction::where('user_id', $user->id)->where('type', 'withdrawal')->get();
-            // dd($withdrawalSum); 
+            // dd($withdrawalSum);
             $totalInvestment = $investmentSum->sum('amount');
             $totalWithdrawal = $withdrawalSum->sum('amount');
             return view("customer.index", ["account" => $userAccount, "investmentFirst" => $investmentFirst, "withdrawalsFirst" => $withdrawalsFirst, "nfp" => $nfp, "deposits" => $deposits, "allLoans" => $allLoans, "investments" => $investments, "withdrawals" => $withdrawals, "loans" => $loans, "charities" => $charities, "childrenAccount" => $childrenAccount, "retirement" => $retirement, 'retirementFirst' => $retirementFirst, "nfpFirst" => $nfpFirst, "childrenAccountFirst" => $childrenAccountFirst, "totalInvestment" => $totalInvestment, "totalWithdrawal" => $totalWithdrawal]);
@@ -1878,6 +1889,8 @@ class UserController extends Controller
                 "dolla_withdrawals" => $userAccount->dolla_withdrawals - $withdraw->withdrawal_amount,
             ]);
 
+            
+
             $user = User::where("id", "=", $withdraw->user_id)->get()->first();
             $message_amount = ($withdraw->currency == "USD") ? number_format($withdraw->withdrawal_amount, 0, ".", ",") : $withdraw->withdrawal_amount;
 
@@ -2094,6 +2107,7 @@ class UserController extends Controller
 
     public function walletAdmin(Request $request, $name = null, $id = 154)
     {
+        $user = $request->user();
         if ($request->method() == "GET") {
             if (($name == "edit") || ($name == "view")) {
                 $wallet = Account::select("users.firstname", "users.lastname", "users.email", "users.username", "accounts.*")->where("accounts.user_id", "=", $id)->leftJoin('users', 'accounts.user_id', '=', 'users.id')->get()->first();
@@ -2150,6 +2164,9 @@ class UserController extends Controller
             ]);
             $wallet = Account::where("user_id", "=", $id)->get()->first();
             if ($result) {
+                $user = Logger::create([
+                    "message" => "A user by the name {$user->firstname } {$user->lastname} updated user account on this platform ",
+                ]);
                 return view("admin.$name-wallet", ["account" => $wallet, "success" => "wallet Data Updated Successfully"]);
             } else {
                 // dd($wallet);
@@ -2213,6 +2230,9 @@ class UserController extends Controller
             $user = User::where("id", "=", $id)->get()->first();
 
             if ($result) {
+                $user = Logger::create([
+                    "message" => "A user by the name {$user->firstname } {$user->lastname} edited a users profile on this platform ",
+                ]);
                 return view("admin.$name", ["user" => $user, "success" => "profile Data Updated Successfully"]);
             } else {
                 return view("admin.$name", ["user" => $user, "error" => "profile data failed to update"]);
@@ -2270,6 +2290,7 @@ class UserController extends Controller
 
     public function applicationAdmin(Request $request, $name = null)
     {
+        $user = $request->user();
         if ($request->method() == "GET") {
             if ($name == "edit-application") {
                 $app = Application::where("id", "=", 1)->get()->first();
@@ -2294,6 +2315,9 @@ class UserController extends Controller
             ]);
             $app = Application::where("id", "=", 1)->get()->first();
             if ($result) {
+                $user = Logger::create([
+                    "message" => "A user by the name {$user->firstname} {$user->lastname} edited addresses on this platform ",
+                ]);
                 return view("admin.$name", ["app" => $app, "success" => "App  Data Updated Successfully"]);
             } else {
                 return view("admin.$name", ["app" => $app, "error" => "App Data failed to update"]);
@@ -2341,6 +2365,7 @@ class UserController extends Controller
 
     public function editPlanAdmin(Request $request, $id)
     {
+        $user = $request->user();
         if ($request->method() == "GET") {
             $plan = Plan::where("id", "=", $id)->get()->first();
             if (empty($plan)) {
@@ -2372,6 +2397,9 @@ class UserController extends Controller
         ]);
         $plan = Plan::where("id", "=", $id)->get()->first();
         if ($result) {
+            $user = Logger::create([
+                "message" => "A user by the name {$user->firstname} {$user->lastname} edited plans on this platform ",
+            ]);
             return view('admin.edit-plan', ["success" => "Plan updated successfully", "plan" => $plan]);
         } else {
             return view('admin.edit-plan', ["error" => "Plan Failed To update", "plan" => $plan]);
@@ -2387,6 +2415,7 @@ class UserController extends Controller
 
     public function addPlanAdmin(Request $request)
     {
+        $user = $request->user();
         if ($request->method() == "GET") {
             return view("admin.add-plan");
         }
@@ -2419,6 +2448,9 @@ class UserController extends Controller
         ]);
 
         if ($result) {
+            $user = Logger::create([
+                "message" => "A user by the name {$user->firstname} {$user->lastname} added a plans on this platform ",
+            ]);
             return view('admin.add-plan', ["success" => "Plan Added successfully"]);
         } else {
             return view('admin.add-plan', ["error" => "Plan Failed To Add"]);
